@@ -1,15 +1,9 @@
-export function compare(a, b) {
-  return 0;
-}
+const compare = (a, b) => 0;
 
-export function copy(a) {
-  return null;
-}
+const copy = a => null;
 
-export function equal(a, b) {
-  return true;
-}
+const equal = (a, b) => true;
 
-export function is(val) {
-  return val === null;
-}
+const is = val => val === null;
+
+export { compare, copy, equal, is };

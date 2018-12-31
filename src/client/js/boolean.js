@@ -1,17 +1,11 @@
 import { isDefined } from "./";
 
-export function compare(a, b) {
-  return (a > b) - (a < b);
-}
+const compare = (a, b) => (a > b) - (a < b);
 
-export function copy(a) {
-  return a;
-}
+const copy = a => a;
 
-export function equal(a, b) {
-  return a === b;
-}
+const equal = (a, b) => a === b;
 
-export function is(val) {
-  return isDefined(val) && val.constructor === Boolean;
-}
+const is = val => isDefined(val) && val.constructor === Boolean;
+
+export { compare, copy, equal, is };

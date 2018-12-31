@@ -1,15 +1,9 @@
-export function compare(a, b) {
-  return 0;
-}
+const compare = (a, b) => 0;
 
-export function copy(a) {
-  return undefined;
-}
+const copy = a => undefined;
 
-export function equal(a, b) {
-  return true;
-}
+const equal = (a, b) => true;
 
-export function is(val) {
-  return typeof val === "undefined";
-}
+const is = val => typeof val === "undefined";
+
+export { compare, copy, equal, is };

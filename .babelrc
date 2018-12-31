@@ -9,8 +9,5 @@
     "react"
   ],
   "plugins": [
-    ["react-intl", {
-        "messagesDir": "./build/intl/"
-    }]
   ]
 }

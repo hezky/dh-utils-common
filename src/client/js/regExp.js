@@ -1,17 +1,11 @@
 import { isDefined, utilsString } from "./";
 
-export function compare(a, b) {
-  return utilsString.compare(a.toString(), b.toString());
-}
+const compare = (a, b) => utilsString.compare(a.toString(), b.toString());
 
-export function copy(a) {
-  return a;
-}
+const copy = a => a;
 
-export function equal(a, b) {
-  return utilsString.equal(a, b);
-}
+const equal = (a, b) => utilsString.equal(a, b);
 
-export function is(val) {
-  return isDefined(val) && val.constructor === RegExp;
-}
+const is = val => isDefined(val) && val.constructor === RegExp;
+
+export { compare, copy, equal, is };

@@ -26,120 +26,95 @@ const utilsList = [
 
 const TYPE_ERROR_MESSAGE = "Unknown type";
 
-export function compare(a, b, dataTypes = utilsList) {
+const compare = (a, b, dataTypes = utilsList) => {
   const utils = dataTypes.find(item => item.is(a) || item.is(b));
-  if (utils === undefined || !utils.is || !utils.compare)
-    throw new TypeError(TYPE_ERROR_MESSAGE);
-  return utils.is(a) && utils.is(b)
-    ? utils.compare(a, b)
-    : utils.is(b) - utils.is(a);
-}
+  if (utils === undefined || !utils.is || !utils.compare) throw new TypeError(TYPE_ERROR_MESSAGE);
+  return utils.is(a) && utils.is(b) ? utils.compare(a, b) : utils.is(b) - utils.is(a);
+};
 
-export function compareReferences(a, b) {
-  return !(a === b) * -1;
-}
+const compareReferences = (a, b) => !(a === b) * -1;
 
-export function copy(obj, dataTypes = utilsList) {
+const copy = (obj, dataTypes = utilsList) => {
   const utils = dataTypes.find(item => item.is(obj));
-  if (utils === undefined || !utils.copy)
-    throw new TypeError(TYPE_ERROR_MESSAGE);
+  if (utils === undefined || !utils.copy) throw new TypeError(TYPE_ERROR_MESSAGE);
   return utils.copy(obj);
-}
+};
 
-export function equal(a, b, dataTypes = utilsList) {
+const equal = (a, b, dataTypes = utilsList) => {
   const utils = dataTypes.find(item => item.is(a));
-  if (utils === undefined || !utils.is || !utils.equal)
-    throw new TypeError(TYPE_ERROR_MESSAGE);
+  if (utils === undefined || !utils.is || !utils.equal) throw new TypeError(TYPE_ERROR_MESSAGE);
   return utils.is(a) && utils.is(b) ? utils.equal(a, b) : false;
-}
+};
 
-export function isArray(val) {
-  return utilsArray.is(val);
-}
+const isArray = val => utilsArray.is(val);
 
-export function isBoolean(val) {
-  return utilsBoolean.is(val);
-}
+const isBoolean = val => utilsBoolean.is(val);
 
-export function isDate(val) {
-  return utilsDate.is(val);
-}
+const isDate = val => utilsDate.is(val);
 
-export function isDefined(val) {
-  return !isUndefined(val) && !isNull(val);
-}
+const isDefined = val => !isUndefined(val) && !isNull(val);
 
-// prettier-ignore
-export function isEmpty(val) {
-  return isNotDefined(val) || (
-    isString(val) || isArray(val) ? val.length === 0 :
-      isObject(val) ? isEmptyObject(val) :
-        false);
-}
+const isEmpty = val =>
+  isNotDefined(val) || (isString(val) || isArray(val) ? val.length === 0 : isObject(val) ? isEmptyObject(val) : false);
 const isEmptyObject = obj =>
-  Object.keys(obj).length === 0 &&
-  !(typeof window !== "undefined" && obj instanceof window.File);
+  Object.keys(obj).length === 0 && !(typeof window !== "undefined" && obj instanceof window.File);
 
-export function isFunction(val) {
-  return utilsFunction.is(val);
-}
+const isFunction = val => utilsFunction.is(val);
 
-export function isNotArray(val) {
-  return isArray(val) === false;
-}
+const isNotArray = val => isArray(val) === false;
 
-export function isNotDefined(val) {
-  return isUndefined(val) || isNull(val);
-}
+const isNotDefined = val => isUndefined(val) || isNull(val);
 
-export function isNotEmpty(val) {
-  return isEmpty(val) === false;
-}
+const isNotEmpty = val => isEmpty(val) === false;
 
-export function isNotNull(val) {
-  return isNull(val) === false;
-}
+const isNotNull = val => isNull(val) === false;
 
-export function isNumber(val) {
-  return utilsNumber.is(val);
-}
+const isNumber = val => utilsNumber.is(val);
 
-export function isNull(val) {
-  return utilsNull.is(val);
-}
+const isNull = val => utilsNull.is(val);
 
-export function isObject(val) {
-  return utilsObject.is(val);
-}
+const isObject = val => utilsObject.is(val);
 
-export function isPrimitive(val) {
-  return isBoolean(val) || isString(val) || isNumber(val);
-}
+const isPrimitive = val => isBoolean(val) || isString(val) || isNumber(val);
 
-export function isRegExp(val) {
-  return utilsRegExp.is(val);
-}
+const isRegExp = val => utilsRegExp.is(val);
 
-export function isString(val) {
-  return utilsString.is(val);
-}
+const isString = val => utilsString.is(val);
 
-export function isStringEmpty(val) {
-  return isString(val) && isEmpty(val);
-}
+const isStringEmpty = val => isString(val) && isEmpty(val);
 
-export function isStringNotEmpty(val) {
-  return isString(val) && isNotEmpty(val);
-}
+const isStringNotEmpty = val => isString(val) && isNotEmpty(val);
 
-export function isSymbol(val) {
-  return utilsSymbol.is(val);
-}
+const isSymbol = val => utilsSymbol.is(val);
 
-export function isUndefined(val) {
-  return utilsUndefined.is(val);
-}
+const isUndefined = val => utilsUndefined.is(val);
 
-export function notEqual(a, b) {
-  return !equal(a, b);
-}
+const notEqual = (a, b) => !equal(a, b);
+
+export {
+  compare,
+  compareReferences,
+  copy,
+  equal,
+  isArray,
+  isBoolean,
+  isDate,
+  isDefined,
+  isEmpty,
+  isFunction,
+  isNotArray,
+  isNotDefined,
+  isNotEmpty,
+  isNotNull,
+  isNumber,
+  isNull,
+  isObject,
+  isPrimitive,
+  isRegExp,
+  isString,
+  isStringEmpty,
+  isStringNotEmpty,
+  isSymbol,
+  isUndefined,
+  notEqual
+};
