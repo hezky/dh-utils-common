@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { utilsBoolean } from "./../../src/client/js/";
+import { utilsBoolean } from "./../../src/js/";
 
 describe("boolean : method compare", () => {
   it("- compare", () => {

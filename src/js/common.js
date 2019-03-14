@@ -56,8 +56,8 @@ const isDefined = val => !isUndefined(val) && !isNull(val);
 
 const isEmpty = val =>
   isNotDefined(val) || (isString(val) || isArray(val) ? val.length === 0 : isObject(val) ? isEmptyObject(val) : false);
-const isEmptyObject = obj =>
-  Object.keys(obj).length === 0 && !(typeof window !== "undefined" && obj instanceof window.File);
+
+const isEmptyObject = obj => Object.keys(obj).length === 0;
 
 const isFunction = val => utilsFunction.is(val);
 
