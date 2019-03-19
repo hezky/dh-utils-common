@@ -19,10 +19,10 @@ describe("boolean : method copy", () => {
 
 describe("boolean : method equal", () => {
   it("- equal", () => {
-    assert.equal(utilsBoolean.compare(true, false), 1, "compare(true,false) === 1");
-    assert.equal(utilsBoolean.compare(false, true), -1, "compare(false,true) === -1");
-    assert.equal(utilsBoolean.compare(false, false), 0, "compare(false,false) === 0");
-    assert.equal(utilsBoolean.compare(true, true), 0, "compare(true,true) === 0");
+    assert.equal(utilsBoolean.equal(true, false), false, "equal(true,false) === 1");
+    assert.equal(utilsBoolean.equal(false, true), false, "compare(false,true) === -1");
+    assert.equal(utilsBoolean.equal(false, false), true, "compare(false,false) === 0");
+    assert.equal(utilsBoolean.equal(true, true), true, "compare(true,true) === 0");
   });
 });
 
