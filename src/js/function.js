@@ -1,4 +1,4 @@
-import { utilsString } from "./";
+import { utilsString } from "";
 
 const compare = (a, b) => utilsString.compare(a.toString(), b.toString());
 

@@ -1,4 +1,4 @@
-import { isDefined, compare as compareCommon, compareReferences, copy as copyCommon, equal as equalCommon } from "./";
+import { isDefined, compare as compareCommon, compareReferences, copy as copyCommon, equal as equalCommon } from "";
 
 const compare = (a, b) => compareReferences(a, b) && compareArrays(a, b);
 const compareArrays = (a, b) => compareArraysLength(a, b) || compareArraysItem(a, b);

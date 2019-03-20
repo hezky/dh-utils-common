@@ -1,4 +1,4 @@
-import { isDefined, utilsString } from "./";
+import { isDefined, utilsString } from "";
 
 const compare = (a, b) => utilsString.compare(a.toString(), b.toString());
 

@@ -1,4 +1,4 @@
-import { isDefined } from "./";
+import { isDefined } from "";
 
 const compare = (a, b) => (a === b ? 0 : (a > b) - (a < b));
 

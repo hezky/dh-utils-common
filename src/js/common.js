@@ -1,14 +1,14 @@
-import * as utilsArray from "./array";
-import * as utilsBoolean from "./boolean";
-import * as utilsDate from "./date";
-import * as utilsFunction from "./function";
-import * as utilsNull from "./null";
-import * as utilsNumber from "./number";
-import * as utilsObject from "./object";
-import * as utilsRegExp from "./regExp";
-import * as utilsString from "./string";
-import * as utilsSymbol from "./symbol";
-import * as utilsUndefined from "./undefined";
+import * as utilsArray from "array";
+import * as utilsBoolean from "boolean";
+import * as utilsDate from "date";
+import * as utilsFunction from "function";
+import * as utilsNull from "null";
+import * as utilsNumber from "number";
+import * as utilsObject from "object";
+import * as utilsRegExp from "regExp";
+import * as utilsString from "string";
+import * as utilsSymbol from "symbol";
+import * as utilsUndefined from "undefined";
 
 const utilsList = [
   utilsArray,

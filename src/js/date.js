@@ -1,4 +1,4 @@
-import { isDefined, utilsNumber } from "./";
+import { isDefined, utilsNumber } from "";
 
 const compare = (a, b) => {
   let bRes = is(a) && is(b) ? true : NaN;

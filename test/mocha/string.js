@@ -1,15 +1,15 @@
 import { assert } from "chai";
-import { utilsString } from "./../../src/js/";
+import { utilsString } from "";
 
 describe("string : method compare", () => {
   it("compare : -1", () => {
-    assert.equal(utilsString.compare("ABC", "ZXY"), -1);
+    assert.equal(utilsString.compare("ABC", "ZXY"), -1, "compare(ABC, ZXY) === -1");
   });
   it("compare : 0", () => {
-    assert.equal(utilsString.compare("ABC", "ABC"), 0);
+    assert.equal(utilsString.compare("ABC", "ABC"), 0, "compare(ABC, ABC) === 0");
   });
   it("compare : 1", () => {
-    assert.equal(utilsString.compare("ZXY", "ABC"), 1);
+    assert.equal(utilsString.compare("ZXY", "ABC"), 1, "compare(ZXY, ABC) === 1");
   });
 });
 
@@ -20,29 +20,38 @@ describe("string : method copy", () => {
 });
 
 describe("string : method equal", () => {
-  it("equal", () => {
-    assert.equal(utilsString.equal("ABC", "XYZ"), false, "equal(ABC,XYZ) === false");
-    assert.equal(utilsString.equal("ABC", "ABC"), true, "equal(ABC,ABC) === true");
+  it("equal : true", () => {
+    assert.isTrue(utilsString.equal("ABC", "ABC"), "equal(ABC,ABC) === true");
+  });
+  it("equal : false", () => {
+    assert.isFalse(utilsString.equal("ABC", "XYZ"), "equal(ABC,XYZ) === false");
   });
 });
 
 describe("string : method is", () => {
-  it("is", () => {
-    assert.ok(utilsString.is("ABC"), "is(ABC) === true");
-    assert.notOk(utilsString.is(false), "is(false) === false");
-    assert.notOk(utilsString.is(3), "is(3) === false");
+  it("is : true", () => {
+    assert.isTrue(utilsString.is("ABC"), "is(ABC) === true");
+  });
+  it("is : false", () => {
+    assert.isFalse(utilsString.is(false), "is(false) === false");
+    assert.isFalse(utilsString.is(3), "is(3) === false");
+    assert.isFalse(utilsString.is(null), "is(null) : null");
+    assert.isFalse(utilsString.is(undefined), "is(undefined) : undefined");
+    assert.isFalse(utilsString.is(), "is() === false");
+    assert.isFalse(utilsString.is(NaN), "is(NaN) === false");
   });
 });
 
 describe("string : method isNumeric", () => {
   it("isNumeric : true", () => {
-    assert.ok(utilsString.isNumeric("1234"), "isNumeric true");
+    assert.isTrue(utilsString.isNumeric("1234"), "isNumeric(1234) === true");
   });
-
   it("isNumeric : false", () => {
-    assert.notOk(utilsString.isNumeric(null), "isNumeric false : null");
-    assert.notOk(utilsString.isNumeric(undefined), "isNumeric false : undefined");
-    assert.notOk(utilsString.isNumeric("as"), "isNumeric false : alphabet");
-    assert.notOk(utilsString.isNumeric("123f"), "isNumeric false : mix numeric and alphabet");
+    assert.isFalse(utilsString.isNumeric(null), "isNumeric(null) === false");
+    assert.isFalse(utilsString.isNumeric(undefined), "isNumeric(undefined) === false");
+    assert.isFalse(utilsString.isNumeric(true), "isNumeric(true) === false");
+    assert.isFalse(utilsString.isNumeric(false), "isNumeric(false) === false");
+    assert.isFalse(utilsString.isNumeric("as"), "isNumeric(as) === false");
+    assert.isFalse(utilsString.isNumeric("123f"), "isNumeric(123f) === false");
   });
 });

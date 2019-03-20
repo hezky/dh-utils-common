@@ -6,7 +6,7 @@ import {
   isDefined,
   isNotArray,
   utilsString
-} from "./";
+} from "";
 
 const compare = (a, b) => compareReferences(a, b) && compareObjects(a, b);
 

@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { utilsBoolean } from "./../../src/js/";
+import { utilsBoolean } from "";
 
 describe("boolean : method compare", () => {
   it("compare", () => {
@@ -18,18 +18,27 @@ describe("boolean : method copy", () => {
 });
 
 describe("boolean : method equal", () => {
-  it("equal", () => {
-    assert.equal(utilsBoolean.equal(true, false), false, "equal(true,false) === false");
-    assert.equal(utilsBoolean.equal(false, true), false, "equal(false,true) === false");
-    assert.equal(utilsBoolean.equal(false, false), true, "equal(false,false) === true");
-    assert.equal(utilsBoolean.equal(true, true), true, "equal(true,true) === true");
+  it("equal : true", () => {
+    assert.isTrue(utilsBoolean.equal(false, false), "equal(false,false) === true");
+    assert.isTrue(utilsBoolean.equal(true, true), "equal(true,true) === true");
+  });
+  it("equal : false", () => {
+    assert.isFalse(utilsBoolean.equal(true, false), "equal(true,false) === false");
+    assert.isFalse(utilsBoolean.equal(false, true), "equal(false,true) === false");
   });
 });
 
 describe("boolean : method is", () => {
-  it("is", () => {
-    assert.ok(utilsBoolean.is(true), "is(true) === true");
-    assert.ok(utilsBoolean.is(false), "is(false) === true");
-    assert.notOk(utilsBoolean.is(3), "is(3) === false");
+  it("is : true", () => {
+    assert.isTrue(utilsBoolean.is(true), "is(true) === true");
+    assert.isTrue(utilsBoolean.is(false), "is(false) === true");
+  });
+  it("is : false", () => {
+    assert.isFalse(utilsBoolean.is(3), "is(3) === false");
+    assert.isFalse(utilsBoolean.is(undefined), "is(undefined) === false");
+    assert.isFalse(utilsBoolean.is(), "is() === false");
+    assert.isFalse(utilsBoolean.is("ABC"), "is(ABC) === false");
+    assert.isFalse(utilsBoolean.is("true"), "is(true) === false");
+    assert.isFalse(utilsBoolean.is(NaN), "is(NaN) === false");
   });
 });
