@@ -32,7 +32,7 @@ const compare = (a, b, dataTypes = utilsList) => {
   return utils.is(a) && utils.is(b) ? utils.compare(a, b) : utils.is(b) - utils.is(a);
 };
 
-const compareReferences = (a, b) => !(a === b) * -1;
+const compareReferences = (a, b) => (a !== b) * -1;
 
 const copy = (obj, dataTypes = utilsList) => {
   const utils = dataTypes.find(item => item.is(obj));

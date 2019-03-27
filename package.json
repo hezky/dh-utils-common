@@ -3,7 +3,7 @@
   "description": "common utils",
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.2.0",
-    "dh-scripts-run": "^0.0.9"
+    "dh-scripts-run": "^0.0.10"
   },
   "files": [
     "lib"
@@ -15,5 +15,8 @@
     "eslint": "dh-run eslint",
     "test": "dh-run test"
   },
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "eslint-plugin-sonarjs": "^0.3.0"
+  }
 }
