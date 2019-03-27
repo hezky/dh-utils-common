@@ -15,7 +15,7 @@
     "eslint": "dh-run eslint",
     "test": "dh-run test"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "eslint-plugin-sonarjs": "^0.3.0"
   }
