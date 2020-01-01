@@ -1,4 +1,6 @@
+.scannerworks
+dist/
+lib/
 node_modules/
 npm-debug.log
-lib/
-dist/
+sonar-project.properties
