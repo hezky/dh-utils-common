@@ -1,4 +1,6 @@
-.scannerworks
+.nyc_output/
+.scannerworks/
+coverage/
 dist/
 lib/
 node_modules/

@@ -3,7 +3,10 @@ import { utilsFunction } from "";
 
 describe("function : method is", () => {
   it("is : true", () => {
-    assert.isTrue(utilsFunction.is(() => 1), "is(() => 1) === true");
+    assert.isTrue(
+      utilsFunction.is(() => 1),
+      "is(() => 1) === true"
+    );
   });
   it("is : false", () => {
     assert.isFalse(utilsFunction.is([]), "is([]) === false");

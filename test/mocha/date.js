@@ -10,7 +10,10 @@ describe("date : method is", () => {
     assert.isFalse(utilsDate.is([1, 2, 3]), "is([1, 2, 3]) === false");
     assert.isFalse(utilsDate.is(true), "is(true) === false");
     assert.isFalse(utilsDate.is(false), "is(false) === false");
-    assert.isFalse(utilsDate.is(() => 1), "is(() => 1) === false");
+    assert.isFalse(
+      utilsDate.is(() => 1),
+      "is(() => 1) === false"
+    );
     assert.isFalse(utilsDate.is(null), "is(null) === false");
     assert.isFalse(utilsDate.is(3), "is(3) === false");
     assert.isFalse(utilsDate.is(NaN), "is(NaN) === false");

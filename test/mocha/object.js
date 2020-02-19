@@ -12,7 +12,10 @@ describe("object : method is", () => {
     assert.isFalse(utilsObject.is([1, 2, 3]), "is([1, 2, 3]) === false");
     assert.isFalse(utilsObject.is(true), "is(true) === false");
     assert.isFalse(utilsObject.is(false), "is(false) === false");
-    assert.isFalse(utilsObject.is(() => 1), "is(() => 1) === false");
+    assert.isFalse(
+      utilsObject.is(() => 1),
+      "is(() => 1) === false"
+    );
     assert.isFalse(utilsObject.is(null), "is(null) === true");
     assert.isFalse(utilsObject.is(3), "is(3) === false");
     assert.isFalse(utilsObject.is(NaN), "is(NaN) === false");

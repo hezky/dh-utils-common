@@ -37,7 +37,10 @@ describe("boolean : method is", () => {
     assert.isFalse(utilsBoolean.is([]), "is([]) === false");
     assert.isFalse(utilsBoolean.is([1, 2, 3]), "is([1, 2, 3]) === false");
     assert.isFalse(utilsBoolean.is(new Date("1995-12-17T03:24:00")), "is(new Date('1995-12-17T03:24:00')) === false");
-    assert.isFalse(utilsBoolean.is(() => 1), "is(() => 1) === false");
+    assert.isFalse(
+      utilsBoolean.is(() => 1),
+      "is(() => 1) === false"
+    );
     assert.isFalse(utilsBoolean.is(null), "is(null) === false");
     assert.isFalse(utilsBoolean.is(3), "is(3) === false");
     assert.isFalse(utilsBoolean.is(NaN), "is(NaN) === false");

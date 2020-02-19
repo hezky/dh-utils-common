@@ -11,7 +11,10 @@ describe("regexp : method is", () => {
     assert.isFalse(utilsRegExp.is(true), "is(true) === false");
     assert.isFalse(utilsRegExp.is(false), "is(false) === false");
     assert.isFalse(utilsRegExp.is(new Date("1995-12-17T03:24:00")), "is(new Date('1995-12-17T03:24:00')) === false");
-    assert.isFalse(utilsRegExp.is(() => 1), "is(() => 1) === false");
+    assert.isFalse(
+      utilsRegExp.is(() => 1),
+      "is(() => 1) === false"
+    );
     assert.isFalse(utilsRegExp.is(null), "is(null) === false");
     assert.isFalse(utilsRegExp.is(3), "is(3) === false");
     assert.isFalse(utilsRegExp.is(NaN), "is(NaN) === false");
