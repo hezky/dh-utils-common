@@ -4,7 +4,7 @@
   "devDependencies": {
     "babel-plugin-module-resolver": "^4.1.0",
     "dh-dependency-base": "^0.0.21",
-    "dh-scripts-run": "^0.0.24"
+    "dh-scripts-run": "^0.0.26"
   },
   "files": [
     "lib"
