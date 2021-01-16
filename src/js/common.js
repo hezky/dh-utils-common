@@ -21,7 +21,7 @@ const utilsList = [
   utilsRegExp,
   utilsString,
   utilsSymbol,
-  utilsUndefined
+  utilsUndefined,
 ];
 
 const TYPE_ERROR_MESSAGE = "Unknown type";
@@ -116,5 +116,5 @@ export {
   isStringNotEmpty,
   isSymbol,
   isUndefined,
-  notEqual
+  notEqual,
 };

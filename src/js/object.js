@@ -5,7 +5,7 @@ import {
   equal as equalCommon,
   isDefined,
   isNotArray,
-  utilsString
+  utilsString,
 } from "";
 
 const compare = (a, b) => compareReferences(a, b) && compareObjects(a, b);
@@ -50,12 +50,8 @@ const compareObjectsLength = (a, b) => {
   return (aLength > bLength) - (aLength < bLength);
 };
 const compareObjectsKeys = (a, b) => {
-  const aKeys = Object.keys(a)
-    .sort(utilsString.compare)
-    .join("");
-  const bKeys = Object.keys(b)
-    .sort(utilsString.compare)
-    .join("");
+  const aKeys = Object.keys(a).sort(utilsString.compare).join("");
+  const bKeys = Object.keys(b).sort(utilsString.compare).join("");
   return utilsString.compare(aKeys, bKeys);
 };
 

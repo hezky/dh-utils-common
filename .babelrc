@@ -1,4 +1,4 @@
 {
   "extends": "./node_modules/dh-dependency-base/config/.babelrc",
-  "plugins": ["istanbul",["module-resolver", {"root": ["./src/js"]}]]
+  "plugins": [["module-resolver", { "root": ["./src/js"] }]]
 }

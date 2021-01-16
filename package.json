@@ -2,15 +2,9 @@
   "author": "David Hezky",
   "description": "common utils",
   "devDependencies": {
-    "@babel/register": "^7.8.3",
-    "@istanbuljs/nyc-config-babel": "^3.0.0",
-    "babel-plugin-istanbul": "^6.0.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "dh-dependency-base": "^0.0.10",
-    "dh-scripts-run": "^0.0.14",
-    "nyc": "^15.0.0",
-    "sonar-scanner": "^3.1.0",
-    "source-map-support": "^0.5.16"
+    "babel-plugin-module-resolver": "^4.1.0",
+    "dh-dependency-base": "^0.0.21",
+    "dh-scripts-run": "^0.0.24"
   },
   "files": [
     "lib"
@@ -20,29 +14,8 @@
   "scripts": {
     "build": "dh-run build",
     "eslint": "dh-run eslint",
-    "test": "dh-run test",
-    "testX": "mocha -r source-map-support/register -r @babel/register --recursive test/mocha/number.js",
-    "coverage": "nyc --cache false npm run testX"
+    "prepublishOnly": "dh-run prepublishOnly",
+    "test": "dh-run test"
   },
-  "version": "0.0.2",
-  "nyc": {
-    "extends": "@istanbuljs/nyc-config-babel",
-    "require": [
-      "@babel/register"
-    ],
-    "all": true,
-    "include": [
-      "src/js/number.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "sourceMap": true,
-    "instrument": false
-  },
-  "dependencies": {
-    "npm-check-updates": "^4.0.1",
-    "save-dev": "0.0.1-security"
-  }
+  "version": "0.0.3"
 }
