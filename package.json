@@ -13,6 +13,7 @@
   "name": "dh-utils-common",
   "scripts": {
     "build": "dh-run build",
+    "clean": "dh-run clean",
     "eslint": "dh-run eslint",
     "prepublishOnly": "dh-run prepublishOnly",
     "test": "dh-run test"
