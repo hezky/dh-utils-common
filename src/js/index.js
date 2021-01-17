@@ -1,6 +1,3 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
-
 export * as utilsArray from "array";
 export * as utilsBoolean from "boolean";
 export * from "common";
