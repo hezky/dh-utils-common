@@ -2,12 +2,12 @@ import { isDefined } from "";
 
 const compare = (a, b) => a.localeCompare(b);
 
-const copy = a => a;
+const copy = (a) => a;
 
 const equal = (a, b) => a.toString() === b.toString();
 
-const is = val => isDefined(val) && val.constructor === String;
+const is = (val) => isDefined(val) && val.constructor === String;
 
-const isNumeric = val => /^[0-9]+$/.test(val);
+const isNumeric = (val) => /^[0-9]+$/.test(val);
 
 export { compare, copy, equal, is, isNumeric };

@@ -3,7 +3,10 @@ import { utilsDate } from "";
 
 describe("date : method is", () => {
   it("is : true", () => {
-    assert.isTrue(utilsDate.is(new Date("1995-12-17T03:24:00")), "is(new Date('1995-12-17T03:24:00')) === true");
+    assert.isTrue(
+      utilsDate.is(new Date("1995-12-17T03:24:00")),
+      "is(new Date('1995-12-17T03:24:00')) === true"
+    );
   });
   it("is : false", () => {
     assert.isFalse(utilsDate.is([]), "is([]) === false");

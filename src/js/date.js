@@ -10,7 +10,7 @@ const compare = (a, b) => {
   return bRes;
 };
 
-const copy = obj => {
+const copy = (obj) => {
   if (is(obj)) return new Date(obj.getTime());
   throw new Error("Unable to copy obj! Its type isn't supported.");
 };
@@ -19,7 +19,7 @@ const equal = (a, b) => {
   return is(a) && is(b) && compare(a, b) === 0;
 };
 
-const is = val => {
+const is = (val) => {
   return isDefined(val) && val.constructor === Date;
 };
 

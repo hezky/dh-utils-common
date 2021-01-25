@@ -10,7 +10,10 @@ describe("symbol : method is", () => {
   it("is : false", () => {
     assert.isFalse(utilsSymbol.is(true), "is(true) === false");
     assert.isFalse(utilsSymbol.is(false), "is(false) === false");
-    assert.isFalse(utilsSymbol.is(new Date("1995-12-17T03:24:00")), "is(new Date('1995-12-17T03:24:00')) === false");
+    assert.isFalse(
+      utilsSymbol.is(new Date("1995-12-17T03:24:00")),
+      "is(new Date('1995-12-17T03:24:00')) === false"
+    );
     assert.isFalse(
       utilsSymbol.is(() => 1),
       "is(() => 1) === false"

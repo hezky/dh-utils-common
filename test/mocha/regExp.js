@@ -10,7 +10,10 @@ describe("regexp : method is", () => {
     assert.isFalse(utilsRegExp.is([1, 2, 3]), "is([1, 2, 3]) === false");
     assert.isFalse(utilsRegExp.is(true), "is(true) === false");
     assert.isFalse(utilsRegExp.is(false), "is(false) === false");
-    assert.isFalse(utilsRegExp.is(new Date("1995-12-17T03:24:00")), "is(new Date('1995-12-17T03:24:00')) === false");
+    assert.isFalse(
+      utilsRegExp.is(new Date("1995-12-17T03:24:00")),
+      "is(new Date('1995-12-17T03:24:00')) === false"
+    );
     assert.isFalse(
       utilsRegExp.is(() => 1),
       "is(() => 1) === false"
@@ -23,7 +26,10 @@ describe("regexp : method is", () => {
     assert.isFalse(utilsRegExp.is("true"), "is('true') === false");
     assert.isFalse(utilsRegExp.is(Symbol()), "is(Symbol()) === false");
     assert.isFalse(utilsRegExp.is(Symbol(42)), "is(Symbol(42)) === false");
-    assert.isFalse(utilsRegExp.is(Symbol("foo")), "is(Symbol('foo')) === false");
+    assert.isFalse(
+      utilsRegExp.is(Symbol("foo")),
+      "is(Symbol('foo')) === false"
+    );
     assert.isFalse(utilsRegExp.is(undefined), "is(undefined) === false");
     assert.isFalse(utilsRegExp.is(), "is() === false");
   });

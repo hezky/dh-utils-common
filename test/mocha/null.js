@@ -10,7 +10,10 @@ describe("null : method is", () => {
     assert.isFalse(utilsNull.is([1, 2, 3]), "is([1, 2, 3]) === false");
     assert.isFalse(utilsNull.is(true), "is(true) === false");
     assert.isFalse(utilsNull.is(false), "is(false) === false");
-    assert.isFalse(utilsNull.is(new Date("1995-12-17T03:24:00")), "is(new Date('1995-12-17T03:24:00')) === false");
+    assert.isFalse(
+      utilsNull.is(new Date("1995-12-17T03:24:00")),
+      "is(new Date('1995-12-17T03:24:00')) === false"
+    );
     assert.isFalse(
       utilsNull.is(() => 1),
       "is(() => 1) === false"

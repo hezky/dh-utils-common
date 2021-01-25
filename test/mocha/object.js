@@ -4,7 +4,10 @@ import { utilsObject } from "";
 describe("object : method is", () => {
   it("is : true", () => {
     assert.isTrue(utilsObject.is({}), "is({}) === true");
-    assert.isTrue(utilsObject.is(new Date("1995-12-17T03:24:00")), "is(new Date('1995-12-17T03:24:00')) === true");
+    assert.isTrue(
+      utilsObject.is(new Date("1995-12-17T03:24:00")),
+      "is(new Date('1995-12-17T03:24:00')) === true"
+    );
     assert.isTrue(utilsObject.is(/ab+c/), "is(/ab+c/) === true");
   });
   it("is : false", () => {
@@ -24,7 +27,10 @@ describe("object : method is", () => {
     assert.isFalse(utilsObject.is("true"), "is('true') === false");
     assert.isFalse(utilsObject.is(Symbol()), "is(Symbol()) === false");
     assert.isFalse(utilsObject.is(Symbol(42)), "is(Symbol(42)) === false");
-    assert.isFalse(utilsObject.is(Symbol("foo")), "is(Symbol('foo')) === false");
+    assert.isFalse(
+      utilsObject.is(Symbol("foo")),
+      "is(Symbol('foo')) === false"
+    );
     assert.isFalse(utilsObject.is(undefined), "is(undefined) === false");
     assert.isFalse(utilsObject.is(), "is() === false");
   });

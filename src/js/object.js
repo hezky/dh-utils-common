@@ -10,7 +10,7 @@ import {
 
 const compare = (a, b) => compareReferences(a, b) && compareObjects(a, b);
 
-const copy = obj => mapValues(obj, copyCommon);
+const copy = (obj) => mapValues(obj, copyCommon);
 
 const equal = (a, b) => {
   let bRes = is(a) && is(b);
@@ -20,14 +20,15 @@ const equal = (a, b) => {
     bRes =
       aProps.length !== bProps.length
         ? false
-        : aProps.every(key => {
+        : aProps.every((key) => {
             return equalCommon(a[key], b[key]);
           });
   }
   return bRes;
 };
 
-const is = val => isDefined(val) && isNotArray(val) && typeof val === "object";
+const is = (val) =>
+  isDefined(val) && isNotArray(val) && typeof val === "object";
 
 const mapValues = (obj, fn) =>
   Object.keys(obj).reduce((res, key) => {
@@ -35,7 +36,10 @@ const mapValues = (obj, fn) =>
     return res;
   }, {});
 
-const compareObjects = (a, b) => compareObjectsLength(a, b) || compareObjectsKeys(a, b) || compareObjectsItems(a, b);
+const compareObjects = (a, b) =>
+  compareObjectsLength(a, b) ||
+  compareObjectsKeys(a, b) ||
+  compareObjectsItems(a, b);
 const compareObjectsItems = (a, b) => {
   let res = 0;
   for (let prop in a) {

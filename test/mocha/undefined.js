@@ -11,7 +11,10 @@ describe("undefined : method is", () => {
     assert.isFalse(utilsUndefined.is([1, 2, 3]), "is([1, 2, 3]) === false");
     assert.isFalse(utilsUndefined.is(true), "is(true) === false");
     assert.isFalse(utilsUndefined.is(false), "is(false) === false");
-    assert.isFalse(utilsUndefined.is(new Date("1995-12-17T03:24:00")), "is(new Date('1995-12-17T03:24:00')) === false");
+    assert.isFalse(
+      utilsUndefined.is(new Date("1995-12-17T03:24:00")),
+      "is(new Date('1995-12-17T03:24:00')) === false"
+    );
     assert.isFalse(
       utilsUndefined.is(() => 1),
       "is(() => 1) === false"
@@ -25,6 +28,9 @@ describe("undefined : method is", () => {
     assert.isFalse(utilsUndefined.is("true"), "is('true') === false");
     assert.isFalse(utilsUndefined.is(Symbol()), "is(Symbol()) === false");
     assert.isFalse(utilsUndefined.is(Symbol(42)), "is(Symbol(42)) === false");
-    assert.isFalse(utilsUndefined.is(Symbol("foo")), "is(Symbol('foo')) === false");
+    assert.isFalse(
+      utilsUndefined.is(Symbol("foo")),
+      "is(Symbol('foo')) === false"
+    );
   });
 });
