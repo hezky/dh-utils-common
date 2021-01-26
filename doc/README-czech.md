@@ -2,62 +2,148 @@
 
 [Použití v anglickém jazyce (Readme in English)](https://github.com/hezky/dh-utils-common/blob/master/README.md)
 
-Základní funkce nad různými datovými typy.
+Knihovna obsahuje základní funkce nad různými primitivními hodnotami, datovými typy a datovými struktury.
 
-## Rozdělení **⌂**
+## Popis
 
-<a name="split"></a>
-1. **Obecné funkce** :
-  - [compare](#api_common_compare)
-  - [compareReferences](#api_common_compareReferences)
-  - [copy](#api_common_copy)
-  - [equal](#api_common_equal)
-  - [isArray](#api_common_isArray)
-  - [isBoolean](#api_common_isBoolean)
-  - [isDate](#api_common_isDate)
-  - [isDefined](#api_common_isDefined)
-  - [isEmpty](#api_common_isEmpty)
-  - [isFunction](#api_common_isFunction)
-  - [isNotArray](#api_common_isNotArray)
-  - [isNotDefined](#api_common_isNotDefined)
-  - [isNotEmpty](#api_common_isNotEmpty)
-  - [isNotNull](#api_common_isNotNull)
-  - [isNumber](#api_common_isNumber)
-  - [isNull](#api_common_isNull)
-  - [isObject](#api_common_isObject)
-  - [isPrimitive](#api_common_isPrimitive)
-  - [isRegExp](#api_common_isRegExp)
-  - [isString](#api_common_isString)
-  - [isStringEmpty](#api_common_isStringEmpty)
-  - [isStringNotEmpty](#api_common_isStringNotEmpty)
-  - [isSymbol](#api_common_isSymbol)
-  - [isUndefined](#api_common_isUndefined)
-  - [notEqual](#api_common_notEqual)
+> Základní primitivní hodnoty, datové typy a datové struktury, s kterými pracujeme budou v tomto dokumentu dále volně uváděny, jako **typy hodnot** i když to přesně neodpovídá přesné specifikaci JS.
 
-<a name="splitByType"></a>
-2. **Funkce podle datového typu** :
-  - [Array](#api_byTypeArray) : [compare](#api_byTypeArray_compare), [copy](#api_byTypeArray_copy), [equal](#api_byTypeArray_equal), [is](#api_byTypeArray_is)
-  - [Boolean](#api_byTypeBoolean) : [compare](#api_byTypeBoolean_compare), [copy](#api_byTypeBoolean_copy), [equal](#api_byTypeBoolean_equal), [is](#api_byTypeBoolean_is)
-  - [Date](#api_byTypeDate) : [compare](#api_byTypeDate_compare), [copy](#api_byTypeDate_copy), [equal](#api_byTypeDate_equal), [is](#api_byTypeDate_is)
-  - [Function](#api_byTypeFunction) : [compare](#api_byTypeFunction_compare), [copy](#api_byTypeFunction_copy), [equal](#api_byTypeFunction_equal), [is](#api_byTypeFunction_is)
-  - [Number](#api_byTypeNumber) : [compare](#api_byTypeNumber_compare), [copy](#api_byTypeNumber_copy), [equal](#api_byTypeNumber_equal), [is](#api_byTypeNumber_is)
-  - [Null](#api_byTypeNull) : [compare](#api_byTypeNull_compare), [copy](#api_byTypeNull_copy), [equal](#api_byTypeNull_equal), [is](#api_byTypeNull_is)
-  - [Object](#api_byTypeObject) : [compare](#api_byTypeObject_compare), [copy](#api_byTypeObject_copy), [equal](#api_byTypeObject_equal), [is](#api_byTypeObject_is)
-  - [RegExp](#api_byTypeRegExp) : [compare](#api_byTypeRegExp_compare), [copy](#api_byTypeRegExp_copy), [equal](#api_byTypeRegExp_equal), [is](#api_byTypeRegExp_is)
-  - [String](#api_byTypeString) : [compare](#api_byTypeString_compare), [copy](#api_byTypeString_copy), [equal](#api_byTypeString_equal), [is](#api_byTypeString_is), [isNumeric](#api_byTypeString_isNumeric)
-  - [Symbol](#api_byTypeSymbol) : [compare](#api_byTypeSymbol_compare), [copy](#api_byTypeSymbol_copy), [equal](#api_byTypeSymbol_equal), [is](#api_byTypeSymbol_is)
-  - [Undefined](#api_byTypeUndefined) : [compare](#api_byTypeUndefined_compare), [copy](#api_byTypeUndefined_copy), [equal](#api_byTypeUndefined_equal), [is](#api_byTypeUndefined_is)
+> Jako **typy hodnot** jsou zde v této knihovně mýšleny tyto JS konstrukce: [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean), [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions), [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null), [Number](https://developer.mozilla.org/en-US/docs/Glossary/number), [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp), [String](https://developer.mozilla.org/en-US/docs/Glossary/string), [Symbol](https://developer.mozilla.org/en-US/docs/Glossary/symbol), [undefined](https://developer.mozilla.org/en-US/docs/Glossary/undefined).
+
+> **Základní funkce** v této knihovně jsou rozdělené na:
+* Obecné funkce = fungují pro všechny typy hodnot
+* Lokální funkce = fungují pro konkrétní typ hodnoty
+
+--------------------
+
+## Obecné funkce
+
+> Pokud pracujete s proměnnými s různými nebo obecnými typy hodnoty použijte **obecné funkce**.
+
+Příklad **obecné funkce**:
+``` javaScript
+import { compare, utilsCommon } from 'dh-utils-common';
+
+compare(0,0); // 0
+compare(false, 0); // -1
+// or
+utilsCommon.compare(0,0); // 0
+utilsCommon.compare(false, 0); // -1
+```
+
+<a name="splitFceGeneral"></a>
+> Seznam **obecné funkce**: [compare](#api_common_compare), [compareReferences](#api_common_compareReferences), [copy](#api_common_copy), [equal](#api_common_equal), [isArray](#api_common_isArray), [isBoolean](#api_common_isBoolean), [isDate](#api_common_isDate), [isDefined](#api_common_isDefined), [isEmpty](#api_common_isEmpty), [isFunction](#api_common_isFunction), [isNotArray](#api_common_isNotArray), [isNotDefined](#api_common_isNotDefined), [isNotEmpty](#api_common_isNotEmpty), [isNotNull](#api_common_isNotNull), [isNumber](#api_common_isNumber), [isNull](#api_common_isNull), [isObject](#api_common_isObject), [isPrimitive](#api_common_isPrimitive), [isRegExp](#api_common_isRegExp), [isString](#api_common_isString), [isStringEmpty](#api_common_isStringEmpty), [isStringNotEmpty](#api_common_isStringNotEmpty), [isSymbol](#api_common_isSymbol), [isUndefined](#api_common_isUndefined), [notEqual](#api_common_notEqual)
+
+--------------------
+
+## Lokální Funkce podle typu
+
+> Pokud pracujete s proměnnými s konkrétním typem hodnoty použijte **lokální funkce podle typu**.
+
+> Základní lokální funkce jsou 4 : compare, copy, equal, is.
+* Lokální funkce **compare(a, b)** = porovná typ hodnoty.
+Vrací hodnoty: -1 (a < b) | 0 (a = b) | 1 (a < b)
+* Lokální funkce **copy(a)** = vytvoří kopii. V případě složité datové struktury, to bude hluboká kopie.
+* Lokální funkce **equal(a, b)** = porovná typ hodnoty. Vrací hodnoty true nebo false.
+* Lokální funkce **is(a)** = kontrola zda je daná proměnná daného typu hodnoty? Vrací hodnoty true nebo false.
+
+
+Příklad **lokální funkce podle typu**:
+``` javascript
+import { utilsArray } from 'dh-utils-common';
+
+utilsArray.compare([1,2,3],[1,2,3]) // 0
+```
+
+<a name="splitFceType"></a>
+> Seznam **lokální funkce podle typu**:
+  - Array : [compare](#api_byTypeArray_compare), [copy](#api_byTypeArray_copy), [equal](#api_byTypeArray_equal), [is](#api_byTypeArray_is)
+  - Boolean : [compare](#api_byTypeBoolean_compare), [copy](#api_byTypeBoolean_copy), [equal](#api_byTypeBoolean_equal), [is](#api_byTypeBoolean_is)
+  - Date : [compare](#api_byTypeDate_compare), [copy](#api_byTypeDate_copy), [equal](#api_byTypeDate_equal), [is](#api_byTypeDate_is)
+  - Function : [compare](#api_byTypeFunction_compare), [copy](#api_byTypeFunction_copy), [equal](#api_byTypeFunction_equal), [is](#api_byTypeFunction_is)
+  - Number : [compare](#api_byTypeNumber_compare), [copy](#api_byTypeNumber_copy), [equal](#api_byTypeNumber_equal), [is](#api_byTypeNumber_is)
+  - Null : [compare](#api_byTypeNull_compare), [copy](#api_byTypeNull_copy), [equal](#api_byTypeNull_equal), [is](#api_byTypeNull_is)
+  - Object : [compare](#api_byTypeObject_compare), [copy](#api_byTypeObject_copy), [equal](#api_byTypeObject_equal), [is](#api_byTypeObject_is)
+  - RegExp : [compare](#api_byTypeRegExp_compare), [copy](#api_byTypeRegExp_copy), [equal](#api_byTypeRegExp_equal), [is](#api_byTypeRegExp_is)
+  - String : [compare](#api_byTypeString_compare), [copy](#api_byTypeString_copy), [equal](#api_byTypeString_equal), [is](#api_byTypeString_is), [isNumeric](#api_byTypeString_isNumeric)
+  - Symbol : [compare](#api_byTypeSymbol_compare), [copy](#api_byTypeSymbol_copy), [equal](#api_byTypeSymbol_equal), [is](#api_byTypeSymbol_is)
+  - Undefined : [compare](#api_byTypeUndefined_compare), [copy](#api_byTypeUndefined_copy), [equal](#api_byTypeUndefined_equal), [is](#api_byTypeUndefined_is)
+
+--------------------
+
+## Práce se specifickými typy hodnoty
+
+Ve vyjimečném případě budete chtít použít základní funkce nad vámi speciálně vytvořenými typy. Ano, je to možné. Tyto **obecné funkce** compare, copy, equal, is mají i 3 parametr funkce, kterými můžete upravit nad kterými typy hodnot chcete základní funkcionalitu provádět.
+
+Příklad budeme mít speciální datové struktury / speciální typy hodnot "Car" a "Airplane". Tyto typy hodnot se liší atributem "model". Speciání typ hodnoty "Car" může tedy mýt model = "Honda" nebo "Suzuki". Speciání typ hodnoty "Airplane" může tedy mýt model = "Mig" nebo "F16":
+
+``` javascript
+import { compare } from "dh-utils-common";
+
+// funkce nad speciální datovou strukturou (typy hodnot)
+const typeValueAirplane = {
+  _fce: "Airplane",
+  compare: function (a, b) {
+    return a.model.localeCompare(b.model);
+  },
+  copy: function(a){/* zde bude fce copy */},
+  equal: function(a, b){return a.model.toString() === b.model.toString();},
+  is: function (a) {
+    return a.type === "airplane";
+  },
+};
+const typeValueCar = {
+  _fce: "Car",
+  compare: function (a, b) {
+    return a.model.localeCompare(b.model);
+  },
+  copy: function(a){/* zde bude fce copy */},
+  equal: function(a, b){return a.model.toString() === b.model.toString();},
+  is: function (a) {
+    return a.type === "car";
+  },
+};
+
+// třídy speciální datové struktury
+const ClassAirplane = class Airplane {
+  constructor(model) {
+    this.type = "airplane";
+    this.model = model || "empty";
+  }
+};
+const ClassCar = class Car {
+  constructor(model) {
+    this.type = "car";
+    this.model = model || "empty";
+  }
+};
+
+// definování objektů
+const airplaneIljusin = new ClassAirplane("Iljusin");
+const carSuzuki = new ClassCar("Suzuki");
+const carHonda = new ClassCar("Honda");
+const carHonda2 = new ClassCar("Honda");
+
+// definování seznamu specifického datové struktury (typ hodnot)
+const listTypeValues = [typeValueAirplane, typeValueCar];
+
+// konkrétní práce s funkcemi
+compare(airplaneIljusin, carSuzuki, listTypeValues); // -1
+compare(carSuzuki, carHonda, listTypeValues); // -1
+compare(carHonda, carHonda2, listTypeValues); // 0
+```
 
 --------------------
 
 ## API - Obecné funkce
 
 <a name="api_common_compare"></a>
-### [⌂](#split) compare(any,any) : number
-- **popis** : porovnání dvou hodnot
+### [⌂](#splitFceGeneral) compare(any,any,array) : number
+- **popis** : porovnání dvou hodnot (jakákoliv)
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {any}
 - **parametr b** : {any}
+- **parametr b** : {array} list typ hodnot
 
 *použití* :
 ~~~javascript
@@ -69,7 +155,7 @@ utilsCommon.compare(0,0); // 0
 ~~~
 
 <a name="api_common_compareReferences"></a>
-### [⌂](#split) compareReferences(any,any) : number
+### [⌂](#splitFceGeneral) compareReferences(any,any) : number
 - **popis** : porovnání dvou referencí
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {any}
@@ -84,17 +170,15 @@ compareReferences(0,0); // 0
 utilsCommon.compareReferences(0,0); // 0
 
 
-const  a = {}, b = a
-compareReferences(a,b)
-// 0
+const  a = {}, b = a;
+compareReferences(a,b); // 0
 
 const  a = {}, b = {}
-compareReferences(a,b)
-// 1
+compareReferences(a,b); // 1
 ~~~
 
 <a name="api_common_copy"></a>
-### [⌂](#split) copy(any) : any
+### [⌂](#splitFceGeneral) copy(any) : any
 - **popis** : hluboká kopie
 - **návratový typ** : {any}
 - **parametr a** : {any}
@@ -112,7 +196,7 @@ copy([1,2,3,4]); // [1,2,3,4]
 
 
 <a name="api_common_equal"></a>
-### [⌂](#split) equal(any,any) : boolean
+### [⌂](#splitFceGeneral) equal(any,any) : boolean
 - **popis** : porovnání
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -133,7 +217,7 @@ equal([0,1,2,3,[0,1,2]],[0,1,2,3,[0,2,1]]); // false
 ~~~
 
 <a name="api_common_isArray"></a>
-### [⌂](#split) isArray(any) : boolean
+### [⌂](#splitFceGeneral) isArray(any) : boolean
 - **popis** : je hodnota typu pole?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -151,7 +235,7 @@ isArray(3); // false
 ~~~
 
 <a name="api_common_isBoolean"></a>
-### [⌂](#split) isBoolean(any) : boolean
+### [⌂](#splitFceGeneral) isBoolean(any) : boolean
 - **popis** : je hodnota typu boolean?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -170,7 +254,7 @@ isBoolean([1,2,3,4]); // false
 ~~~
 
 <a name="api_common_isDate"></a>
-### [⌂](#split) isDate(any) : boolean
+### [⌂](#splitFceGeneral) isDate(any) : boolean
 - **popis** : je hodnota typu date?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -188,7 +272,7 @@ isDate(3); // false
 ~~~
 
 <a name="api_common_isDefined"></a>
-### [⌂](#split) isDefined(any) : boolean
+### [⌂](#splitFceGeneral) isDefined(any) : boolean
 - **popis** : je hodnota defined?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -207,7 +291,7 @@ isDefined(undefined); // false
 ~~~
 
 <a name="api_common_isEmpty"></a>
-### [⌂](#split) isEmpty(any) : boolean
+### [⌂](#splitFceGeneral) isEmpty(any) : boolean
 - **popis** : je hodnota prázdná?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -231,7 +315,7 @@ isEmpty("hellooo"); // false
 ~~~
 
 <a name="api_common_isFunction"></a>
-### [⌂](#split) isFunction(any) : boolean
+### [⌂](#splitFceGeneral) isFunction(any) : boolean
 - **popis** : je hodnota typu funkce?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -249,7 +333,7 @@ isFunction(3); // false
 ~~~
 
 <a name="api_common_isNotArray"></a>
-### [⌂](#split) isNotArray(any) : boolean
+### [⌂](#splitFceGeneral) isNotArray(any) : boolean
 - **popis** : hodnota není typu pole?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -267,7 +351,7 @@ isNotArray({}); // true`
 ~~~
 
 <a name="api_common_isNotDefined"></a>
-### [⌂](#split) isNotDefined(any) : boolean
+### [⌂](#splitFceGeneral) isNotDefined(any) : boolean
 - **popis** : hodnota není definována?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -286,7 +370,7 @@ isNotDefined(undefined); // false
 ~~~
 
 <a name="api_common_isNotEmpty"></a>
-### [⌂](#split) isNotEmpty(any) : boolean
+### [⌂](#splitFceGeneral) isNotEmpty(any) : boolean
 - **popis** : hodnota není prázdná?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -310,7 +394,7 @@ isNotEmpty(""); // true
 ~~~
 
 <a name="api_common_isNotNull"></a>
-### [⌂](#split) isNotNull(any) : boolean
+### [⌂](#splitFceGeneral) isNotNull(any) : boolean
 - **popis** : hodnota není typu null?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -328,7 +412,7 @@ isNotNull(5); // true
 ~~~
 
 <a name="api_common_isNumber"></a>
-### [⌂](#split) isNumber(any) : boolean
+### [⌂](#splitFceGeneral) isNumber(any) : boolean
 - **popis** : je hodnota typu number?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -346,7 +430,7 @@ isNumber(5); // true
 ~~~
 
 <a name="api_common_isNull"></a>
-### [⌂](#split) isNull(any) : boolean
+### [⌂](#splitFceGeneral) isNull(any) : boolean
 - **popis** : je hodnota typu null?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -364,7 +448,7 @@ isNull(5); // false
 ~~~
 
 <a name="api_common_isObject"></a>
-### [⌂](#split) isObject(any) : boolean
+### [⌂](#splitFceGeneral) isObject(any) : boolean
 - **popis** : je hodnota typu object?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -382,7 +466,7 @@ isObject(3); // false
 ~~~
 
 <a name="api_common_isPrimitive"></a>
-### [⌂](#split) isPrimitive(any) : boolean
+### [⌂](#splitFceGeneral) isPrimitive(any) : boolean
 - **popis** : je hodnota primitivní typ?
 - **návratový typ** : boolean true|false
 - **parametr a** : {any}
@@ -401,7 +485,7 @@ isPrimitive({}); // false
 ~~~
 
 <a name="api_common_isRegExp"></a>
-### [⌂](#split) isRegExp(any) : boolean
+### [⌂](#splitFceGeneral) isRegExp(any) : boolean
 - **popis** : je hodnota typu regulární výraz?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -418,7 +502,7 @@ isRegExp(/ab+c/); // true
 ~~~
 
 <a name="api_common_isString"></a>
-### [⌂](#split) isString(any) : boolean
+### [⌂](#splitFceGeneral) isString(any) : boolean
 - **popis** : je hodnota typu string?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -436,7 +520,7 @@ isString(3);  // false
 ~~~
 
 <a name="api_common_isStringEmpty"></a>
-### [⌂](#split) isStringEmpty(any) : boolean
+### [⌂](#splitFceGeneral) isStringEmpty(any) : boolean
 - **popis** : je hodnota typu string a zároveň prázdný řetězec?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -453,7 +537,7 @@ isStringEmpty(""); // true
 ~~~
 
 <a name="api_common_isStringNotEmpty"></a>
-### [⌂](#split) isStringNotEmpty(any) : boolean
+### [⌂](#splitFceGeneral) isStringNotEmpty(any) : boolean
 - **popis** : je hodnota typu string a zároveň není prázdný řetězec?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -470,7 +554,7 @@ isStringEmpty(""); // false
 ~~~
 
 <a name="api_common_isSymbol"></a>
-### [⌂](#split) isSymbol(any) : boolean
+### [⌂](#splitFceGeneral) isSymbol(any) : boolean
 - **popis** : je hodnota typu symbol
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -489,7 +573,7 @@ isSymbol(Symbol("foo")); // true
 ~~~
 
 <a name="api_common_isUndefined"></a>
-### [⌂](#split) isUndefined(any) : boolean
+### [⌂](#splitFceGeneral) isUndefined(any) : boolean
 - **popis** : je hodnota typu undefined?
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -508,7 +592,7 @@ isUndefined(5); // false
 ~~~
 
 <a name="api_common_notEqual"></a>
-### [⌂](#split) notEqual(any,any) : boolean
+### [⌂](#splitFceGeneral) notEqual(any,any) : boolean
 - **popis** : negace equal
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -530,10 +614,10 @@ notEqual([0,1,2,3,[0,1,2]],[0,1,2,3,[0,2,1]]); // true
 --------------------
 
 <a name="api_byTypeArray"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Array
+## [⌂](#splitFceType) API Funkce podle datového typu Array
 
 <a name="api_byTypeArray_compare"></a>
-### [⌂](#splitByType) compare(array,array) : number
+### [⌂](#splitFceType) compare(array,array) : number
 - **popis** : porovnání dvou polí
 - **návratový typ** : {number} -1|0,1
 - **parametr a** : {array}
@@ -547,7 +631,7 @@ utilsArray.compare([1,2,3],[1,2,3]) // 0
 ~~~
 
 <a name="api_byTypeArray_copy"></a>
-### [⌂](#splitByType) copy(array) : array
+### [⌂](#splitFceType) copy(array) : array
 - **popis** : hluboká kopie pole
 - **návratový typ** : {array}
 - **parametr target** : {array}
@@ -560,7 +644,7 @@ utilsArray.copy([1,2,3,4]); // [1,2,3,4]
 ~~~
 
 <a name="api_byTypeArray_equal"></a>
-### [⌂](#splitByType) equal(array,array) : boolean
+### [⌂](#splitFceType) equal(array,array) : boolean
 - **popis** : porovnání dvou polí
 - **návratový typ** : {boolean} false,true
 - **parametr a** : {array}
@@ -575,7 +659,7 @@ utilsArray.equal([4,2,3,1],[1,2,3,4]); // false
 ~~~
 
 <a name="api_byTypeArray_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota pole? stejná funkce jako utilsCommon.isArray
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
@@ -591,10 +675,10 @@ utilsArray.is([]); // true
 --------------------
 
 <a name="api_byTypeBoolean"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Boolean
+## [⌂](#splitFceType) API Funkce podle datového typu Boolean
 
 <a name="api_byTypeBoolean_compare"></a>
-### [⌂](#splitByType) compare(boolean,boolean) : number
+### [⌂](#splitFceType) compare(boolean,boolean) : number
 - **popis** : porovnání boolean
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {boolean}
@@ -609,7 +693,7 @@ utilsBoolean.compare(false,true); // -1
 ~~~
 
 <a name="api_byTypeBoolean_copy"></a>
-### [⌂](#splitByType) copy(boolean) : boolean
+### [⌂](#splitFceType) copy(boolean) : boolean
 - **popis** : kopie boolean
 - **návratový typ** : {boolean}
 - **parametr target** : {boolean}
@@ -622,7 +706,7 @@ utilsBoolean.copy(true); // true
 ~~~
 
 <a name="api_byTypeBoolean_equal"></a>
-### [⌂](#splitByType) equal(boolean,boolean) : boolean
+### [⌂](#splitFceType) equal(boolean,boolean) : boolean
 - **popis** : porovnání boolean
 - **návratový typ** : {boolean} false,true
 - **parametr a** : {boolean}
@@ -637,7 +721,7 @@ utilsBoolean.equal(false,true); // false
 ~~~
 
 <a name="api_byTypeBoolean_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota boolean? stejná funkce jako utilsCommon.isBoolean
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
@@ -653,10 +737,10 @@ utilsBoolean.is(false); // false
 --------------------
 
 <a name="api_byTypeDate"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Date
+## [⌂](#splitFceType) API Funkce podle datového typu Date
 
 <a name="api_byTypeDate_compare"></a>
-### [⌂](#splitByType) compare(date,date) : number
+### [⌂](#splitFceType) compare(date,date) : number
 - **popis** : porovná dva date
 - **návratový typ** : {number} -1|0|1
 - **parametr 1** : {date}
@@ -672,7 +756,7 @@ let result = utilsDate.compare(date1,date2); // -1
 ~~~
 
 <a name="api_byTypeDate_copy"></a>
-### [⌂](#splitByType) copy(date) : boolean
+### [⌂](#splitFceType) copy(date) : boolean
 - **popis** : hluboká kopie date
 - **návratový typ** : {date}
 - **parametr 1** : {date}
@@ -686,7 +770,7 @@ utilsDate.copy(date); // Date(2016,1,1)
 ~~~
 
 <a name="api_byTypeDate_equal"></a>
-### [⌂](#splitByType) equal(date,date) : boolean
+### [⌂](#splitFceType) equal(date,date) : boolean
 - **popis** : porovná dva date
 - **návratový typ** : {boolean}
 - **parametr 1** : {date}
@@ -700,7 +784,7 @@ utilsDate.equal(new Date(2015,5,5),new Date(2015,5,6)); // false
 ~~~
 
 <a name="api_byTypeDate_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota date? stejná funkce jako utilsCommon.isDate
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
@@ -716,10 +800,10 @@ utilsDate.is(0); // false
 --------------------
 
 <a name="api_byTypeFunction"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Function
+## [⌂](#splitFceType) API Funkce podle datového typu Function
 
 <a name="api_byTypeFunction_compare"></a>
-### [⌂](#splitByType) compare(function,function) : number
+### [⌂](#splitFceType) compare(function,function) : number
 - **popis** :  porovná dvě funkce
 - **návratový typ** : {number} -1,0,1
 - **parametr a** : {function}
@@ -733,7 +817,7 @@ utilsFunction.compare(()=>"a",()=>"b"); // -1
 ~~~
 
 <a name="api_byTypeFunction_copy"></a>
-### [⌂](#splitByType) copy(function) : boolean
+### [⌂](#splitFceType) copy(function) : boolean
 - **popis** : kopie function
 - **návratový typ** : {function}
 - **parametr 1** : {function}
@@ -747,7 +831,7 @@ utilsFunction.copy(func); // function(a){return a};
 ~~~
 
 <a name="api_byTypeFunction_equal"></a>
-### [⌂](#splitByType) equal(function,function) : boolean
+### [⌂](#splitFceType) equal(function,function) : boolean
 - **popis** : porovná dvě function
 - **návratový typ** : {function}
 - **parametr 1** : {function}
@@ -764,7 +848,7 @@ utilsFunction.equal(func1,func2); // false
 ~~~
 
 <a name="api_byTypeFunction_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota function? stejná funkce jako utilsCommon.isFunction
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
@@ -780,10 +864,10 @@ utilsFunction.is(0); // false
 --------------------
 
 <a name="api_byTypeNumber"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Number
+## [⌂](#splitFceType) API Funkce podle datového typu Number
 
 <a name="api_byTypeNumber_compare"></a>
-### [⌂](#splitByType) compare(number,number) : number
+### [⌂](#splitFceType) compare(number,number) : number
 - **popis** : porovnání number
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {number}
@@ -797,7 +881,7 @@ utilsNumber.compare(10,15); // -1
 ~~~
 
 <a name="api_byTypeNumber_copy"></a>
-### [⌂](#splitByType) copy(number) : number
+### [⌂](#splitFceType) copy(number) : number
 - **popis** : kopie number
 - **návratový typ** : {number}
 - **parametr target** : {number}
@@ -810,7 +894,7 @@ utilsNumber.copy(10); // 10
 ~~~
 
 <a name="api_byTypeNumber_equal"></a>
-### [⌂](#splitByType) equal(number,number) : boolean
+### [⌂](#splitFceType) equal(number,number) : boolean
 - **popis** : porovnání number
 - **návratový typ** : {boolean} false,true
 - **parametr a** : {number}
@@ -825,7 +909,7 @@ utilsNumber.equal(5,10); // false
 ~~~
 
 <a name="api_byTypeNumber_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota number? stejná funkce jako utilsCommon.isNumber
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
@@ -841,10 +925,10 @@ utilsNumber.is("10"); // false
 --------------------
 
 <a name="api_byTypeNull"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Null
+## [⌂](#splitFceType) API Funkce podle datového typu Null
 
 <a name="api_byTypeNull_compare"></a>
-### [⌂](#splitByType) compare(null,null) : number
+### [⌂](#splitFceType) compare(null,null) : number
 - **popis** : porovnání null
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {null}
@@ -858,7 +942,7 @@ utilsNull.compare(null,null); // 0
 ~~~
 
 <a name="api_byTypeNull_copy"></a>
-### [⌂](#splitByType) copy(null) : null
+### [⌂](#splitFceType) copy(null) : null
 - **popis** : kopie null
 - **návratový typ** : {null}
 - **parametr target** : {null}
@@ -871,7 +955,7 @@ utilsNull.copy(null); // null
 ~~~
 
 <a name="api_byTypeNull_equal"></a>
-### [⌂](#splitByType) equal(null,null) : boolean
+### [⌂](#splitFceType) equal(null,null) : boolean
 - **popis** : porovnání boolean
 - **návratový typ** : {boolean} true
 - **parametr a** : {null}
@@ -885,7 +969,7 @@ utilsNull.equal(null,null); // true
 ~~~
 
 <a name="api_byTypeNull_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota null? stejná funkce jako utilsCommon.isNull
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -902,10 +986,10 @@ utilsNull.is(0); // false
 --------------------
 
 <a name="api_byTypeObject"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Object
+## [⌂](#splitFceType) API Funkce podle datového typu Object
 
 <a name="api_byTypeObject_compare"></a>
-### [⌂](#splitByType) compare(object,object) : number
+### [⌂](#splitFceType) compare(object,object) : number
 - **popis** : porovnání objekty
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {object}
@@ -921,7 +1005,7 @@ utilsObject.compare({name: "JohnX", age: 42},{name: "John", age: 42}); // 1
 ~~~
 
 <a name="api_byTypeObject_copy"></a>
-### [⌂](#splitByType) copy(object) : object
+### [⌂](#splitFceType) copy(object) : object
 - **popis** : kopie object
 - **návratový typ** : {object}
 - **parametr target** : {object}
@@ -934,7 +1018,7 @@ utilsObject.copy({name: "John", age: 42}); // {name: "John", age: 42}
 ~~~
 
 <a name="api_byTypeObject_equal"></a>
-### [⌂](#splitByType) equal(object,object) : boolean
+### [⌂](#splitFceType) equal(object,object) : boolean
 - **popis** : porovnání object
 - **návratový typ** : {boolean} true
 - **parametr a** : {object}
@@ -949,7 +1033,7 @@ utilsObject.equal({name: "John", age: 42}, {name: "John", age: 43}); // false
 ~~~
 
 <a name="api_byTypeObject_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota object? stejná funkce jako utilsCommon.isObject
 - **návratový typ** : {boolean} true|false
 - **parametr a** : {any}
@@ -965,10 +1049,10 @@ utilsObject.is(0); // false
 --------------------
 
 <a name="api_byTypeRegExp"></a>
-## [⌂](#splitByType) API Funkce podle datového typu RegExp
+## [⌂](#splitFceType) API Funkce podle datového typu RegExp
 
 <a name="api_byTypeRegExp_compare"></a>
-### [⌂](#splitByType) compare(regexp,regexp) : number
+### [⌂](#splitFceType) compare(regexp,regexp) : number
 - **popis** : porovnání regexp
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {regexp}
@@ -983,7 +1067,7 @@ utilsRegExp.compare(/ac+c/,/ab+c/); // -1
 ~~~
 
 <a name="api_byTypeRegExp_copy"></a>
-### [⌂](#splitByType) copy(regexp) : regexp
+### [⌂](#splitFceType) copy(regexp) : regexp
 - **popis** : kopie RegExp
 - **návratový typ** : {regexp}
 - **parametr target** : {regexp}
@@ -996,7 +1080,7 @@ utilsRegExp.copy(/ab+c/); // /ab+c/
 ~~~
 
 <a name="api_byTypeRegExp_equal"></a>
-### [⌂](#splitByType) equal(regexp,regexp) : boolean
+### [⌂](#splitFceType) equal(regexp,regexp) : boolean
 - **popis** : porovnání RegExp
 - **návratový typ** : {boolean} false,true
 - **parametr a** : {regexp}
@@ -1011,7 +1095,7 @@ utilsRegExp.equal(/ac+c/,/ab+c/); // false
 ~~~
 
 <a name="api_byTypeRegExp_is"></a>
-### [⌂](#splitByType) is(regexp) : boolean
+### [⌂](#splitFceType) is(regexp) : boolean
 - **popis** : je hodnota regexp? stejná funkce jako utilsCommon.isRegExp
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
@@ -1027,10 +1111,10 @@ utilsRegExp.is(0); // false
 --------------------
 
 <a name="api_byTypeString"></a>
-## [⌂](#splitByType) API Funkce podle datového typu String
+## [⌂](#splitFceType) API Funkce podle datového typu String
 
 <a name="api_byTypeString_compare"></a>
-### [⌂](#splitByType) compare(string,string) : number
+### [⌂](#splitFceType) compare(string,string) : number
 - **popis** : porovnání string
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {string}
@@ -1044,7 +1128,7 @@ utilsString.compare("ABC","ZXY"); // -1
 ~~~
 
 <a name="api_byTypeString_copy"></a>
-### [⌂](#splitByType) copy(string) : boolean
+### [⌂](#splitFceType) copy(string) : boolean
 - **popis** : kopie boolean
 - **návratový typ** : {boolean}
 - **parametr target** : {boolean}
@@ -1057,7 +1141,7 @@ utilsString.copy("abc"); // abc
 ~~~
 
 <a name="api_byTypeString_equal"></a>
-### [⌂](#splitByType) equal(string,string) : boolean
+### [⌂](#splitFceType) equal(string,string) : boolean
 - **popis** : porovnání string
 - **návratový typ** : {boolean} false,true
 - **parametr a** : {string}
@@ -1071,7 +1155,7 @@ utilsString.equal("ABC","ZXY"); // false
 ~~~
 
 <a name="api_byTypeString_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota string? stejná funkce jako utilsCommon.isString
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
@@ -1087,10 +1171,10 @@ utilsString.is(0); // false
 --------------------
 
 <a name="api_byTypeSymbol"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Symbol
+## [⌂](#splitFceType) API Funkce podle datového typu Symbol
 
 <a name="api_byTypeSymbol_compare"></a>
-### [⌂](#splitByType) compare(symbol,symbol) : number
+### [⌂](#splitFceType) compare(symbol,symbol) : number
 - **popis** : porovnání symbol
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {symbol}
@@ -1104,7 +1188,7 @@ import { utilsSymbol } from 'dh-utils-common'
 ~~~
 
 <a name="api_byTypeSymbol_copy"></a>
-### [⌂](#splitByType) copy(symbol) : symbol
+### [⌂](#splitFceType) copy(symbol) : symbol
 - **popis** : kopie symbol
 - **návratový typ** : {symbol}
 - **parametr target** : {symbol}
@@ -1117,7 +1201,7 @@ import { utilsSymbol } from 'dh-utils-common'
 ~~~
 
 <a name="api_byTypeSymbol_equal"></a>
-### [⌂](#splitByType) equal(symbol,symbol) : boolean
+### [⌂](#splitFceType) equal(symbol,symbol) : boolean
 - **popis** : porovnání symbol
 - **návratový typ** : {boolean} false,true
 - **parametr a** : {symbol}
@@ -1131,7 +1215,7 @@ import { utilsSymbol } from 'dh-utils-common'
 ~~~
 
 <a name="api_byTypeSymbol_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota symbol? stejná funkce jako utilsCommon.isSymbol
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
@@ -1146,10 +1230,10 @@ import { utilsSymbol } from 'dh-utils-common'
 --------------------
 
 <a name="api_byTypeUndefined"></a>
-## [⌂](#splitByType) API Funkce podle datového typu Undefined
+## [⌂](#splitFceType) API Funkce podle datového typu Undefined
 
 <a name="api_byTypeUndefined_compare"></a>
-### [⌂](#splitByType) compare(undefined,undefined) : number
+### [⌂](#splitFceType) compare(undefined,undefined) : number
 - **popis** : porovnání undefined
 - **návratový typ** : {number} 0
 - **parametr a** : {undefined}
@@ -1163,7 +1247,7 @@ utilsUndefined.compare(undefined,undefined); // 0
 ~~~
 
 <a name="api_byTypeUndefined_copy"></a>
-### [⌂](#splitByType) copyundefined) : undefined
+### [⌂](#splitFceType) copyundefined) : undefined
 - **popis** : kopie undefned
 - **návratový typ** : {undefned}
 - **parametr target** : {undefned}
@@ -1176,7 +1260,7 @@ utilsUndefined.copy(undefined); // undefined
 ~~~
 
 <a name="api_byTypeUndefined_equal"></a>
-### [⌂](#splitByType) equal(undefined,undefined) : boolean
+### [⌂](#splitFceType) equal(undefined,undefined) : boolean
 - **popis** : porovnání undefined
 - **návratový typ** : {boolean} false,true
 - **parametr a** : {undefined}
@@ -1190,7 +1274,7 @@ utilsUndefined.equal(undefined,undefined); // true
 ~~~
 
 <a name="api_byTypeUndefined_is"></a>
-### [⌂](#splitByType) is(any) : boolean
+### [⌂](#splitFceType) is(any) : boolean
 - **popis** : je hodnota undefined? stejná funkce jako utilsCommon.isUndefined
 - **návratový typ** : {boolean}
 - **parametr a** : {any}
