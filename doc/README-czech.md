@@ -6,22 +6,23 @@ Knihovna obsahuje základní funkce nad různými primitivními hodnotami, datov
 
 ## Popis
 
-> Základní primitivní hodnoty, datové typy a datové struktury, s kterými pracujeme budou v tomto dokumentu dále volně uváděny, jako **typy hodnot** i když to přesně neodpovídá přesné specifikaci JS.
+> Základní primitivní hodnoty, datové typy a datové struktury, s kterými pracujeme budou v tomto dokumentu dále volně uváděny jako **typy hodnot**, i když to přesně neodpovídá přesné specifikaci JS.
 
-> Jako **typy hodnot** jsou zde v této knihovně mýšleny tyto JS konstrukce: [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean), [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions), [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null), [Number](https://developer.mozilla.org/en-US/docs/Glossary/number), [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp), [String](https://developer.mozilla.org/en-US/docs/Glossary/string), [Symbol](https://developer.mozilla.org/en-US/docs/Glossary/symbol), [undefined](https://developer.mozilla.org/en-US/docs/Glossary/undefined).
+> Jako **typy hodnot** jsou zde v této knihovně mýšleny JS konstrukce: [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean), [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions), [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null), [Number](https://developer.mozilla.org/en-US/docs/Glossary/number), [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp), [String](https://developer.mozilla.org/en-US/docs/Glossary/string), [Symbol](https://developer.mozilla.org/en-US/docs/Glossary/symbol), [undefined](https://developer.mozilla.org/en-US/docs/Glossary/undefined).
 
-> **Základní funkce** v této knihovně jsou rozdělené na:
-* Obecné funkce = fungují pro všechny typy hodnot
-* Lokální funkce = fungují pro konkrétní typ hodnoty
+Základní funkce v této knihovně jsou rozdělené na:
+- [obecné funkce](#general_function) = fungují pro všechny typy hodnot
+- [lokální funkce podle typu](#local_function_by_type) = fungují pro konkrétní typ hodnoty
 
 --------------------
 
+<a name="general_function"></a>
 ## Obecné funkce
 
 > Pokud pracujete s proměnnými s různými nebo obecnými typy hodnoty použijte **obecné funkce**.
 
-Příklad **obecné funkce**:
-``` javaScript
+Použití **obecné funkce**:
+``` javascript
 import { compare, utilsCommon } from 'dh-utils-common';
 
 compare(0,0); // 0
@@ -32,50 +33,92 @@ utilsCommon.compare(false, 0); // -1
 ```
 
 <a name="splitFceGeneral"></a>
-> Seznam **obecné funkce**: [compare](#api_common_compare), [compareReferences](#api_common_compareReferences), [copy](#api_common_copy), [equal](#api_common_equal), [isArray](#api_common_isArray), [isBoolean](#api_common_isBoolean), [isDate](#api_common_isDate), [isDefined](#api_common_isDefined), [isEmpty](#api_common_isEmpty), [isFunction](#api_common_isFunction), [isNotArray](#api_common_isNotArray), [isNotDefined](#api_common_isNotDefined), [isNotEmpty](#api_common_isNotEmpty), [isNotNull](#api_common_isNotNull), [isNumber](#api_common_isNumber), [isNull](#api_common_isNull), [isObject](#api_common_isObject), [isPrimitive](#api_common_isPrimitive), [isRegExp](#api_common_isRegExp), [isString](#api_common_isString), [isStringEmpty](#api_common_isStringEmpty), [isStringNotEmpty](#api_common_isStringNotEmpty), [isSymbol](#api_common_isSymbol), [isUndefined](#api_common_isUndefined), [notEqual](#api_common_notEqual)
+Seznam **obecné funkce**: [compare](#api_common_compare), [compareReferences](#api_common_compareReferences), [copy](#api_common_copy), [equal](#api_common_equal), [isArray](#api_common_isArray), [isBoolean](#api_common_isBoolean), [isDate](#api_common_isDate), [isDefined](#api_common_isDefined), [isEmpty](#api_common_isEmpty), [isFunction](#api_common_isFunction), [isNotArray](#api_common_isNotArray), [isNotDefined](#api_common_isNotDefined), [isNotEmpty](#api_common_isNotEmpty), [isNotNull](#api_common_isNotNull), [isNumber](#api_common_isNumber), [isNull](#api_common_isNull), [isObject](#api_common_isObject), [isPrimitive](#api_common_isPrimitive), [isRegExp](#api_common_isRegExp), [isString](#api_common_isString), [isStringEmpty](#api_common_isStringEmpty), [isStringNotEmpty](#api_common_isStringNotEmpty), [isSymbol](#api_common_isSymbol), [isUndefined](#api_common_isUndefined), [notEqual](#api_common_notEqual)
 
 --------------------
 
-## Lokální Funkce podle typu
+<a name="local_function_by_type"></a>
+## Lokální funkce podle typu
 
 > Pokud pracujete s proměnnými s konkrétním typem hodnoty použijte **lokální funkce podle typu**.
 
-> Základní lokální funkce jsou 4 : compare, copy, equal, is.
-* Lokální funkce **compare(a, b)** = porovná typ hodnoty.
-Vrací hodnoty: -1 (a < b) | 0 (a = b) | 1 (a < b)
-* Lokální funkce **copy(a)** = vytvoří kopii. V případě složité datové struktury, to bude hluboká kopie.
-* Lokální funkce **equal(a, b)** = porovná typ hodnoty. Vrací hodnoty true nebo false.
-* Lokální funkce **is(a)** = kontrola zda je daná proměnná daného typu hodnoty? Vrací hodnoty true nebo false.
-
-
-Příklad **lokální funkce podle typu**:
+Použití **lokální funkce podle typu**:
 ``` javascript
 import { utilsArray } from 'dh-utils-common';
 
 utilsArray.compare([1,2,3],[1,2,3]) // 0
 ```
 
+Základní lokální funkce jsou čtyři : [compare](#local_function_compare), [copy](#local_function_copy), [equal](#local_function_equal), [is](#local_function_is)
+
+<a name="local_function_compare"></a>
+### Lokální funkce compare(a,b)
+Lokální funkce **compare(a,b)** = porovná typ hodnoty. Vrací hodnoty: -1 (a < b) | 0 (a = b) | 1 (a < b).
+
+Použití lokální funkce **compare**:
+``` javascript
+import { utilsString } from 'dh-utils-common'
+
+utilsString.compare("ABC","ABC"); // 0
+utilsString.compare("ABC","ZXY"); // -1
+```
+
+<a name="local_function_copy"></a>
+### Lokální funkce **copy(a)**
+
+Lokální funkce **copy(a)** = vytvoří kopii. V případě složité datové struktury, to je hluboká kopie.
+
+Použití lokální funkce **copy**:
+``` javascript
+import { utilsArray } from 'dh-utils-common';
+
+utilsArray.copy([1,2,3]); // [1,2,3]
+```
+
+<a name="local_function_equal"></a>
+### Lokální funkce **equal(a,b)**
+Lokální funkce **equal(a,b)** = porovná typ hodnoty. Vrací hodnoty true nebo false.
+
+Použití lokální funkce **equal**:
+``` javascript
+import { utilsArray } from 'dh-utils-common';
+
+utilsString.equal("ABC","ZXY"); // false
+```
+
+<a name="local_function_is"></a>
+### Lokální funkce **is(a)**
+Lokální funkce **is(a)** = kontrola zda je daná proměnná daného typu hodnoty? Vrací hodnoty true nebo false.
+
+Použití lokální funkce **is**:
+``` javascript
+import { utilsString } from 'dh-utils-common';
+
+utilsString.is("ABC"); // true
+utilsString.is(0); // false
+```
+
 <a name="splitFceType"></a>
-> Seznam **lokální funkce podle typu**:
-  - Array : [compare](#api_byTypeArray_compare), [copy](#api_byTypeArray_copy), [equal](#api_byTypeArray_equal), [is](#api_byTypeArray_is)
-  - Boolean : [compare](#api_byTypeBoolean_compare), [copy](#api_byTypeBoolean_copy), [equal](#api_byTypeBoolean_equal), [is](#api_byTypeBoolean_is)
-  - Date : [compare](#api_byTypeDate_compare), [copy](#api_byTypeDate_copy), [equal](#api_byTypeDate_equal), [is](#api_byTypeDate_is)
-  - Function : [compare](#api_byTypeFunction_compare), [copy](#api_byTypeFunction_copy), [equal](#api_byTypeFunction_equal), [is](#api_byTypeFunction_is)
-  - Number : [compare](#api_byTypeNumber_compare), [copy](#api_byTypeNumber_copy), [equal](#api_byTypeNumber_equal), [is](#api_byTypeNumber_is)
-  - Null : [compare](#api_byTypeNull_compare), [copy](#api_byTypeNull_copy), [equal](#api_byTypeNull_equal), [is](#api_byTypeNull_is)
-  - Object : [compare](#api_byTypeObject_compare), [copy](#api_byTypeObject_copy), [equal](#api_byTypeObject_equal), [is](#api_byTypeObject_is)
-  - RegExp : [compare](#api_byTypeRegExp_compare), [copy](#api_byTypeRegExp_copy), [equal](#api_byTypeRegExp_equal), [is](#api_byTypeRegExp_is)
-  - String : [compare](#api_byTypeString_compare), [copy](#api_byTypeString_copy), [equal](#api_byTypeString_equal), [is](#api_byTypeString_is), [isNumeric](#api_byTypeString_isNumeric)
-  - Symbol : [compare](#api_byTypeSymbol_compare), [copy](#api_byTypeSymbol_copy), [equal](#api_byTypeSymbol_equal), [is](#api_byTypeSymbol_is)
-  - Undefined : [compare](#api_byTypeUndefined_compare), [copy](#api_byTypeUndefined_copy), [equal](#api_byTypeUndefined_equal), [is](#api_byTypeUndefined_is)
+Seznam **lokální funkce podle typu**:
+- Array : [compare](#api_byTypeArray_compare), [copy](#api_byTypeArray_copy), [equal](#api_byTypeArray_equal), [is](#api_byTypeArray_is)
+- Boolean : [compare](#api_byTypeBoolean_compare), [copy](#api_byTypeBoolean_copy), [equal](#api_byTypeBoolean_equal), [is](#api_byTypeBoolean_is)
+- Date : [compare](#api_byTypeDate_compare), [copy](#api_byTypeDate_copy), [equal](#api_byTypeDate_equal), [is](#api_byTypeDate_is)
+- Function : [compare](#api_byTypeFunction_compare), [copy](#api_byTypeFunction_copy), [equal](#api_byTypeFunction_equal), [is](#api_byTypeFunction_is)
+- Number : [compare](#api_byTypeNumber_compare), [copy](#api_byTypeNumber_copy), [equal](#api_byTypeNumber_equal), [is](#api_byTypeNumber_is)
+- Null : [compare](#api_byTypeNull_compare), [copy](#api_byTypeNull_copy), [equal](#api_byTypeNull_equal), [is](#api_byTypeNull_is)
+- Object : [compare](#api_byTypeObject_compare), [copy](#api_byTypeObject_copy), [equal](#api_byTypeObject_equal), [is](#api_byTypeObject_is)
+- RegExp : [compare](#api_byTypeRegExp_compare), [copy](#api_byTypeRegExp_copy), [equal](#api_byTypeRegExp_equal), [is](#api_byTypeRegExp_is)
+- String : [compare](#api_byTypeString_compare), [copy](#api_byTypeString_copy), [equal](#api_byTypeString_equal), [is](#api_byTypeString_is), [isNumeric](#api_byTypeString_isNumeric)
+- Symbol : [compare](#api_byTypeSymbol_compare), [copy](#api_byTypeSymbol_copy), [equal](#api_byTypeSymbol_equal), [is](#api_byTypeSymbol_is)
+- Undefined : [compare](#api_byTypeUndefined_compare), [copy](#api_byTypeUndefined_copy), [equal](#api_byTypeUndefined_equal), [is](#api_byTypeUndefined_is)
 
 --------------------
 
 ## Práce se specifickými typy hodnoty
 
-Ve vyjimečném případě budete chtít použít základní funkce nad vámi speciálně vytvořenými typy. Ano, je to možné. Tyto **obecné funkce** compare, copy, equal, is mají i 3 parametr funkce, kterými můžete upravit nad kterými typy hodnot chcete základní funkcionalitu provádět.
+Ve vyjimečném případě budete chtít použít základní funkce nad vámi speciálně vytvořenými typy. Ano, je to možné. Tyto **obecné funkce** compare, copy, equal, is mají i třetí parametr funkce, kterými můžete upravit nad kterými typy hodnot chcete základní funkcionalitu provádět.
 
-Příklad budeme mít speciální datové struktury / speciální typy hodnot "Car" a "Airplane". Tyto typy hodnot se liší atributem "model". Speciání typ hodnoty "Car" může tedy mýt model = "Honda" nebo "Suzuki". Speciání typ hodnoty "Airplane" může tedy mýt model = "Mig" nebo "F16":
+Příklad: Budeme mít speciální datové struktury / speciální typy hodnot "Car" a "Airplane". Tyto typy hodnot se liší atributem "model". Speciání typ hodnoty "Car" může tedy mýt model = "Honda" nebo "Suzuki". Speciání typ hodnoty "Airplane" může tedy mýt model = "Mig" nebo "F16":
 
 ``` javascript
 import { compare } from "dh-utils-common";
@@ -132,7 +175,6 @@ compare(airplaneIljusin, carSuzuki, listTypeValues); // -1
 compare(carSuzuki, carHonda, listTypeValues); // -1
 compare(carHonda, carHonda2, listTypeValues); // 0
 ```
-
 --------------------
 
 ## API - Obecné funkce
@@ -143,7 +185,7 @@ compare(carHonda, carHonda2, listTypeValues); // 0
 - **návratový typ** : {number} -1|0|1
 - **parametr a** : {any}
 - **parametr b** : {any}
-- **parametr b** : {array} list typ hodnot
+- **parametr c** : {array} list typ hodnot; specifické využití
 
 *použití* :
 ~~~javascript
@@ -614,7 +656,7 @@ notEqual([0,1,2,3,[0,1,2]],[0,1,2,3,[0,2,1]]); // true
 --------------------
 
 <a name="api_byTypeArray"></a>
-## [⌂](#splitFceType) API Funkce podle datového typu Array
+## [⌂](#splitFceType) API - Funkce podle datového typu Array
 
 <a name="api_byTypeArray_compare"></a>
 ### [⌂](#splitFceType) compare(array,array) : number
@@ -1129,7 +1171,7 @@ utilsString.compare("ABC","ZXY"); // -1
 
 <a name="api_byTypeString_copy"></a>
 ### [⌂](#splitFceType) copy(string) : boolean
-- **popis** : kopie boolean
+- **popis** : kopie string
 - **návratový typ** : {boolean}
 - **parametr target** : {boolean}
 
@@ -1248,7 +1290,7 @@ utilsUndefined.compare(undefined,undefined); // 0
 
 <a name="api_byTypeUndefined_copy"></a>
 ### [⌂](#splitFceType) copyundefined) : undefined
-- **popis** : kopie undefned
+- **popis** : kopie undefined
 - **návratový typ** : {undefned}
 - **parametr target** : {undefned}
 
