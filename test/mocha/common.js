@@ -130,15 +130,15 @@ describe("common : method compare", () => {
     const utilsAirplane = {
       _class: "airplane",
       compare: _comp,
-      is: function (a) {
-        return a.type === "airplane";
+      is: function (someAirplane) {
+        return someAirplane.type === "airplane";
       },
     };
     const utilsCar = {
       _class: "car",
       compare: _comp,
-      is: function (a) {
-        return a.type === "car";
+      is: function (someCar) {
+        return someCar.type === "car";
       },
     };
     const ClassAirplane = class Airplane {
