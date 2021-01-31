@@ -67,7 +67,7 @@ describe("common : method compare", () => {
     assert.equal(compare([], []), 0, "compare(array,array) === 0");
     a1 = [0, 1, 2, 3, 4];
     a2 = a1;
-    assert.equal(compare([], []), 0, "compare(array,array) === 0");
+    assert.equal(compare(a1, a2), 0, "compare(array,array) === 0");
     a1 = [0, 1, 2, 3, 4];
     a2 = [0, 1, 2, 3, 4];
     assert.equal(compare(a1, a2), 0, "compare(array,array) === 0");
@@ -127,8 +127,8 @@ describe("common : method compare", () => {
       compare: function (a, b) {
         return a.model.localeCompare(b.model);
       },
-      is: function (a) {
-        return a.type === "airplane";
+      is: function (c) {
+        return c.type === "airplane";
       },
     };
     const utilsCar = {
@@ -136,8 +136,8 @@ describe("common : method compare", () => {
       compare: function (a, b) {
         return a.model.localeCompare(b.model);
       },
-      is: function (a) {
-        return a.type === "car";
+      is: function (c) {
+        return c.type === "car";
       },
     };
     const ClassAirplane = class Airplane {
