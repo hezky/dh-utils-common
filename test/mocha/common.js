@@ -22,6 +22,8 @@ import {
   isString,
   isStringEmpty,
   isStringNotEmpty,
+  isUndefined,
+  notEqual,
   utilsNumber,
   utilsString,
 } from "";
@@ -125,18 +127,19 @@ describe("common : method compare", () => {
     const _comp = function (a, b) {
       return a.model.localeCompare(b.model);
     };
-    const _is = function (a) {
-      return a.type === "car";
-    };
     const utilsAirplane = {
-      _class: "Airplane",
+      _class: "airplane",
       compare: _comp,
-      is: _is,
+      is: function (a) {
+        return a.type === "airplane";
+      },
     };
     const utilsCar = {
-      _class: "Car",
+      _class: "car",
       compare: _comp,
-      is: _is,
+      is: function (a) {
+        return a.type === "car";
+      },
     };
     const ClassAirplane = class Airplane {
       constructor(model) {
@@ -657,5 +660,88 @@ describe("common : method isStringNotEmpty", () => {
     assert.notOk(isStringNotEmpty(undefined));
     assert.notOk(isStringNotEmpty([]));
     assert.notOk(isStringNotEmpty({}));
+  });
+});
+
+describe("common : method isUndefined", () => {
+  it("isUndefined : true", () => {
+    assert.ok(isUndefined(undefined));
+  });
+  it("isUndefined : false", () => {
+    assert.notOk(isUndefined(null));
+    assert.notOk(isUndefined(""));
+    assert.notOk(isUndefined(true));
+    assert.notOk(isUndefined(false));
+    assert.notOk(isUndefined({}));
+    assert.notOk(isUndefined([]));
+    assert.notOk(isUndefined(0));
+    assert.notOk(isUndefined(() => {}));
+  });
+});
+
+describe("common : method not equal", () => {
+  it("notEqual : symple type - false", () => {
+    assert.notOk(notEqual(null, null), "null === null");
+    assert.notOk(notEqual(undefined, undefined), "undefined === undefined");
+    assert.notOk(notEqual(0, 0), "0 === 0");
+    assert.notOk(notEqual(5, 5), "5 === 5");
+    assert.notOk(notEqual(5.5, 5.5), "5.5 === 5.5");
+    assert.notOk(notEqual(-32, -32), "-32 === -32");
+    assert.notOk(notEqual("ahoj", "ahoj"), '"ahoj" === "ahoj"');
+    assert.notOk(notEqual(false, false), "false === false");
+    assert.notOk(notEqual(true, true), "true === true");
+    assert.notOk(
+      notEqual(new Date(2015, 1, 1), new Date(2015, 1, 1)),
+      "date === date"
+    );
+    assert.notOk(notEqual(/\w+/, /\w+/), "regExp === regExp");
+  });
+  it("notEqual : symple type - true", () => {
+    assert.ok(notEqual(null, 5));
+    assert.ok(notEqual(null, 0));
+    assert.ok(notEqual(undefined, 5));
+    assert.ok(notEqual(undefined, 0));
+    assert.ok(notEqual(0, 2));
+    assert.ok(notEqual(5, -5));
+    assert.ok(notEqual(-32, -30));
+    assert.ok(notEqual("ahoj", "ahj"));
+    assert.ok(notEqual(false, true));
+    assert.ok(notEqual(false, 0));
+    assert.ok(notEqual(new Date(2015, 1, 2), new Date(2015, 1, 1)));
+  });
+  it("notEqual : array, object type - true", () => {
+    assert.notOk(notEqual([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
+    assert.notOk(notEqual([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
+    assert.notOk(notEqual([0, 1, 2, 3, [0, 1, 2]], [0, 1, 2, 3, [0, 1, 2]]));
+    assert.notOk(notEqual({ a: 5, b: 1, c: 2 }, { a: 5, b: 1, c: 2 }));
+    assert.notOk(notEqual({ a: 0, b: 1, c: 2 }, { c: 2, b: 1, a: 0 }));
+    assert.notOk(
+      notEqual(
+        { d: { a: 1, b: 1 }, a: 0, b: 1 },
+        { a: 0, b: 1, d: { a: 1, b: 1 } }
+      )
+    );
+    assert.notOk(
+      notEqual(
+        [0, 1, 2, 3, { a: 0, b: 1, c: 2 }],
+        [0, 1, 2, 3, { a: 0, b: 1, c: 2 }]
+      )
+    );
+  });
+  it("notEqual : array, object type - false", () => {
+    assert.ok(notEqual([0, 1, 2, 3], [0, 1, 2, 3, 4]));
+    assert.ok(notEqual({ a: 0, b: 1, c: 2 }, { a: 0, b: 0, c: 2 }));
+    assert.ok(
+      notEqual(
+        { d: { a: 2, b: 1 }, a: 0, b: 1 },
+        { a: 0, b: 1, d: { a: 1, b: 1 } }
+      )
+    );
+    assert.ok(
+      notEqual(
+        [0, 1, 2, 3, { a: 0, b: 1, c: 2 }],
+        [0, 1, 2, 3, { a: 0, b: 3, c: 2 }]
+      )
+    );
   });
 });
