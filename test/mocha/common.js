@@ -122,23 +122,21 @@ describe("common : method compare", () => {
   });
 
   it("compare : throw TypeError Specific type", () => {
+    const _comp = function (a, b) {
+      return a.model.localeCompare(b.model);
+    };
+    const _is = function (a) {
+      return a.type === "car";
+    };
     const utilsAirplane = {
       _class: "Airplane",
-      compare: function (a, b) {
-        return a.model.localeCompare(b.model);
-      },
-      is: function (c) {
-        return c.type === "airplane";
-      },
+      compare: _comp,
+      is: _is,
     };
     const utilsCar = {
       _class: "Car",
-      compare: function (a, b) {
-        return a.model.localeCompare(b.model);
-      },
-      is: function (c) {
-        return c.type === "car";
-      },
+      compare: _comp,
+      is: _is,
     };
     const ClassAirplane = class Airplane {
       constructor(model) {
