@@ -63,6 +63,8 @@ const isEmpty = (val) =>
   isNotDefined(val) ||
   (isString(val) || isArray(val)
     ? val.length === 0
+    : isDate(val)
+    ? false
     : isObject(val)
     ? isEmptyObject(val)
     : false);
