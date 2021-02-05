@@ -126,7 +126,7 @@ describe("string : method isEmpty", () => {
 
 describe("string : method isNotEmpty", () => {
   it("isNotEmpty : true", () => {
-    assert.isTrue(utilsArray.isNotEmpty([1,2,3]));
+    assert.isTrue(utilsArray.isNotEmpty([1, 2, 3]));
   });
   it("isNotEmpty : false", () => {
     assert.isFalse(utilsArray.isNotEmpty([]));

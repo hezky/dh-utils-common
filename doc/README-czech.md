@@ -100,7 +100,7 @@ utilsString.is(0); // false
 
 <a name="splitFceType"></a>
 Seznam **lokální funkce podle typu**:
-- Array : [compare](#api_byTypeArray_compare), [copy](#api_byTypeArray_copy), [equal](#api_byTypeArray_equal), [is](#api_byTypeArray_is)
+- Array : [compare](#api_byTypeArray_compare), [copy](#api_byTypeArray_copy), [equal](#api_byTypeArray_equal), [is](#api_byTypeArray_is), [isEmpty](#api_byTypeArray_isEmpty), [isNotEmpty](#api_byTypeArray_isNotEmpty),
 - Boolean : [compare](#api_byTypeBoolean_compare), [copy](#api_byTypeBoolean_copy), [equal](#api_byTypeBoolean_equal), [is](#api_byTypeBoolean_is)
 - Date : [compare](#api_byTypeDate_compare), [copy](#api_byTypeDate_copy), [equal](#api_byTypeDate_equal), [is](#api_byTypeDate_is)
 - Function : [compare](#api_byTypeFunction_compare), [copy](#api_byTypeFunction_copy), [equal](#api_byTypeFunction_equal), [is](#api_byTypeFunction_is)
@@ -108,7 +108,7 @@ Seznam **lokální funkce podle typu**:
 - Null : [compare](#api_byTypeNull_compare), [copy](#api_byTypeNull_copy), [equal](#api_byTypeNull_equal), [is](#api_byTypeNull_is)
 - Object : [compare](#api_byTypeObject_compare), [copy](#api_byTypeObject_copy), [equal](#api_byTypeObject_equal), [is](#api_byTypeObject_is), [isEmpty](#api_byTypeObject_isEmpty), [isNotEmpty](#api_byTypeObject_isNotEmpty)
 - RegExp : [compare](#api_byTypeRegExp_compare), [copy](#api_byTypeRegExp_copy), [equal](#api_byTypeRegExp_equal), [is](#api_byTypeRegExp_is)
-- String : [compare](#api_byTypeString_compare), [copy](#api_byTypeString_copy), [equal](#api_byTypeString_equal), [is](#api_byTypeString_is), [isNumeric](#api_byTypeString_isNumeric)
+- String : [compare](#api_byTypeString_compare), [copy](#api_byTypeString_copy), [equal](#api_byTypeString_equal), [is](#api_byTypeString_is), [isEmpty](#api_byTypeString_isEmpty), [isNotEmpty](#api_byTypeString_isNotEmpty), [isNumeric](#api_byTypeString_isNumeric)
 - Symbol : [compare](#api_byTypeSymbol_compare), [copy](#api_byTypeSymbol_copy), [equal](#api_byTypeSymbol_equal), [is](#api_byTypeSymbol_is)
 - Undefined : [compare](#api_byTypeUndefined_compare), [copy](#api_byTypeUndefined_copy), [equal](#api_byTypeUndefined_equal), [is](#api_byTypeUndefined_is)
 
@@ -680,6 +680,34 @@ utilsArray.is(5); // false
 utilsArray.is([]); // true
 ~~~
 
+<a name="api_byTypeArray_isEmpty"></a>
+### [⌂](#splitFceType) isEmpty(array) : boolean
+- **popis** : je array prázdný?
+- **return type** : {boolean}
+- **parametr a** : {array}
+
+*usage* :
+~~~javascript
+import { utilsArray } from 'dh-utils-common';
+
+utilsArray.isEmpty([1, 2, 3]); // false
+utilsArray.isEmpty([]); // true
+~~~
+
+<a name="api_byTypeArray_isNotEmpty"></a>
+### [⌂](#splitFceType) isNotEmpty(array) : boolean
+- **popis** : není array prázdný?
+- **return type** : {boolean}
+- **parametr a** : {array}
+
+*usage* :
+~~~javascript
+import { utilsArray } from 'dh-utils-common';
+
+utilsArray.isNotEmpty([1, 2, 3]); // false
+utilsArray.isNotEmpty([]); // true
+~~~
+
 --------------------
 
 <a name="api_byTypeBoolean"></a>
@@ -1202,6 +1230,34 @@ import { utilsString } from 'dh-utils-common';
 
 utilsString.is("abc"); // true
 utilsString.is(0); // false
+~~~
+
+<a name="api_byTypeString_isEmpty"></a>
+### [⌂](#splitFceType) isEmpty(string) : boolean
+- **popis** : je string prázdný?
+- **return type** : {boolean}
+- **parametr a** : {string}
+
+*usage* :
+~~~javascript
+import { utilsString } from 'dh-utils-common';
+
+utilsString.isEmpty("abc"); // false
+utilsString.isEmpty(""); // true
+~~~
+
+<a name="api_byTypeString_isNotEmpty"></a>
+### [⌂](#splitFceType) isNotEmpty(string) : boolean
+- **popis** : není string prázdný?
+- **return type** : {boolean}
+- **parametr a** : {string}
+
+*usage* :
+~~~javascript
+import { utilsString } from 'dh-utils-common';
+
+utilsString.isNotEmpty("abc"); // false
+utilsString.isNotEmpty(""); // true
 ~~~
 
 --------------------
