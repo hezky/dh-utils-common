@@ -61,8 +61,10 @@ const isDefined = (val) => !isUndefined(val) && !isNull(val);
 
 const isEmpty = (val) =>
   isNotDefined(val) ||
-  (isString(val) || isArray(val)
-    ? val.length === 0
+  (isString(val)
+    ? utilsString.isEmpty(val)
+    : isArray(val)
+    ? utilsArray.isEmpty(val)
     : isDate(val)
     ? false
     : isObject(val)
@@ -91,10 +93,6 @@ const isRegExp = (val) => utilsRegExp.is(val);
 
 const isString = (val) => utilsString.is(val);
 
-const isStringEmpty = (val) => isString(val) && val.length === 0;
-
-const isStringNotEmpty = (val) => isString(val) && val.length !== 0;
-
 const isSymbol = (val) => utilsSymbol.is(val);
 
 const isUndefined = (val) => utilsUndefined.is(val);
@@ -122,8 +120,6 @@ export {
   isPrimitive,
   isRegExp,
   isString,
-  isStringEmpty,
-  isStringNotEmpty,
   isSymbol,
   isUndefined,
   notEqual,

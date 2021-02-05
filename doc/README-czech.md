@@ -33,7 +33,7 @@ utilsCommon.compare(false, 0); // -1
 ```
 
 <a name="splitFceGeneral"></a>
-Seznam **obecné funkce**: [compare](#api_common_compare), [compareReferences](#api_common_compareReferences), [copy](#api_common_copy), [equal](#api_common_equal), [isArray](#api_common_isArray), [isBoolean](#api_common_isBoolean), [isDate](#api_common_isDate), [isDefined](#api_common_isDefined), [isEmpty](#api_common_isEmpty), [isFunction](#api_common_isFunction), [isNotArray](#api_common_isNotArray), [isNotDefined](#api_common_isNotDefined), [isNotEmpty](#api_common_isNotEmpty), [isNotNull](#api_common_isNotNull), [isNumber](#api_common_isNumber), [isNull](#api_common_isNull), [isObject](#api_common_isObject), [isPrimitive](#api_common_isPrimitive), [isRegExp](#api_common_isRegExp), [isString](#api_common_isString), [isStringEmpty](#api_common_isStringEmpty), [isStringNotEmpty](#api_common_isStringNotEmpty), [isSymbol](#api_common_isSymbol), [isUndefined](#api_common_isUndefined), [notEqual](#api_common_notEqual)
+Seznam **obecné funkce**: [compare](#api_common_compare), [compareReferences](#api_common_compareReferences), [copy](#api_common_copy), [equal](#api_common_equal), [isArray](#api_common_isArray), [isBoolean](#api_common_isBoolean), [isDate](#api_common_isDate), [isDefined](#api_common_isDefined), [isEmpty](#api_common_isEmpty), [isFunction](#api_common_isFunction), [isNotArray](#api_common_isNotArray), [isNotDefined](#api_common_isNotDefined), [isNotEmpty](#api_common_isNotEmpty), [isNotNull](#api_common_isNotNull), [isNumber](#api_common_isNumber), [isNull](#api_common_isNull), [isObject](#api_common_isObject), [isPrimitive](#api_common_isPrimitive), [isRegExp](#api_common_isRegExp), [isString](#api_common_isString), [isSymbol](#api_common_isSymbol), [isUndefined](#api_common_isUndefined), [notEqual](#api_common_notEqual)
 
 --------------------
 
@@ -559,40 +559,6 @@ utilsCommon.isString("abc"); // true
 
 isString("Hellloo"); // true
 isString(3);  // false
-~~~
-
-<a name="api_common_isStringEmpty"></a>
-### [⌂](#splitFceGeneral) isStringEmpty(any) : boolean
-- **popis** : je hodnota typu string a zároveň prázdný řetězec?
-- **návratový typ** : {boolean} true|false
-- **parametr a** : {any}
-
-*použití* :
-~~~javascript
-import { isStringEmpty, utilsCommon } from 'dh-utils-common';
-
-isStringEmpty("abc"); // false
-// or
-utilsCommon.isStringEmpty("abc"); // false
-
-isStringEmpty(""); // true
-~~~
-
-<a name="api_common_isStringNotEmpty"></a>
-### [⌂](#splitFceGeneral) isStringNotEmpty(any) : boolean
-- **popis** : je hodnota typu string a zároveň není prázdný řetězec?
-- **návratový typ** : {boolean} true|false
-- **parametr a** : {any}
-
-*použití* :
-~~~javascript
-import { isStringNotEmpty, utilsCommon } from 'dh-utils-common';
-
-isStringNotEmpty("abc"); // true
-// or
-utilsCommon.isStringNotEmpty("abc"); // true
-
-isStringEmpty(""); // false
 ~~~
 
 <a name="api_common_isSymbol"></a>

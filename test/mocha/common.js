@@ -20,8 +20,6 @@ import {
   isPrimitive,
   isRegExp,
   isString,
-  isStringEmpty,
-  isStringNotEmpty,
   isUndefined,
   notEqual,
   utilsNumber,
@@ -207,22 +205,22 @@ describe("common : method copy", () => {
   it("copy : object type", () => {
     const a = {};
     const b = copy(a);
-    assert.notOk(a === b, "check reference");
+    assert.isFalse(a === b, "check reference");
     assert.deepEqual(a, b, "empty object");
     assert.deepEqual({ a: 1, b: 2, c: 3 }, { a: 1, b: 2, c: 3 }, "object");
   });
   it("copy : array type", () => {
     const a = [];
     const b = copy(a);
-    assert.notOk(a === b, "check reference");
+    assert.isFalse(a === b, "check reference");
     assert.deepEqual(a, b, "empty array");
     assert.deepEqual(copy([1, 2, 3]), [1, 2, 3], "array");
   });
   it("copy : date type", () => {
     const a = new Date(2015, 5, 5);
     const b = copy(a);
-    assert.notOk(a === b, "check reference");
-    assert.ok((a.valueOf(), b.valueOf()), "date");
+    assert.isFalse(a === b, "check reference");
+    assert.equal(a.valueOf(), b.valueOf(), "date");
   });
   it("copy : deep copy", () => {
     const a = {
@@ -231,7 +229,7 @@ describe("common : method copy", () => {
       c: new Date(2015, 3, 5),
     };
     const b = copy(a);
-    assert.notOk(a === b, "check reference");
+    assert.isFalse(a === b, "check reference");
     assert.deepEqual(a, b, "deep copy");
   });
   it("copy : throw TypeError Unknown type", () => {
@@ -261,47 +259,47 @@ describe("common : method copy", () => {
 
 describe("common : method equal", () => {
   it("equal : simple type true", () => {
-    assert.ok(equal(null, null), "null === null");
-    assert.ok(equal(undefined, undefined), "undefined === undefined");
-    assert.ok(equal(0, 0), "0 === 0");
-    assert.ok(equal(5, 5), "5 === 5");
-    assert.ok(equal(5.5, 5.5), "5.5 === 5.5");
-    assert.ok(equal(-32, -32), "-32 === -32");
-    assert.ok(equal("ahoj", "ahoj"), '"ahoj" === "ahoj"');
-    assert.ok(equal(false, false), "false === false");
-    assert.ok(equal(true, true), "true === true");
-    assert.ok(
+    assert.isTrue(equal(null, null), "null === null");
+    assert.isTrue(equal(undefined, undefined), "undefined === undefined");
+    assert.isTrue(equal(0, 0), "0 === 0");
+    assert.isTrue(equal(5, 5), "5 === 5");
+    assert.isTrue(equal(5.5, 5.5), "5.5 === 5.5");
+    assert.isTrue(equal(-32, -32), "-32 === -32");
+    assert.isTrue(equal("ahoj", "ahoj"), '"ahoj" === "ahoj"');
+    assert.isTrue(equal(false, false), "false === false");
+    assert.isTrue(equal(true, true), "true === true");
+    assert.isTrue(
       equal(new Date(2015, 1, 1), new Date(2015, 1, 1)),
       "date === date"
     );
-    assert.ok(equal(/\w+/, /\w+/), "regExp === regExp");
+    assert.isTrue(equal(/\w+/, /\w+/), "regExp === regExp");
   });
   it("equal : simple type false", () => {
-    assert.notOk(equal(null, 5));
-    assert.notOk(equal(null, 0));
-    assert.notOk(equal(undefined, 5));
-    assert.notOk(equal(undefined, 0));
-    assert.notOk(equal(0, 2));
-    assert.notOk(equal(5, -5));
-    assert.notOk(equal(-32, -30));
-    assert.notOk(equal("ahoj", "ahj"));
-    assert.notOk(equal(false, true));
-    assert.notOk(equal(false, 0));
-    assert.notOk(equal(new Date(2015, 1, 2), new Date(2015, 1, 1)));
+    assert.isFalse(equal(null, 5));
+    assert.isFalse(equal(null, 0));
+    assert.isFalse(equal(undefined, 5));
+    assert.isFalse(equal(undefined, 0));
+    assert.isFalse(equal(0, 2));
+    assert.isFalse(equal(5, -5));
+    assert.isFalse(equal(-32, -30));
+    assert.isFalse(equal("ahoj", "ahj"));
+    assert.isFalse(equal(false, true));
+    assert.isFalse(equal(false, 0));
+    assert.isFalse(equal(new Date(2015, 1, 2), new Date(2015, 1, 1)));
   });
   it("equal : array, object type true", () => {
-    assert.ok(equal([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
-    assert.ok(equal([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
-    assert.ok(equal([0, 1, 2, 3, [0, 1, 2]], [0, 1, 2, 3, [0, 1, 2]]));
-    assert.ok(equal({ a: 5, b: 1, c: 2 }, { a: 5, b: 1, c: 2 }));
-    assert.ok(equal({ a: 0, b: 1, c: 2 }, { c: 2, b: 1, a: 0 }));
-    assert.ok(
+    assert.isTrue(equal([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
+    assert.isTrue(equal([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
+    assert.isTrue(equal([0, 1, 2, 3, [0, 1, 2]], [0, 1, 2, 3, [0, 1, 2]]));
+    assert.isTrue(equal({ a: 5, b: 1, c: 2 }, { a: 5, b: 1, c: 2 }));
+    assert.isTrue(equal({ a: 0, b: 1, c: 2 }, { c: 2, b: 1, a: 0 }));
+    assert.isTrue(
       equal(
         { d: { a: 1, b: 1 }, a: 0, b: 1 },
         { a: 0, b: 1, d: { a: 1, b: 1 } }
       )
     );
-    assert.ok(
+    assert.isTrue(
       equal(
         [0, 1, 2, 3, { a: 0, b: 1, c: 2 }],
         [0, 1, 2, 3, { a: 0, b: 1, c: 2 }]
@@ -309,15 +307,15 @@ describe("common : method equal", () => {
     );
   });
   it("equal : array, object type false", () => {
-    assert.notOk(equal([0, 1, 2, 3], [0, 1, 2, 3, 4]));
-    assert.notOk(equal({ a: 0, b: 1, c: 2 }, { a: 0, b: 0, c: 2 }));
-    assert.notOk(
+    assert.isFalse(equal([0, 1, 2, 3], [0, 1, 2, 3, 4]));
+    assert.isFalse(equal({ a: 0, b: 1, c: 2 }, { a: 0, b: 0, c: 2 }));
+    assert.isFalse(
       equal(
         { d: { a: 2, b: 1 }, a: 0, b: 1 },
         { a: 0, b: 1, d: { a: 1, b: 1 } }
       )
     );
-    assert.notOk(
+    assert.isFalse(
       equal(
         [0, 1, 2, 3, { a: 0, b: 1, c: 2 }],
         [0, 1, 2, 3, { a: 0, b: 3, c: 2 }]
@@ -351,217 +349,217 @@ describe("common : method equal", () => {
 
 describe("common : method isArray", () => {
   it("isArray : true", () => {
-    assert.ok(isArray([]), "isArray true : empty array");
-    assert.ok(isArray([1, 2, 3]), "isArray true : array");
-    assert.ok(isArray(new Array()), "isArray true : empty array new");
+    assert.isTrue(isArray([]), "isArray true : empty array");
+    assert.isTrue(isArray([1, 2, 3]), "isArray true : array");
+    assert.isTrue(isArray(new Array()), "isArray true : empty array new");
   });
   it("isArray : false", () => {
-    assert.notOk(isArray(undefined), "");
-    assert.notOk(isArray(null));
-    assert.notOk(isArray("a"));
-    assert.notOk(isArray(3));
-    assert.notOk(isArray({}));
-    assert.notOk(isArray(new Object()));
-    assert.notOk(isArray(() => {}));
-    assert.notOk(isArray(false));
-    assert.notOk(isArray(true));
+    assert.isFalse(isArray(undefined), "");
+    assert.isFalse(isArray(null));
+    assert.isFalse(isArray("a"));
+    assert.isFalse(isArray(3));
+    assert.isFalse(isArray({}));
+    assert.isFalse(isArray(new Object()));
+    assert.isFalse(isArray(() => {}));
+    assert.isFalse(isArray(false));
+    assert.isFalse(isArray(true));
   });
 });
 
 describe("common : method isBoolean", () => {
   it("isBoolean : true", () => {
-    assert.ok(isBoolean(true));
-    assert.ok(isBoolean(false));
+    assert.isTrue(isBoolean(true));
+    assert.isTrue(isBoolean(false));
   });
   it("isBoolean : false", () => {
-    assert.notOk(isBoolean(undefined));
-    assert.notOk(isBoolean(null));
-    assert.notOk(isBoolean("a"));
-    assert.notOk(isBoolean(3));
-    assert.notOk(isBoolean({}));
-    assert.notOk(isBoolean([]));
-    assert.notOk(isBoolean(() => {}));
+    assert.isFalse(isBoolean(undefined));
+    assert.isFalse(isBoolean(null));
+    assert.isFalse(isBoolean("a"));
+    assert.isFalse(isBoolean(3));
+    assert.isFalse(isBoolean({}));
+    assert.isFalse(isBoolean([]));
+    assert.isFalse(isBoolean(() => {}));
   });
 });
 
 describe("common : method isDate", () => {
   it("isDate : true", () => {
-    assert.ok(isDate(new Date()));
+    assert.isTrue(isDate(new Date()));
   });
   it("isDate : false", () => {
-    assert.notOk(isDate(undefined));
-    assert.notOk(isDate(null));
-    assert.notOk(isDate(3));
-    assert.notOk(isDate("a"));
-    assert.notOk(isDate(""));
-    assert.notOk(isDate("11"));
-    assert.notOk(isDate({}));
-    assert.notOk(isDate([]));
-    assert.notOk(isDate(() => {}));
-    assert.notOk(isDate(false));
-    assert.notOk(isDate(true));
+    assert.isFalse(isDate(undefined));
+    assert.isFalse(isDate(null));
+    assert.isFalse(isDate(3));
+    assert.isFalse(isDate("a"));
+    assert.isFalse(isDate(""));
+    assert.isFalse(isDate("11"));
+    assert.isFalse(isDate({}));
+    assert.isFalse(isDate([]));
+    assert.isFalse(isDate(() => {}));
+    assert.isFalse(isDate(false));
+    assert.isFalse(isDate(true));
   });
 });
 
 describe("common : method isDefined", () => {
   it("isDefined : true", () => {
-    assert.notOk(isDefined(null));
-    assert.notOk(isDefined(undefined));
+    assert.isFalse(isDefined(null));
+    assert.isFalse(isDefined(undefined));
   });
   it("isDefined : false", () => {
-    assert.ok(isDefined(1));
-    assert.ok(isDefined(""));
-    assert.ok(isDefined([]));
-    assert.ok(isDefined({}));
-    assert.ok(isDefined(true));
-    assert.ok(isDefined(false));
-    assert.ok(isDefined(() => {}));
+    assert.isTrue(isDefined(1));
+    assert.isTrue(isDefined(""));
+    assert.isTrue(isDefined([]));
+    assert.isTrue(isDefined({}));
+    assert.isTrue(isDefined(true));
+    assert.isTrue(isDefined(false));
+    assert.isTrue(isDefined(() => {}));
   });
 });
 
 describe("common : method isEmpty", () => {
   it("isEmpty : true", () => {
-    assert.ok(isEmpty(null));
-    assert.ok(isEmpty(undefined));
-    assert.ok(isEmpty([]));
-    assert.ok(isEmpty(new Array()));
-    assert.ok(isEmpty({}));
-    assert.ok(isEmpty(new Object()));
-    assert.ok(isEmpty(""));
+    assert.isTrue(isEmpty(null));
+    assert.isTrue(isEmpty(undefined));
+    assert.isTrue(isEmpty([]));
+    assert.isTrue(isEmpty(new Array()));
+    assert.isTrue(isEmpty({}));
+    assert.isTrue(isEmpty(new Object()));
+    assert.isTrue(isEmpty(""));
   });
   it("isEmpty : false", () => {
-    assert.notOk(isEmpty([1, 2]));
-    assert.notOk(isEmpty(new Array(1, 2)));
-    assert.notOk(isEmpty({ prop: "1" }));
-    assert.notOk(isEmpty("ahoj"));
-    assert.notOk(isEmpty(5));
-    assert.notOk(isEmpty(true));
-    assert.notOk(isEmpty(0));
-    assert.notOk(isEmpty(false));
-    assert.notOk(isEmpty(new Date(2020, 5, 5)));
+    assert.isFalse(isEmpty([1, 2]));
+    assert.isFalse(isEmpty(new Array(1, 2)));
+    assert.isFalse(isEmpty({ prop: "1" }));
+    assert.isFalse(isEmpty("ahoj"));
+    assert.isFalse(isEmpty(5));
+    assert.isFalse(isEmpty(true));
+    assert.isFalse(isEmpty(0));
+    assert.isFalse(isEmpty(false));
+    assert.isFalse(isEmpty(new Date(2020, 5, 5)));
   });
 });
 
 describe("common : method isFunction", () => {
   it("isFunction : true", () => {
     const test = function () {};
-    assert.ok(isFunction(test));
+    assert.isTrue(isFunction(test));
   });
   it("isFunction : false", () => {
-    assert.notOk(isFunction(undefined));
-    assert.notOk(isFunction(null));
-    assert.notOk(isFunction("a"));
-    assert.notOk(isFunction(3));
-    assert.notOk(isFunction({}));
-    assert.notOk(isFunction(new Object()));
-    assert.notOk(isFunction([]));
-    assert.notOk(isFunction(new Array()));
-    assert.notOk(isFunction(false));
-    assert.notOk(isFunction(true));
+    assert.isFalse(isFunction(undefined));
+    assert.isFalse(isFunction(null));
+    assert.isFalse(isFunction("a"));
+    assert.isFalse(isFunction(3));
+    assert.isFalse(isFunction({}));
+    assert.isFalse(isFunction(new Object()));
+    assert.isFalse(isFunction([]));
+    assert.isFalse(isFunction(new Array()));
+    assert.isFalse(isFunction(false));
+    assert.isFalse(isFunction(true));
   });
 });
 
 describe("common : method isNotArray", () => {
   it("isNotArray : true", () => {
-    assert.ok(isNotArray({}));
-    assert.ok(isNotArray(null));
+    assert.isTrue(isNotArray({}));
+    assert.isTrue(isNotArray(null));
   });
   it("isNotArray : false", () => {
-    assert.notOk(isNotArray([]));
-    assert.notOk(isNotArray([1, 2, 3, 4]));
+    assert.isFalse(isNotArray([]));
+    assert.isFalse(isNotArray([1, 2, 3, 4]));
   });
 });
 
 describe("common : method isNotDefined", () => {
   it("isNotDefined : true", () => {
-    assert.ok(isNotDefined(null));
-    assert.ok(isNotDefined(undefined));
+    assert.isTrue(isNotDefined(null));
+    assert.isTrue(isNotDefined(undefined));
   });
   it("isNotDefined : false", () => {
-    assert.notOk(isNotDefined(1));
-    assert.notOk(isNotDefined(""));
-    assert.notOk(isNotDefined([]));
-    assert.notOk(isNotDefined({}));
-    assert.notOk(isNotDefined(true));
-    assert.notOk(isNotDefined(false));
-    assert.notOk(isNotDefined(() => {}));
+    assert.isFalse(isNotDefined(1));
+    assert.isFalse(isNotDefined(""));
+    assert.isFalse(isNotDefined([]));
+    assert.isFalse(isNotDefined({}));
+    assert.isFalse(isNotDefined(true));
+    assert.isFalse(isNotDefined(false));
+    assert.isFalse(isNotDefined(() => {}));
   });
 });
 
 describe("common : method isNotEmpty", () => {
   it("isNotEmpty : false", () => {
-    assert.notOk(isNotEmpty(null));
-    assert.notOk(isNotEmpty(undefined));
-    assert.notOk(isNotEmpty([]));
-    assert.notOk(isNotEmpty(new Array()));
-    assert.notOk(isNotEmpty({}));
-    assert.notOk(isNotEmpty(new Object()));
-    assert.notOk(isNotEmpty(""));
+    assert.isFalse(isNotEmpty(null));
+    assert.isFalse(isNotEmpty(undefined));
+    assert.isFalse(isNotEmpty([]));
+    assert.isFalse(isNotEmpty(new Array()));
+    assert.isFalse(isNotEmpty({}));
+    assert.isFalse(isNotEmpty(new Object()));
+    assert.isFalse(isNotEmpty(""));
   });
   it("isNotEmpty : true", () => {
-    assert.ok(isNotEmpty([1, 2]));
-    assert.ok(isNotEmpty(new Array(1, 2)));
-    assert.ok(isNotEmpty({ prop: "1" }));
-    assert.ok(isNotEmpty("ahoj"));
-    assert.ok(isNotEmpty(5));
-    assert.ok(isNotEmpty(true));
-    assert.ok(isNotEmpty(0));
-    assert.ok(isNotEmpty(false));
+    assert.isTrue(isNotEmpty([1, 2]));
+    assert.isTrue(isNotEmpty(new Array(1, 2)));
+    assert.isTrue(isNotEmpty({ prop: "1" }));
+    assert.isTrue(isNotEmpty("ahoj"));
+    assert.isTrue(isNotEmpty(5));
+    assert.isTrue(isNotEmpty(true));
+    assert.isTrue(isNotEmpty(0));
+    assert.isTrue(isNotEmpty(false));
   });
 });
 
 describe("common : method isNotNull", () => {
   it("isNotNull : false", () => {
-    assert.notOk(isNotNull(null));
+    assert.isFalse(isNotNull(null));
   });
   it("isNotNull : true", () => {
-    assert.ok(isNotNull(undefined));
-    assert.ok(isNotNull(""));
-    assert.ok(isNotNull(true));
-    assert.ok(isNotNull(false));
-    assert.ok(isNotNull({}));
-    assert.ok(isNotNull([]));
-    assert.ok(isNotNull(0));
-    assert.ok(isNotNull(() => {}));
+    assert.isTrue(isNotNull(undefined));
+    assert.isTrue(isNotNull(""));
+    assert.isTrue(isNotNull(true));
+    assert.isTrue(isNotNull(false));
+    assert.isTrue(isNotNull({}));
+    assert.isTrue(isNotNull([]));
+    assert.isTrue(isNotNull(0));
+    assert.isTrue(isNotNull(() => {}));
   });
 });
 
 describe("common : method isNumber", () => {
   it("isNumber : true", () => {
-    assert.ok(isNumber(0));
-    assert.ok(isNumber(3));
-    assert.ok(isNumber(3.14));
-    assert.ok(isNumber(0x11));
-    assert.ok(isNumber(0b11));
-    assert.ok(isNumber(0o11));
+    assert.isTrue(isNumber(0));
+    assert.isTrue(isNumber(3));
+    assert.isTrue(isNumber(3.14));
+    assert.isTrue(isNumber(0x11));
+    assert.isTrue(isNumber(0b11));
+    assert.isTrue(isNumber(0o11));
   });
   it("isNumber : false", () => {
-    assert.notOk(isNumber(undefined));
-    assert.notOk(isNumber(null));
-    assert.notOk(isNumber("a"));
-    assert.notOk(isNumber(""));
-    assert.notOk(isNumber("11"));
-    assert.notOk(isNumber({}));
-    assert.notOk(isNumber([]));
-    assert.notOk(isNumber(() => {}));
-    assert.notOk(isNumber(false));
-    assert.notOk(isNumber(true));
+    assert.isFalse(isNumber(undefined));
+    assert.isFalse(isNumber(null));
+    assert.isFalse(isNumber("a"));
+    assert.isFalse(isNumber(""));
+    assert.isFalse(isNumber("11"));
+    assert.isFalse(isNumber({}));
+    assert.isFalse(isNumber([]));
+    assert.isFalse(isNumber(() => {}));
+    assert.isFalse(isNumber(false));
+    assert.isFalse(isNumber(true));
   });
 });
 
 describe("common : method isNull", () => {
   it("isNull : true", () => {
-    assert.ok(isNull(null));
+    assert.isTrue(isNull(null));
   });
   it("isNull : false", () => {
-    assert.notOk(isNull(undefined));
-    assert.notOk(isNull(""));
-    assert.notOk(isNull(true));
-    assert.notOk(isNull(false));
-    assert.notOk(isNull({}));
-    assert.notOk(isNull([]));
-    assert.notOk(isNull(0));
-    assert.notOk(isNull(() => {}));
+    assert.isFalse(isNull(undefined));
+    assert.isFalse(isNull(""));
+    assert.isFalse(isNull(true));
+    assert.isFalse(isNull(false));
+    assert.isFalse(isNull({}));
+    assert.isFalse(isNull([]));
+    assert.isFalse(isNull(0));
+    assert.isFalse(isNull(() => {}));
   });
 });
 
@@ -571,157 +569,129 @@ describe("common : method isObject", () => {
       render() {}
     }
     let objectA = new ClassA();
-    assert.ok(isObject(objectA));
-    assert.ok(isObject(new Date()));
-    assert.ok(isObject({}));
-    assert.ok(isObject(new Object()));
-    assert.ok(isObject({ a: "xxx" }));
-    assert.ok(isObject({ a: "xxx" }));
+    assert.isTrue(isObject(objectA));
+    assert.isTrue(isObject(new Date()));
+    assert.isTrue(isObject({}));
+    assert.isTrue(isObject(new Object()));
+    assert.isTrue(isObject({ a: "xxx" }));
+    assert.isTrue(isObject({ a: "xxx" }));
   });
   it("isObject : false", () => {
-    assert.notOk(isObject(undefined));
-    assert.notOk(isObject(null));
-    assert.notOk(isObject("a"));
-    assert.notOk(isObject(3));
-    assert.notOk(isObject([]));
-    assert.notOk(isObject(new Array()));
-    assert.notOk(isObject(false));
-    assert.notOk(isObject(true));
-    assert.notOk(isObject(function () {}));
+    assert.isFalse(isObject(undefined));
+    assert.isFalse(isObject(null));
+    assert.isFalse(isObject("a"));
+    assert.isFalse(isObject(3));
+    assert.isFalse(isObject([]));
+    assert.isFalse(isObject(new Array()));
+    assert.isFalse(isObject(false));
+    assert.isFalse(isObject(true));
+    assert.isFalse(isObject(function () {}));
   });
 });
 
 describe("common : method isPrimitive", () => {
   it("isPrimitive : true", () => {
-    assert.ok(isPrimitive(""));
-    assert.ok(isPrimitive(true));
-    assert.ok(isPrimitive(false));
-    assert.ok(isPrimitive(0));
+    assert.isTrue(isPrimitive(""));
+    assert.isTrue(isPrimitive(true));
+    assert.isTrue(isPrimitive(false));
+    assert.isTrue(isPrimitive(0));
   });
   it("isPrimitive : false", () => {
-    assert.notOk(isPrimitive(null));
-    assert.notOk(isPrimitive({}));
-    assert.notOk(isPrimitive([]));
-    assert.notOk(isPrimitive(() => {}));
+    assert.isFalse(isPrimitive(null));
+    assert.isFalse(isPrimitive({}));
+    assert.isFalse(isPrimitive([]));
+    assert.isFalse(isPrimitive(() => {}));
   });
 });
 
 describe("common : method isRegExp", () => {
   it("isRegExp : true", () => {
-    assert.ok(isRegExp(/ab+c/));
+    assert.isTrue(isRegExp(/ab+c/));
   });
   it("isRegExp : false", () => {
-    assert.notOk(isRegExp(9));
-    assert.notOk(isRegExp("aaa"));
-    assert.notOk(isRegExp([]));
-    assert.notOk(isRegExp(() => {}));
+    assert.isFalse(isRegExp(9));
+    assert.isFalse(isRegExp("aaa"));
+    assert.isFalse(isRegExp([]));
+    assert.isFalse(isRegExp(() => {}));
   });
 });
 
 describe("common : method isString", () => {
   it("isString : true", () => {
-    assert.ok(isString(""));
-    assert.ok(isString("a"));
+    assert.isTrue(isString(""));
+    assert.isTrue(isString("a"));
   });
   it("isString : false", () => {
-    assert.notOk(isBoolean(undefined));
-    assert.notOk(isBoolean(null));
-    assert.notOk(isBoolean(3));
-    assert.notOk(isBoolean({}));
-    assert.notOk(isBoolean([]));
-    assert.notOk(isBoolean(() => {}));
-    assert.notOk(isArray(false));
-    assert.notOk(isArray(true));
-  });
-});
-
-describe("common : method isStringEmpty", () => {
-  it("isStringEmpty : true", () => {
-    assert.ok(isStringEmpty(""));
-  });
-  it("isStringEmpty : false", () => {
-    assert.notOk(isStringEmpty(3));
-    assert.notOk(isStringEmpty("123"));
-    assert.notOk(isStringEmpty(null));
-    assert.notOk(isStringEmpty(undefined));
-    assert.notOk(isStringEmpty([]));
-    assert.notOk(isStringEmpty({}));
-  });
-});
-
-describe("common : method isStringNotEmpty", () => {
-  it("isStringNotEmpty : true", () => {
-    assert.ok(isStringNotEmpty("123"));
-  });
-  it("isStringNotEmpty : false", () => {
-    assert.notOk(isStringNotEmpty(3));
-    assert.notOk(isStringNotEmpty(""));
-    assert.notOk(isStringNotEmpty(null));
-    assert.notOk(isStringNotEmpty(undefined));
-    assert.notOk(isStringNotEmpty([]));
-    assert.notOk(isStringNotEmpty({}));
+    assert.isFalse(isBoolean(undefined));
+    assert.isFalse(isBoolean(null));
+    assert.isFalse(isBoolean(3));
+    assert.isFalse(isBoolean({}));
+    assert.isFalse(isBoolean([]));
+    assert.isFalse(isBoolean(() => {}));
+    assert.isFalse(isArray(false));
+    assert.isFalse(isArray(true));
   });
 });
 
 describe("common : method isUndefined", () => {
   it("isUndefined : true", () => {
-    assert.ok(isUndefined(undefined));
+    assert.isTrue(isUndefined(undefined));
   });
   it("isUndefined : false", () => {
-    assert.notOk(isUndefined(null));
-    assert.notOk(isUndefined(""));
-    assert.notOk(isUndefined(true));
-    assert.notOk(isUndefined(false));
-    assert.notOk(isUndefined({}));
-    assert.notOk(isUndefined([]));
-    assert.notOk(isUndefined(0));
-    assert.notOk(isUndefined(() => {}));
+    assert.isFalse(isUndefined(null));
+    assert.isFalse(isUndefined(""));
+    assert.isFalse(isUndefined(true));
+    assert.isFalse(isUndefined(false));
+    assert.isFalse(isUndefined({}));
+    assert.isFalse(isUndefined([]));
+    assert.isFalse(isUndefined(0));
+    assert.isFalse(isUndefined(() => {}));
   });
 });
 
 describe("common : method not equal", () => {
   it("notEqual : symple type - false", () => {
-    assert.notOk(notEqual(null, null), "null === null");
-    assert.notOk(notEqual(undefined, undefined), "undefined === undefined");
-    assert.notOk(notEqual(0, 0), "0 === 0");
-    assert.notOk(notEqual(5, 5), "5 === 5");
-    assert.notOk(notEqual(5.5, 5.5), "5.5 === 5.5");
-    assert.notOk(notEqual(-32, -32), "-32 === -32");
-    assert.notOk(notEqual("ahoj", "ahoj"), '"ahoj" === "ahoj"');
-    assert.notOk(notEqual(false, false), "false === false");
-    assert.notOk(notEqual(true, true), "true === true");
-    assert.notOk(
+    assert.isFalse(notEqual(null, null), "null === null");
+    assert.isFalse(notEqual(undefined, undefined), "undefined === undefined");
+    assert.isFalse(notEqual(0, 0), "0 === 0");
+    assert.isFalse(notEqual(5, 5), "5 === 5");
+    assert.isFalse(notEqual(5.5, 5.5), "5.5 === 5.5");
+    assert.isFalse(notEqual(-32, -32), "-32 === -32");
+    assert.isFalse(notEqual("ahoj", "ahoj"), '"ahoj" === "ahoj"');
+    assert.isFalse(notEqual(false, false), "false === false");
+    assert.isFalse(notEqual(true, true), "true === true");
+    assert.isFalse(
       notEqual(new Date(2015, 1, 1), new Date(2015, 1, 1)),
       "date === date"
     );
-    assert.notOk(notEqual(/\w+/, /\w+/), "regExp === regExp");
+    assert.isFalse(notEqual(/\w+/, /\w+/), "regExp === regExp");
   });
   it("notEqual : symple type - true", () => {
-    assert.ok(notEqual(null, 5));
-    assert.ok(notEqual(null, 0));
-    assert.ok(notEqual(undefined, 5));
-    assert.ok(notEqual(undefined, 0));
-    assert.ok(notEqual(0, 2));
-    assert.ok(notEqual(5, -5));
-    assert.ok(notEqual(-32, -30));
-    assert.ok(notEqual("ahoj", "ahj"));
-    assert.ok(notEqual(false, true));
-    assert.ok(notEqual(false, 0));
-    assert.ok(notEqual(new Date(2015, 1, 2), new Date(2015, 1, 1)));
+    assert.isTrue(notEqual(null, 5));
+    assert.isTrue(notEqual(null, 0));
+    assert.isTrue(notEqual(undefined, 5));
+    assert.isTrue(notEqual(undefined, 0));
+    assert.isTrue(notEqual(0, 2));
+    assert.isTrue(notEqual(5, -5));
+    assert.isTrue(notEqual(-32, -30));
+    assert.isTrue(notEqual("ahoj", "ahj"));
+    assert.isTrue(notEqual(false, true));
+    assert.isTrue(notEqual(false, 0));
+    assert.isTrue(notEqual(new Date(2015, 1, 2), new Date(2015, 1, 1)));
   });
   it("notEqual : array, object type - true", () => {
-    assert.notOk(notEqual([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
-    assert.notOk(notEqual([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
-    assert.notOk(notEqual([0, 1, 2, 3, [0, 1, 2]], [0, 1, 2, 3, [0, 1, 2]]));
-    assert.notOk(notEqual({ a: 5, b: 1, c: 2 }, { a: 5, b: 1, c: 2 }));
-    assert.notOk(notEqual({ a: 0, b: 1, c: 2 }, { c: 2, b: 1, a: 0 }));
-    assert.notOk(
+    assert.isFalse(notEqual([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
+    assert.isFalse(notEqual([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]));
+    assert.isFalse(notEqual([0, 1, 2, 3, [0, 1, 2]], [0, 1, 2, 3, [0, 1, 2]]));
+    assert.isFalse(notEqual({ a: 5, b: 1, c: 2 }, { a: 5, b: 1, c: 2 }));
+    assert.isFalse(notEqual({ a: 0, b: 1, c: 2 }, { c: 2, b: 1, a: 0 }));
+    assert.isFalse(
       notEqual(
         { d: { a: 1, b: 1 }, a: 0, b: 1 },
         { a: 0, b: 1, d: { a: 1, b: 1 } }
       )
     );
-    assert.notOk(
+    assert.isFalse(
       notEqual(
         [0, 1, 2, 3, { a: 0, b: 1, c: 2 }],
         [0, 1, 2, 3, { a: 0, b: 1, c: 2 }]
@@ -729,15 +699,15 @@ describe("common : method not equal", () => {
     );
   });
   it("notEqual : array, object type - false", () => {
-    assert.ok(notEqual([0, 1, 2, 3], [0, 1, 2, 3, 4]));
-    assert.ok(notEqual({ a: 0, b: 1, c: 2 }, { a: 0, b: 0, c: 2 }));
-    assert.ok(
+    assert.isTrue(notEqual([0, 1, 2, 3], [0, 1, 2, 3, 4]));
+    assert.isTrue(notEqual({ a: 0, b: 1, c: 2 }, { a: 0, b: 0, c: 2 }));
+    assert.isTrue(
       notEqual(
         { d: { a: 2, b: 1 }, a: 0, b: 1 },
         { a: 0, b: 1, d: { a: 1, b: 1 } }
       )
     );
-    assert.ok(
+    assert.isTrue(
       notEqual(
         [0, 1, 2, 3, { a: 0, b: 1, c: 2 }],
         [0, 1, 2, 3, { a: 0, b: 3, c: 2 }]

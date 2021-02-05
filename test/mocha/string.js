@@ -73,6 +73,24 @@ describe("string : method is", () => {
   });
 });
 
+describe("string : method isEmpty", () => {
+  it("isEmpty : true", () => {
+    assert.isTrue(utilsString.isEmpty(""));
+  });
+  it("isEmpty : false", () => {
+    assert.isFalse(utilsString.isEmpty("123"));
+  });
+});
+
+describe("string : method isNotEmpty", () => {
+  it("isNotEmpty : true", () => {
+    assert.isTrue(utilsString.isNotEmpty("123"));
+  });
+  it("isNotEmpty : false", () => {
+    assert.isFalse(utilsString.isNotEmpty(""));
+  });
+});
+
 describe("string : method isNumeric", () => {
   it("isNumeric : true", () => {
     assert.isTrue(utilsString.isNumeric("1234"), "isNumeric(1234) === true");

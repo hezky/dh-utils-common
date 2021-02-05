@@ -114,3 +114,21 @@ describe("array : method is", () => {
     assert.isFalse(utilsArray.is(), "is() === false");
   });
 });
+
+describe("string : method isEmpty", () => {
+  it("isEmpty : true", () => {
+    assert.isTrue(utilsArray.isEmpty([]));
+  });
+  it("isEmpty : false", () => {
+    assert.isFalse(utilsArray.isEmpty([1, 2, 3]));
+  });
+});
+
+describe("string : method isNotEmpty", () => {
+  it("isNotEmpty : true", () => {
+    assert.isTrue(utilsArray.isNotEmpty([1,2,3]));
+  });
+  it("isNotEmpty : false", () => {
+    assert.isFalse(utilsArray.isNotEmpty([]));
+  });
+});
