@@ -66,10 +66,8 @@ const isEmpty = (val) =>
     : isDate(val)
     ? false
     : isObject(val)
-    ? isEmptyObject(val)
+    ? utilsObject.isEmpty(val)
     : false);
-
-const isEmptyObject = (obj) => Object.keys(obj).length === 0;
 
 const isFunction = (val) => utilsFunction.is(val);
 
@@ -93,9 +91,9 @@ const isRegExp = (val) => utilsRegExp.is(val);
 
 const isString = (val) => utilsString.is(val);
 
-const isStringEmpty = (val) => isString(val) && isEmpty(val);
+const isStringEmpty = (val) => isString(val) && val.length === 0;
 
-const isStringNotEmpty = (val) => isString(val) && isNotEmpty(val);
+const isStringNotEmpty = (val) => isString(val) && val.length !== 0;
 
 const isSymbol = (val) => utilsSymbol.is(val);
 

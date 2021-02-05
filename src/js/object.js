@@ -8,33 +8,9 @@ import {
   utilsString,
 } from "";
 
+// ---------------------------------------------------
+// compare
 const compare = (a, b) => compareReferences(a, b) && compareObjects(a, b);
-
-const copy = (obj) => mapValues(obj, copyCommon);
-
-const equal = (a, b) => {
-  let bRes = is(a) && is(b);
-  if (bRes) {
-    const aProps = Object.getOwnPropertyNames(a),
-      bProps = Object.getOwnPropertyNames(b);
-    bRes =
-      aProps.length !== bProps.length
-        ? false
-        : aProps.every((key) => {
-            return equalCommon(a[key], b[key]);
-          });
-  }
-  return bRes;
-};
-
-const is = (val) =>
-  isDefined(val) && isNotArray(val) && typeof val === "object";
-
-const mapValues = (obj, fn) =>
-  Object.keys(obj).reduce((res, key) => {
-    res[key] = fn(obj[key]);
-    return res;
-  }, {});
 
 const compareObjects = (a, b) =>
   compareObjectsLength(a, b) ||
@@ -58,5 +34,39 @@ const compareObjectsKeys = (a, b) => {
   const bKeys = Object.keys(b).sort(utilsString.compare).join("");
   return utilsString.compare(aKeys, bKeys);
 };
+// ---------------------------------------------------
 
-export { compare, copy, equal, is };
+// ---------------------------------------------------
+// copy
+const copy = (obj) => mapValues(obj, copyCommon);
+
+const mapValues = (obj, fn) =>
+  Object.keys(obj).reduce((res, key) => {
+    res[key] = fn(obj[key]);
+    return res;
+  }, {});
+// ---------------------------------------------------
+
+const equal = (a, b) => {
+  let bRes = is(a) && is(b);
+  if (bRes) {
+    const aProps = Object.getOwnPropertyNames(a),
+      bProps = Object.getOwnPropertyNames(b);
+    bRes =
+      aProps.length !== bProps.length
+        ? false
+        : aProps.every((key) => {
+            return equalCommon(a[key], b[key]);
+          });
+  }
+  return bRes;
+};
+
+const is = (val) =>
+  isDefined(val) && isNotArray(val) && typeof val === "object";
+
+const isEmpty = (obj) => Object.keys(obj).length === 0;
+
+const isNotEmpty = (obj) => Object.keys(obj).length > 0;
+
+export { compare, copy, equal, is, isEmpty, isNotEmpty };

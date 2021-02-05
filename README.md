@@ -105,7 +105,7 @@ List **local functions by type**:
 - Function : [compare](#api_byTypeFunction_compare), [copy](#api_byTypeFunction_copy), [equal](#api_byTypeFunction_equal), [is](#api_byTypeFunction_is)
 - Number : [compare](#api_byTypeNumber_compare), [copy](#api_byTypeNumber_copy), [equal](#api_byTypeNumber_equal), [is](#api_byTypeNumber_is)
 - Null : [compare](#api_byTypeNull_compare), [copy](#api_byTypeNull_copy), [equal](#api_byTypeNull_equal), [is](#api_byTypeNull_is)
-- Object : [compare](#api_byTypeObject_compare), [copy](#api_byTypeObject_copy), [equal](#api_byTypeObject_equal), [is](#api_byTypeObject_is)
+- Object : [compare](#api_byTypeObject_compare), [copy](#api_byTypeObject_copy), [equal](#api_byTypeObject_equal), [is](#api_byTypeObject_is), [isEmpty](#api_byTypeObject_isEmpty), [isNotEmpty](#api_byTypeObject_isNotEmpty)
 - RegExp : [compare](#api_byTypeRegExp_compare), [copy](#api_byTypeRegExp_copy), [equal](#api_byTypeRegExp_equal), [is](#api_byTypeRegExp_is)
 - String : [compare](#api_byTypeString_compare), [copy](#api_byTypeString_copy), [equal](#api_byTypeString_equal), [is](#api_byTypeString_is), [isNumeric](#api_byTypeString_isNumeric)
 - Symbol : [compare](#api_byTypeSymbol_compare), [copy](#api_byTypeSymbol_copy), [equal](#api_byTypeSymbol_equal), [is](#api_byTypeSymbol_is)
@@ -820,7 +820,7 @@ utilsDate.copy(date); // Date(2016,1,1)
 
 *usage* :
 ~~~javascript
-import { utilsDate } from 'dh-utils-common'
+import { utilsDate } from 'dh-utils-common';
 
 utilsDate.equal(new Date(2015,5,5),new Date(2015,5,6)); // false
 ~~~
@@ -881,7 +881,7 @@ utilsFunction.copy(func); // function(a){return a};
 
 *usage* :
 ~~~javascript
-import { utilsFunction } from 'dh-utils-common'
+import { utilsFunction } from 'dh-utils-common';
 
 const func1 = function(){return "func1"};
 const func2 = function(){return "func2"};
@@ -978,7 +978,7 @@ utilsNumber.is("10"); // false
 
 *usage* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common'
+import { utilsNull } from 'dh-utils-common';
 
 utilsNull.compare(null,null); // 0
 ~~~
@@ -991,7 +991,7 @@ utilsNull.compare(null,null); // 0
 
 *usage* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common'
+import { utilsNull } from 'dh-utils-common';
 
 utilsNull.copy(null); // null
 ~~~
@@ -1005,7 +1005,7 @@ utilsNull.copy(null); // null
 
 *usage* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common'
+import { utilsNull } from 'dh-utils-common';
 
 utilsNull.equal(null,null); // true
 ~~~
@@ -1018,7 +1018,7 @@ utilsNull.equal(null,null); // true
 
 *usage* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common'
+import { utilsNull } from 'dh-utils-common';
 
 utilsNull.is(null); // true
 utilsNull.is(0); // false
@@ -1038,7 +1038,7 @@ utilsNull.is(0); // false
 
 *usage* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common'
+import { utilsObject } from 'dh-utils-common';
 
 utilsObject.compare({name: "John", age: 42},{name: "John", age: 42}); // 0
 utilsObject.compare({nameX: "John", age: 42},{name: "John", age: 42}); // 1
@@ -1053,7 +1053,7 @@ utilsObject.compare({name: "JohnX", age: 42},{name: "John", age: 42}); // 1
 
 *usage* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common'
+import { utilsObject } from 'dh-utils-common';
 
 utilsObject.copy({name: "John", age: 42}); // {name: "John", age: 42}
 ~~~
@@ -1067,7 +1067,7 @@ utilsObject.copy({name: "John", age: 42}); // {name: "John", age: 42}
 
 *usage* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common'
+import { utilsObject } from 'dh-utils-common';
 
 utilsObject.equal({name: "John", age: 42}, {name: "John", age: 42}); // true
 utilsObject.equal({name: "John", age: 42}, {name: "John", age: 43}); // false
@@ -1081,10 +1081,38 @@ utilsObject.equal({name: "John", age: 42}, {name: "John", age: 43}); // false
 
 *usage* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common'
+import { utilsObject } from 'dh-utils-common';
 
 utilsObject.is({}); // true
 utilsObject.is(0); // false
+~~~
+
+<a name="api_byTypeObject_isEmpty"></a>
+### [⌂](#splitFceType) isEmpty(object) : boolean
+- **popis** : is an object empty ?
+- **return type** : {boolean} true|false
+- **parametr a** : {object}
+
+*usage* :
+~~~javascript
+import { utilsObject } from 'dh-utils-common';
+
+utilsObject.isEmpty({}); // true
+utilsObject.isEmpty({a: 0}}); // false
+~~~
+
+<a name="api_byTypeObject_isNotEmpty"></a>
+### [⌂](#splitFceType) isNotEmpty(object) : boolean
+- **popis** : is not an object empty ?
+- **return type** : {boolean} true|false
+- **parametr a** : {object}
+
+*usage* :
+~~~javascript
+import { utilsObject } from 'dh-utils-common';
+
+utilsObject.isNotEmpty({}); // false
+utilsObject.isNotEmpty({a: 0}}); // true
 ~~~
 
 --------------------
@@ -1101,7 +1129,7 @@ utilsObject.is(0); // false
 
 *usage* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common'
+import { utilsRegExp } from 'dh-utils-common';
 
 utilsRegExp.compare(/ab+c/,/ab+c/); // 0
 utilsRegExp.compare(/ac+c/,/ab+c/); // -1
@@ -1115,7 +1143,7 @@ utilsRegExp.compare(/ac+c/,/ab+c/); // -1
 
 *usage* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common'
+import { utilsRegExp } from 'dh-utils-common';
 
 utilsRegExp.copy(/ab+c/); // /ab+c/
 ~~~
@@ -1129,7 +1157,7 @@ utilsRegExp.copy(/ab+c/); // /ab+c/
 
 *usage* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common'
+import { utilsRegExp } from 'dh-utils-common';
 
 utilsRegExp.equal(/ab+c/,/ab+c/); // true
 utilsRegExp.equal(/ac+c/,/ab+c/); // false
@@ -1143,7 +1171,7 @@ utilsRegExp.equal(/ac+c/,/ab+c/); // false
 
 *usage* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common'
+import { utilsRegExp } from 'dh-utils-common';
 
 utilsRegExp.is(/ab+c/); // true
 utilsRegExp.is(0); // false
@@ -1163,7 +1191,7 @@ utilsRegExp.is(0); // false
 
 *usage* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common'
+import { utilsString } from 'dh-utils-common';
 
 utilsString.compare("ABC","ZXY"); // -1
 ~~~
@@ -1176,7 +1204,7 @@ utilsString.compare("ABC","ZXY"); // -1
 
 *usage* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common'
+import { utilsString } from 'dh-utils-common';
 
 utilsString.copy("abc"); // abc
 ~~~
@@ -1190,7 +1218,7 @@ utilsString.copy("abc"); // abc
 
 *usage* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common'
+import { utilsString } from 'dh-utils-common';
 
 utilsString.equal("ABC","ZXY"); // false
 ~~~
@@ -1203,7 +1231,7 @@ utilsString.equal("ABC","ZXY"); // false
 
 *usage* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common'
+import { utilsString } from 'dh-utils-common';
 
 utilsString.is("abc"); // true
 utilsString.is(0); // false
@@ -1223,7 +1251,7 @@ utilsString.is(0); // false
 
 *usage* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common'
+import { utilsSymbol } from 'dh-utils-common';
 
 // TODO
 ~~~
@@ -1236,7 +1264,7 @@ import { utilsSymbol } from 'dh-utils-common'
 
 *usage* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common'
+import { utilsSymbol } from 'dh-utils-common';
 
 // TODO
 ~~~
@@ -1250,7 +1278,7 @@ import { utilsSymbol } from 'dh-utils-common'
 
 *usage* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common'
+import { utilsSymbol } from 'dh-utils-common';
 
 // TODO
 ~~~
@@ -1263,7 +1291,7 @@ import { utilsSymbol } from 'dh-utils-common'
 
 *usage* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common'
+import { utilsSymbol } from 'dh-utils-common';
 
 // TODO
 ~~~
@@ -1282,7 +1310,7 @@ import { utilsSymbol } from 'dh-utils-common'
 
 *usage* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common'
+import { utilsUndefined } from 'dh-utils-common';
 
 utilsUndefined.compare(undefined,undefined); // 0
 ~~~
@@ -1295,7 +1323,7 @@ utilsUndefined.compare(undefined,undefined); // 0
 
 *usage* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common'
+import { utilsUndefined } from 'dh-utils-common';
 
 utilsUndefined.copy(undefined); // undefined
 ~~~
@@ -1309,7 +1337,7 @@ utilsUndefined.copy(undefined); // undefined
 
 *usage* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common'
+import { utilsUndefined } from 'dh-utils-common';
 
 utilsUndefined.equal(undefined,undefined); // true
 ~~~
@@ -1322,7 +1350,7 @@ utilsUndefined.equal(undefined,undefined); // true
 
 *usage* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common'
+import { utilsUndefined } from 'dh-utils-common';
 
 utilsUndefined.is(undefined); // true
 utilsUndefined.is(0); // false
