@@ -1,7 +1,34 @@
 import { assert } from "chai";
 import { utilsArray } from "";
 
-describe("boolean : method equal", () => {
+describe("array : method compare", () => {
+  it("compare : check length", () => {
+    let a, b;
+    a = [1, 2];
+    b = [1, 2, 3];
+    assert.equal(utilsArray.compare(a, b), -1, "compare([1,2],[1,2,3]) === -1");
+    a = [1, 2, 3];
+    b = [1, 2, 3];
+    assert.equal(utilsArray.compare(a, b), 0, "compare([1,2,3],[1,2,3]) === 0");
+    a = [1, 2, 3];
+    b = [1, 2];
+    assert.equal(utilsArray.compare(a, b), 1, "compare([1,2,3],[1,2]) === 1");
+  });
+  it("compare : check types", () => {
+    let a, b;
+    a = [1, 2];
+    b = [1, "2"];
+    assert.equal(utilsArray.compare(a, b), -1, 'compare([1,2],[1,"2"]) === -1');
+    a = [1, 2];
+    b = [1, 2];
+    assert.equal(utilsArray.compare(a, b), 0, "compare([1,2,3],[1,2,3]) === 0");
+    a = [1, "2"];
+    b = [1, 2];
+    assert.equal(utilsArray.compare(a, b), 1, 'compare([1,"2"],[1,2]) === 1');
+  });
+});
+
+describe("array : method equal", () => {
   it("equal : true (boolean)", () => {
     const a1 = [true, true, false, false];
     const a2 = [true, true, false, false];
