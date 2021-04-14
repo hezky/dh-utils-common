@@ -16,6 +16,7 @@
     "clean": "dh-run clean",
     "eslint": "dh-run eslint",
     "prepublishOnly": "dh-run prepublishOnly",
+    "aaa": "dh-run prepublishOnly",
     "test": "dh-run test"
   },
   "version": "0.2.5"
