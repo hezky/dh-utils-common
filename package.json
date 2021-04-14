@@ -3,7 +3,7 @@
   "description": "common utils",
   "devDependencies": {
     "@dh-js/dependency-base": "^0.0.45",
-    "@dh-js/scripts-run": "^0.1.30",
+    "@dh-js/scripts-run": "^0.1.31",
     "babel-plugin-module-resolver": "^4.1.0"
   },
   "files": [
