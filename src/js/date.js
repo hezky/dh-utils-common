@@ -1,5 +1,7 @@
 import { isDefined, utilsNumber } from "";
 
+const NAME = "date";
+
 const compare = (a, b) => {
   let bRes = is(a) && is(b) ? true : NaN;
   if (bRes) {
@@ -23,4 +25,4 @@ const is = (val) => {
   return isDefined(val) && val.constructor === Date;
 };
 
-export { compare, copy, equal, is };
+export { NAME, compare, copy, equal, is };

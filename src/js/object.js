@@ -8,6 +8,8 @@ import {
   utilsString,
 } from "";
 
+const NAME = "object";
+
 // ---------------------------------------------------
 // compare
 const compare = (a, b) => compareReferences(a, b) && compareObjects(a, b);
@@ -16,6 +18,7 @@ const compareObjects = (a, b) =>
   compareObjectsLength(a, b) ||
   compareObjectsKeys(a, b) ||
   compareObjectsItems(a, b);
+
 const compareObjectsItems = (a, b) => {
   let res = 0;
   for (let prop in a) {
@@ -24,11 +27,13 @@ const compareObjectsItems = (a, b) => {
   }
   return res;
 };
+
 const compareObjectsLength = (a, b) => {
   const aLength = Object.keys(a).length;
   const bLength = Object.keys(b).length;
   return (aLength > bLength) - (aLength < bLength);
 };
+
 const compareObjectsKeys = (a, b) => {
   const aKeys = Object.keys(a).sort(utilsString.compare).join("");
   const bKeys = Object.keys(b).sort(utilsString.compare).join("");
@@ -69,4 +74,4 @@ const isEmpty = (obj) => Object.keys(obj).length === 0;
 
 const isNotEmpty = (obj) => Object.keys(obj).length > 0;
 
-export { compare, copy, equal, is, isEmpty, isNotEmpty };
+export { NAME, compare, copy, equal, is, isEmpty, isNotEmpty };

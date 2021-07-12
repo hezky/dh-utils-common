@@ -1,5 +1,7 @@
 import { isDefined } from "";
 
+const NAME = "string";
+
 const compare = (a, b) => a.localeCompare(b);
 
 const copy = (a) => a;
@@ -14,4 +16,4 @@ const isNotEmpty = (val) => val.length > 0;
 
 const isNumeric = (val) => /^[0-9]+$/.test(val);
 
-export { compare, copy, equal, is, isEmpty, isNotEmpty, isNumeric };
+export { NAME, compare, copy, equal, is, isEmpty, isNotEmpty, isNumeric };
