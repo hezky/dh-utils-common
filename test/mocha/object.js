@@ -88,13 +88,13 @@ describe("object : method is", () => {
       utilsObject.is(new Date("1995-12-17T03:24:00")),
       "is(new Date('1995-12-17T03:24:00')) === true"
     );
-    assert.isTrue(utilsObject.is(/ab+c/), "is(/ab+c/) === true");
   });
   it("is : false", () => {
     assert.isFalse(utilsObject.is([]), "is([]) === false");
     assert.isFalse(utilsObject.is([1, 2, 3]), "is([1, 2, 3]) === false");
     assert.isFalse(utilsObject.is(true), "is(true) === false");
     assert.isFalse(utilsObject.is(false), "is(false) === false");
+    assert.isFalse(utilsObject.is(/ab+c/), "is(/ab+c/) === false");
     assert.isFalse(
       utilsObject.is(() => 1),
       "is(() => 1) === false"

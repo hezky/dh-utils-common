@@ -68,7 +68,10 @@ const equal = (a, b) => {
 };
 
 const is = (val) =>
-  isDefined(val) && isNotArray(val) && typeof val === "object";
+  isDefined(val) &&
+  isNotArray(val) &&
+  typeof val === "object" &&
+  val?.constructor !== RegExp;
 
 const isEmpty = (obj) => Object.keys(obj).length === 0;
 

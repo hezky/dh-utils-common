@@ -21,6 +21,7 @@ import {
   isRegExp,
   isString,
   isUndefined,
+  findOutTheType,
   notEqual,
   utilsNumber,
   utilsString,
@@ -646,6 +647,90 @@ describe("common : method isUndefined", () => {
     assert.isFalse(isUndefined([]));
     assert.isFalse(isUndefined(0));
     assert.isFalse(isUndefined(() => {}));
+  });
+});
+
+describe("common : method findOutTheType", () => {
+  it("findOutTheType : find array", () => {
+    assert.equal(
+      findOutTheType([]),
+      "array",
+      "find out the type > empty array"
+    );
+    assert.equal(
+      findOutTheType([1, 2, 3, 4]),
+      "array",
+      "find out the type > array with items"
+    );
+  });
+  it("findOutTheType : find boolean", () => {
+    assert.equal(
+      findOutTheType(false),
+      "boolean",
+      "find out the type > boolean"
+    );
+    assert.equal(
+      findOutTheType(true),
+      "boolean",
+      "find out the type > boolean"
+    );
+  });
+  it("findOutTheType : find date", () => {
+    const date = new Date();
+    assert.equal(findOutTheType(date), "date", "find out the type > date");
+  });
+  it("findOutTheType : find function", () => {
+    assert.equal(
+      findOutTheType(function () {}),
+      "function",
+      "find out the type > function"
+    );
+    assert.equal(
+      findOutTheType(() => 1),
+      "function",
+      "find out the type > function"
+    );
+  });
+  it("findOutTheType : find null", () => {
+    assert.equal(findOutTheType(null), "null", "find out the type > null");
+  });
+  it("findOutTheType : find number", () => {
+    assert.equal(findOutTheType(1), "number", "find out the type > number");
+  });
+  it("findOutTheType : find object", () => {
+    assert.equal(findOutTheType({}), "object", "find out the type > object");
+    assert.equal(
+      findOutTheType({ a: 1 }),
+      "object",
+      "find out the type > object"
+    );
+  });
+  it("findOutTheType : find regExp", () => {
+    let re = new RegExp("ab+c", "i");
+    assert.equal(findOutTheType(re), "regExp", "find out the type > regExp");
+  });
+  it("findOutTheType : find string", () => {
+    assert.equal(findOutTheType("abc"), "string", "find out the type > string");
+  });
+  it("findOutTheType : find symbol", () => {
+    assert.equal(
+      findOutTheType(Symbol()),
+      "symbol",
+      "find out the type > symbol"
+    );
+  });
+  it("findOutTheType : find undefined", () => {
+    assert.equal(
+      findOutTheType(undefined),
+      "undefined",
+      "find out the type > undefined"
+    );
+    let val;
+    assert.equal(
+      findOutTheType(val),
+      "undefined",
+      "find out the type > undefined"
+    );
   });
 });
 

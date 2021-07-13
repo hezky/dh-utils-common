@@ -97,6 +97,15 @@ const isSymbol = (val) => utilsSymbol.is(val);
 
 const isUndefined = (val) => utilsUndefined.is(val);
 
+const findOutTheType = (val, dataTypes = utilsList) => {
+  const utils = dataTypes.find((item) => item.is(val));
+  console.log("val >> ", val);
+  console.log("val C >> ", val?.constructor === RegExp);
+  console.log("utils >> ", utils);
+  if (utils === undefined) throw new TypeError(TYPE_ERROR_MESSAGE);
+  return utils ? utils?.NAME : TYPE_ERROR_MESSAGE;
+};
+
 const notEqual = (a, b) => !equal(a, b);
 
 export {
@@ -122,5 +131,6 @@ export {
   isString,
   isSymbol,
   isUndefined,
+  findOutTheType,
   notEqual,
 };
