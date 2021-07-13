@@ -103,8 +103,8 @@ List **local functions by type**:
 - Boolean : [compare](#api_byTypeBoolean_compare), [copy](#api_byTypeBoolean_copy), [equal](#api_byTypeBoolean_equal), [is](#api_byTypeBoolean_is)
 - Date : [compare](#api_byTypeDate_compare), [copy](#api_byTypeDate_copy), [equal](#api_byTypeDate_equal), [is](#api_byTypeDate_is)
 - Function : [compare](#api_byTypeFunction_compare), [copy](#api_byTypeFunction_copy), [equal](#api_byTypeFunction_equal), [is](#api_byTypeFunction_is)
-- Number : [compare](#api_byTypeNumber_compare), [copy](#api_byTypeNumber_copy), [equal](#api_byTypeNumber_equal), [is](#api_byTypeNumber_is)
 - Null : [compare](#api_byTypeNull_compare), [copy](#api_byTypeNull_copy), [equal](#api_byTypeNull_equal), [is](#api_byTypeNull_is)
+- Number : [compare](#api_byTypeNumber_compare), [copy](#api_byTypeNumber_copy), [equal](#api_byTypeNumber_equal), [is](#api_byTypeNumber_is)
 - Object : [compare](#api_byTypeObject_compare), [copy](#api_byTypeObject_copy), [equal](#api_byTypeObject_equal), [is](#api_byTypeObject_is), [isEmpty](#api_byTypeObject_isEmpty), [isNotEmpty](#api_byTypeObject_isNotEmpty)
 - RegExp : [compare](#api_byTypeRegExp_compare), [copy](#api_byTypeRegExp_copy), [equal](#api_byTypeRegExp_equal), [is](#api_byTypeRegExp_is)
 - String : [compare](#api_byTypeString_compare), [copy](#api_byTypeString_copy), [equal](#api_byTypeString_equal), [is](#api_byTypeString_is), [isEmpty](#api_byTypeString_isEmpty), [isNotEmpty](#api_byTypeString_isNotEmpty), [isNumeric](#api_byTypeString_isNumeric)
@@ -624,6 +624,17 @@ notEqual([0,1,2,3,[0,1,2]],[0,1,2,3,[0,2,1]]); // true
 <a name="api_byTypeArray"></a>
 ## [⌂](#splitFceType) API - Local functions by type Array
 
+<a name="api_byTypeArray_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="array"
+
+*použití* :
+~~~javascript
+import { utilsArray } from 'dh-utils-common';
+
+utilsArray.NAME // array
+~~~
+
 <a name="api_byTypeArray_compare"></a>
 ### [⌂](#splitFceType) compare(array,array) : number
 - **popis** : compare two arrays
@@ -713,6 +724,17 @@ utilsArray.isNotEmpty([]); // true
 <a name="api_byTypeBoolean"></a>
 ## [⌂](#splitFceType) API - Local functions by type Boolean
 
+<a name="api_byTypeBoolean_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="boolean"
+
+*použití* :
+~~~javascript
+import { utilsBoolean } from 'dh-utils-common';
+
+utilsBoolean.NAME // boolean
+~~~
+
 <a name="api_byTypeBoolean_compare"></a>
 ### [⌂](#splitFceType) compare(boolean,boolean) : number
 - **popis** : compare boolean
@@ -774,6 +796,17 @@ utilsBoolean.is(false); // false
 
 <a name="api_byTypeDate"></a>
 ## [⌂](#splitFceType) API - Local functions by type Date
+
+<a name="api_byTypeDate_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="date"
+
+*použití* :
+~~~javascript
+import { utilsDate } from 'dh-utils-common';
+
+utilsDate.NAME // date
+~~~
 
 <a name="api_byTypeDate_compare"></a>
 ### [⌂](#splitFceType) compare(date,date) : number
@@ -838,6 +871,17 @@ utilsDate.is(0); // false
 <a name="api_byTypeFunction"></a>
 ## [⌂](#splitFceType) API - Local functions by type Function
 
+<a name="api_byTypeFunction_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="function"
+
+*použití* :
+~~~javascript
+import { utilsFunction } from 'dh-utils-common';
+
+utilsFunction.NAME // function
+~~~
+
 <a name="api_byTypeFunction_compare"></a>
 ### [⌂](#splitFceType) compare(function,function) : number
 - **popis** :  compare two functions
@@ -899,8 +943,90 @@ utilsFunction.is(0); // false
 
 --------------------
 
+<a name="api_byTypeNull"></a>
+## [⌂](#splitFceType) API - Local functions by type Null
+
+<a name="api_byTypeNull_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="null"
+
+*použití* :
+~~~javascript
+import { utilsNull } from 'dh-utils-common';
+
+utilsNull.NAME // null
+~~~
+
+<a name="api_byTypeNull_compare"></a>
+### [⌂](#splitFceType) compare(null,null) : number
+- **popis** : compare null
+- **return type** : {number} -1|0|1
+- **parametr a** : {null}
+- **parametr b** : {null}
+
+*usage* :
+~~~javascript
+import { utilsNull } from 'dh-utils-common';
+
+utilsNull.compare(null,null); // 0
+~~~
+
+<a name="api_byTypeNull_copy"></a>
+### [⌂](#splitFceType) copy(null) : null
+- **popis** : copy null
+- **return type** : {null}
+- **parametr target** : {null}
+
+*usage* :
+~~~javascript
+import { utilsNull } from 'dh-utils-common';
+
+utilsNull.copy(null); // null
+~~~
+
+<a name="api_byTypeNull_equal"></a>
+### [⌂](#splitFceType) equal(null,null) : boolean
+- **popis** : equal boolean
+- **return type** : {boolean} true
+- **parametr a** : {null}
+- **parametr b** : {null}
+
+*usage* :
+~~~javascript
+import { utilsNull } from 'dh-utils-common';
+
+utilsNull.equal(null,null); // true
+~~~
+
+<a name="api_byTypeNull_is"></a>
+### [⌂](#splitFceType) is(any) : boolean
+- **popis** : is a value null? same function as utilsCommon.isNull
+- **return type** : {boolean} true|false
+- **parametr a** : {any}
+
+*usage* :
+~~~javascript
+import { utilsNull } from 'dh-utils-common';
+
+utilsNull.is(null); // true
+utilsNull.is(0); // false
+~~~
+
+--------------------
+
 <a name="api_byTypeNumber"></a>
 ## [⌂](#splitFceType) API - Local functions by type Number
+
+<a name="api_byTypeNumber_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="number"
+
+*použití* :
+~~~javascript
+import { utilsNumber } from 'dh-utils-common';
+
+utilsNumber.NAME // number
+~~~
 
 <a name="api_byTypeNumber_compare"></a>
 ### [⌂](#splitFceType) compare(number,number) : number
@@ -960,68 +1086,19 @@ utilsNumber.is("10"); // false
 
 --------------------
 
-<a name="api_byTypeNull"></a>
-## [⌂](#splitFceType) API - Local functions by type Null
-
-<a name="api_byTypeNull_compare"></a>
-### [⌂](#splitFceType) compare(null,null) : number
-- **popis** : compare null
-- **return type** : {number} -1|0|1
-- **parametr a** : {null}
-- **parametr b** : {null}
-
-*usage* :
-~~~javascript
-import { utilsNull } from 'dh-utils-common';
-
-utilsNull.compare(null,null); // 0
-~~~
-
-<a name="api_byTypeNull_copy"></a>
-### [⌂](#splitFceType) copy(null) : null
-- **popis** : copy null
-- **return type** : {null}
-- **parametr target** : {null}
-
-*usage* :
-~~~javascript
-import { utilsNull } from 'dh-utils-common';
-
-utilsNull.copy(null); // null
-~~~
-
-<a name="api_byTypeNull_equal"></a>
-### [⌂](#splitFceType) equal(null,null) : boolean
-- **popis** : equal boolean
-- **return type** : {boolean} true
-- **parametr a** : {null}
-- **parametr b** : {null}
-
-*usage* :
-~~~javascript
-import { utilsNull } from 'dh-utils-common';
-
-utilsNull.equal(null,null); // true
-~~~
-
-<a name="api_byTypeNull_is"></a>
-### [⌂](#splitFceType) is(any) : boolean
-- **popis** : is a value null? same function as utilsCommon.isNull
-- **return type** : {boolean} true|false
-- **parametr a** : {any}
-
-*usage* :
-~~~javascript
-import { utilsNull } from 'dh-utils-common';
-
-utilsNull.is(null); // true
-utilsNull.is(0); // false
-~~~
-
---------------------
-
 <a name="api_byTypeObject"></a>
 ## [⌂](#splitFceType) API - Local functions by type Object
+
+<a name="api_byTypeObject_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="object"
+
+*použití* :
+~~~javascript
+import { utilsObject } from 'dh-utils-common';
+
+utilsObject.NAME // object
+~~~
 
 <a name="api_byTypeObject_compare"></a>
 ### [⌂](#splitFceType) compare(object,object) : number
@@ -1114,6 +1191,17 @@ utilsObject.isNotEmpty({a: 0}}); // true
 <a name="api_byTypeRegExp"></a>
 ## [⌂](#splitFceType) API - Local functions by type RegExp
 
+<a name="api_byTypeRegExp_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="regExp"
+
+*použití* :
+~~~javascript
+import { utilsRegExp } from 'dh-utils-common';
+
+utilsRegExp.NAME // regExp
+~~~
+
 <a name="api_byTypeRegExp_compare"></a>
 ### [⌂](#splitFceType) compare(regexp,regexp) : number
 - **popis** : compare regexp
@@ -1175,6 +1263,17 @@ utilsRegExp.is(0); // false
 
 <a name="api_byTypeString"></a>
 ## [⌂](#splitFceType) API - Local functions by type String
+
+<a name="api_byTypeString_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="string"
+
+*použití* :
+~~~javascript
+import { utilsString } from 'dh-utils-common';
+
+utilsString.NAME // string
+~~~
 
 <a name="api_byTypeString_compare"></a>
 ### [⌂](#splitFceType) compare(string,string) : number
@@ -1264,6 +1363,17 @@ utilsString.isNotEmpty(""); // true
 <a name="api_byTypeSymbol"></a>
 ## [⌂](#splitFceType) API - Local functions by type Symbol
 
+<a name="api_byTypeSymbol_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="symbol"
+
+*použití* :
+~~~javascript
+import { utilsSymbol } from 'dh-utils-common';
+
+utilsSymbol.NAME // symbol
+~~~
+
 <a name="api_byTypeSymbol_compare"></a>
 ### [⌂](#splitFceType) compare(symbol,symbol) : number
 - **popis** : compare symbol
@@ -1322,6 +1432,17 @@ import { utilsSymbol } from 'dh-utils-common';
 
 <a name="api_byTypeUndefined"></a>
 ## [⌂](#splitFceType) API - Local functions by type Undefined
+
+<a name="api_byTypeUndefined_NAME"></a>
+## [⌂](#splitFceType) NAME
+- **popis** : constant NAME="undefined"
+
+*použití* :
+~~~javascript
+import { utilsUndefined } from 'dh-utils-common';
+
+utilsUndefined.NAME // undefined
+~~~
 
 <a name="api_byTypeUndefined_compare"></a>
 ### [⌂](#splitFceType) compare(undefined,undefined) : number
