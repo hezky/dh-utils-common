@@ -10,7 +10,7 @@
     "lib"
   ],
   "main": "lib/js/index.js",
-  "name": "@dh-js/utils-common",
+  "name": "@dh-js/common",
   "scripts": {
     "build": "dh-run build",
     "clean": "dh-run clean",
