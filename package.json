@@ -19,7 +19,7 @@
     "aaa": "dh-run prepublishOnly",
     "test": "dh-run test"
   },
-  "version": "0.2.9",
+  "version": "0.2.10",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hezky/dh-utils-common.git"
