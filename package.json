@@ -1,5 +1,8 @@
 {
   "author": "David Hezky",
+  "bugs": {
+    "url": "https://github.com/hezky/dh-utils-common/issues"
+  },
   "description": "common utils",
   "devDependencies": {
     "@dh-js/dependency-base": "^0.0.46",
@@ -9,6 +12,8 @@
   "files": [
     "lib"
   ],
+  "homepage": "https://github.com/hezky/dh-utils-common#readme",
+  "license": "MIT",
   "main": "lib/js/index.js",
   "name": "@dh-utils/common",
   "scripts": {
@@ -16,17 +21,11 @@
     "clean": "dh-run clean",
     "eslint": "dh-run eslint",
     "prepublishOnly": "dh-run prepublishOnly",
-    "aaa": "dh-run prepublishOnly",
     "test": "dh-run test"
   },
-  "version": "0.2.10",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hezky/dh-utils-common.git"
+    "url": "https://github.com/hezky/dh-utils-common"
   },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hezky/dh-utils-common/issues"
-  },
-  "homepage": "https://github.com/hezky/dh-utils-common#readme"
+  "version": "0.2.10",
 }

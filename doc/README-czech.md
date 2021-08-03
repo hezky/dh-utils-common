@@ -47,7 +47,7 @@ Použití **lokální funkce podle typu**:
 ``` javascript
 import { utilsArray } from 'dh-utils-common';
 
-utilsArray.compare([1,2,3],[1,2,3]) // 0
+utilsArray.compare([1,2,3]a,[1,2,3]) // 0
 ```
 
 Základní lokální funkce jsou čtyři : [compare](#local_function_compare), [copy](#local_function_copy), [equal](#local_function_equal), [is](#local_function_is)
