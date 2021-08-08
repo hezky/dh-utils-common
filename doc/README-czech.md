@@ -1,6 +1,6 @@
-# dh-utils-common
+# @dh-utils/common
 
-[Použití v anglickém jazyce (Readme in English)](https://github.com/hezky/dh-utils-common/blob/master/README.md)
+[Použití v anglickém jazyce (Readme in English)](https://github.com/hezky/@dh-utils/common/blob/master/README.md)
 
 Knihovna obsahuje základní funkce nad různými primitivními hodnotami, datovými typy a datovými struktury.
 
@@ -23,7 +23,7 @@ Základní funkce v této knihovně jsou rozdělené na:
 
 Použití **obecné funkce**:
 ``` javascript
-import { compare, utilsCommon } from 'dh-utils-common';
+import { compare, utilsCommon } from '@dh-utils/common';
 
 compare(0,0); // 0
 compare(false, 0); // -1
@@ -45,7 +45,7 @@ Seznam **obecné funkce**:
 
 Použití **lokální funkce podle typu**:
 ``` javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.compare([1,2,3]a,[1,2,3]) // 0
 ```
@@ -58,7 +58,7 @@ Lokální funkce **compare(a,b)** = porovná typ hodnoty. Vrací hodnoty: -1 (a 
 
 Použití lokální funkce **compare**:
 ``` javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.compare("ABC","ABC"); // 0
 utilsString.compare("ABC","ZXY"); // -1
@@ -71,7 +71,7 @@ Lokální funkce **copy(a)** = vytvoří kopii. V případě složité datové s
 
 Použití lokální funkce **copy**:
 ``` javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.copy([1,2,3]); // [1,2,3]
 ```
@@ -82,7 +82,7 @@ Lokální funkce **equal(a,b)** = porovná typ hodnoty. Vrací hodnoty true nebo
 
 Použití lokální funkce **equal**:
 ``` javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsString.equal("ABC","ZXY"); // false
 ```
@@ -93,7 +93,7 @@ Lokální funkce **is(a)** = kontrola zda je daná proměnná daného typu hodno
 
 Použití lokální funkce **is**:
 ``` javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.is("ABC"); // true
 utilsString.is(0); // false
@@ -122,7 +122,7 @@ Ve vyjimečném případě budete chtít použít základní funkce nad vámi sp
 Příklad: Budeme mít speciální datové struktury / speciální typy hodnot "Car" a "Airplane". Tyto typy hodnot se liší atributem "model". Speciání typ hodnoty "Car" může tedy mýt model = "Honda" nebo "Suzuki". Speciání typ hodnoty "Airplane" může tedy mýt model = "Mig" nebo "F16":
 
 ``` javascript
-import { compare } from "dh-utils-common";
+import { compare } from "@dh-utils/common";
 
 // funkce nad speciální datovou strukturou (typy hodnot)
 const typeValueAirplane = {
@@ -190,7 +190,7 @@ compare(carHonda, carHonda2, listTypeValues); // 0
 
 *použití* :
 ~~~javascript
-import { compare, utilsCommon } from 'dh-utils-common';
+import { compare, utilsCommon } from '@dh-utils/common';
 
 compare(0,0); // 0
 // or
@@ -206,7 +206,7 @@ utilsCommon.compare(0,0); // 0
 
 *použití* :
 ~~~javascript
-import { compareReferences, utilsCommon } from 'dh-utils-common';
+import { compareReferences, utilsCommon } from '@dh-utils/common';
 
 compareReferences(0,0); // 0
 // or
@@ -228,7 +228,7 @@ compareReferences(a,b); // 1
 
 *použití* :
 ~~~javascript
-import { copy, utilsCommon } from 'dh-utils-common';
+import { copy, utilsCommon } from '@dh-utils/common';
 
 copy({a:"a",b:"b"}); // {a:"a",b:"b"}
 // or
@@ -247,7 +247,7 @@ copy([1,2,3,4]); // [1,2,3,4]
 
 *použití* :
 ~~~javascript
-import { copy, utilsCommon } from 'dh-utils-common';
+import { copy, utilsCommon } from '@dh-utils/common';
 
 equal(0,0); // true
 // or
@@ -267,7 +267,7 @@ equal([0,1,2,3,[0,1,2]],[0,1,2,3,[0,2,1]]); // false
 
 *použití* :
 ~~~javascript
-import { copy, utilsCommon } from 'dh-utils-common';
+import { copy, utilsCommon } from '@dh-utils/common';
 
 isArray(0); // false
 // or
@@ -285,7 +285,7 @@ isArray(3); // false
 
 *použití* :
 ~~~javascript
-import { copy, utilsCommon } from 'dh-utils-common';
+import { copy, utilsCommon } from '@dh-utils/common';
 
 isBoolean(0); // false
 // or
@@ -304,7 +304,7 @@ isBoolean([1,2,3,4]); // false
 
 *použití* :
 ~~~javascript
-import { copy, utilsCommon } from 'dh-utils-common';
+import { copy, utilsCommon } from '@dh-utils/common';
 
 isDate(0); // false
 // or
@@ -322,7 +322,7 @@ isDate(3); // false
 
 *použití* :
 ~~~javascript
-import { copy, utilsCommon } from 'dh-utils-common';
+import { copy, utilsCommon } from '@dh-utils/common';
 
 isDefined(0); // true
 // or
@@ -341,7 +341,7 @@ isDefined(undefined); // false
 
 *použití* :
 ~~~javascript
-import { isEmpty, utilsCommon } from 'dh-utils-common';
+import { isEmpty, utilsCommon } from '@dh-utils/common';
 
 isEmpty(0); // true
 // or
@@ -365,7 +365,7 @@ isEmpty("hellooo"); // false
 
 *použití* :
 ~~~javascript
-import { isFunction, utilsCommon } from 'dh-utils-common';
+import { isFunction, utilsCommon } from '@dh-utils/common';
 
 isFunction(0); // false
 // or
@@ -383,7 +383,7 @@ isFunction(3); // false
 
 *použití* :
 ~~~javascript
-import { isNotArray, utilsCommon } from 'dh-utils-common';
+import { isNotArray, utilsCommon } from '@dh-utils/common';
 
 isNotArray(0); // false
 // or
@@ -401,7 +401,7 @@ isNotArray({}); // true`
 
 *použití* :
 ~~~javascript
-import { isNotDefined, utilsCommon } from 'dh-utils-common';
+import { isNotDefined, utilsCommon } from '@dh-utils/common';
 
 isNotDefined(0); // false
 // or
@@ -420,7 +420,7 @@ isNotDefined(undefined); // false
 
 *použití* :
 ~~~javascript
-import { isNotEmpty, utilsCommon } from 'dh-utils-common';
+import { isNotEmpty, utilsCommon } from '@dh-utils/common';
 
 isNotDefined(0); // false
 // or
@@ -444,7 +444,7 @@ isNotEmpty(""); // true
 
 *použití* :
 ~~~javascript
-import { isNotNull, utilsCommon } from 'dh-utils-common';
+import { isNotNull, utilsCommon } from '@dh-utils/common';
 
 isNotNull(0); // false
 // or
@@ -462,7 +462,7 @@ isNotNull(5); // true
 
 *použití* :
 ~~~javascript
-import { isNumber, utilsCommon } from 'dh-utils-common';
+import { isNumber, utilsCommon } from '@dh-utils/common';
 
 isNumber(0); // true
 // or
@@ -480,7 +480,7 @@ isNumber(5); // true
 
 *použití* :
 ~~~javascript
-import { isNull, utilsCommon } from 'dh-utils-common';
+import { isNull, utilsCommon } from '@dh-utils/common';
 
 isNull(0); // false
 // or
@@ -498,7 +498,7 @@ isNull(5); // false
 
 *použití* :
 ~~~javascript
-import { isObject, utilsCommon } from 'dh-utils-common';
+import { isObject, utilsCommon } from '@dh-utils/common';
 
 isObject(0); // false
 // or
@@ -516,7 +516,7 @@ isObject(3); // false
 
 *použití* :
 ~~~javascript
-import { isPrimitive, utilsCommon } from 'dh-utils-common';
+import { isPrimitive, utilsCommon } from '@dh-utils/common';
 
 isPrimitive(0); // true
 // or
@@ -535,7 +535,7 @@ isPrimitive({}); // false
 
 *použití* :
 ~~~javascript
-import { isRegExp, utilsCommon } from 'dh-utils-common';
+import { isRegExp, utilsCommon } from '@dh-utils/common';
 
 isRegExp(0); // false
 // or
@@ -552,7 +552,7 @@ isRegExp(/ab+c/); // true
 
 *použití* :
 ~~~javascript
-import { isString, utilsCommon } from 'dh-utils-common';
+import { isString, utilsCommon } from '@dh-utils/common';
 
 isString("abc"); // true
 // or
@@ -570,7 +570,7 @@ isString(3);  // false
 
 *použití* :
 ~~~javascript
-import { isSymbol, utilsCommon } from 'dh-utils-common';
+import { isSymbol, utilsCommon } from '@dh-utils/common';
 
 isSymbol(0); // false
 // or
@@ -589,7 +589,7 @@ isSymbol(Symbol("foo")); // true
 
 *použití* :
 ~~~javascript
-import { isUndefined, utilsCommon } from 'dh-utils-common';
+import { isUndefined, utilsCommon } from '@dh-utils/common';
 
 isUndefined(0); // false
 // or
@@ -608,7 +608,7 @@ isUndefined(5); // false
 
 *použití* :
 ~~~javascript
-import { findOutTheType, utilsCommon } from 'dh-utils-common';
+import { findOutTheType, utilsCommon } from '@dh-utils/common';
 
 findOutTheType(0); // "number"
 findOutTheType("hellooo"); // "string"
@@ -626,7 +626,7 @@ utilsCommon.findOutTheType("hellooo"); // "string"
 
 *použití* :
 ~~~javascript
-import { notEqual, utilsCommon } from 'dh-utils-common';
+import { notEqual, utilsCommon } from '@dh-utils/common';
 
 notEqual(0,0); // false
 // or
@@ -648,7 +648,7 @@ notEqual([0,1,2,3,[0,1,2]],[0,1,2,3,[0,2,1]]); // true
 
 *použití* :
 ~~~javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.NAME // array
 ~~~
@@ -662,7 +662,7 @@ utilsArray.NAME // array
 
 *použití* :
 ~~~javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.compare([1,2,3],[1,2,3]) // 0
 ~~~
@@ -675,7 +675,7 @@ utilsArray.compare([1,2,3],[1,2,3]) // 0
 
 *použití* :
 ~~~javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.copy([1,2,3,4]); // [1,2,3,4]
 ~~~
@@ -689,7 +689,7 @@ utilsArray.copy([1,2,3,4]); // [1,2,3,4]
 
 *použití* :
 ~~~javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.equal([1,2,3,4],[1,2,3,4]); // true
 utilsArray.equal([4,2,3,1],[1,2,3,4]); // false
@@ -703,7 +703,7 @@ utilsArray.equal([4,2,3,1],[1,2,3,4]); // false
 
 *použití* :
 ~~~javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.is(5); // false
 utilsArray.is([]); // true
@@ -717,7 +717,7 @@ utilsArray.is([]); // true
 
 *usage* :
 ~~~javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.isEmpty([1, 2, 3]); // false
 utilsArray.isEmpty([]); // true
@@ -731,7 +731,7 @@ utilsArray.isEmpty([]); // true
 
 *usage* :
 ~~~javascript
-import { utilsArray } from 'dh-utils-common';
+import { utilsArray } from '@dh-utils/common';
 
 utilsArray.isNotEmpty([1, 2, 3]); // false
 utilsArray.isNotEmpty([]); // true
@@ -748,7 +748,7 @@ utilsArray.isNotEmpty([]); // true
 
 *použití* :
 ~~~javascript
-import { utilsBoolean } from 'dh-utils-common';
+import { utilsBoolean } from '@dh-utils/common';
 
 utilsBoolean.NAME // boolean
 ~~~
@@ -762,7 +762,7 @@ utilsBoolean.NAME // boolean
 
 *použití* :
 ~~~javascript
-import { utilsBoolean } from 'dh-utils-common';
+import { utilsBoolean } from '@dh-utils/common';
 
 utilsBoolean.compare(true,true); // 0
 utilsBoolean.compare(false,true); // -1
@@ -776,7 +776,7 @@ utilsBoolean.compare(false,true); // -1
 
 *použití* :
 ~~~javascript
-import { utilsBoolean } from 'dh-utils-common';
+import { utilsBoolean } from '@dh-utils/common';
 
 utilsBoolean.copy(true); // true
 ~~~
@@ -790,7 +790,7 @@ utilsBoolean.copy(true); // true
 
 *použití* :
 ~~~javascript
-import { utilsBoolean } from 'dh-utils-common';
+import { utilsBoolean } from '@dh-utils/common';
 
 utilsBoolean.equal(true,true); // true
 utilsBoolean.equal(false,true); // false
@@ -804,7 +804,7 @@ utilsBoolean.equal(false,true); // false
 
 *použití* :
 ~~~javascript
-import { utilsBoolean } from 'dh-utils-common';
+import { utilsBoolean } from '@dh-utils/common';
 
 utilsBoolean.is(true); // true
 utilsBoolean.is(false); // false
@@ -821,7 +821,7 @@ utilsBoolean.is(false); // false
 
 *použití* :
 ~~~javascript
-import { utilsDate } from 'dh-utils-common';
+import { utilsDate } from '@dh-utils/common';
 
 utilsDate.NAME // date
 ~~~
@@ -835,7 +835,7 @@ utilsDate.NAME // date
 
 *použití* :
 ~~~javascript
-import { utilsDate } from 'dh-utils-common';
+import { utilsDate } from '@dh-utils/common';
 
 let date1 = new Date(2015,5,5);
 let date2 = new Date(2015,5,6);
@@ -850,7 +850,7 @@ let result = utilsDate.compare(date1,date2); // -1
 
 *použití* :
 ~~~javascript
-import { utilsDate } from 'dh-utils-common';
+import { utilsDate } from '@dh-utils/common';
 
 const date = new Date(2016,1,1);
 utilsDate.copy(date); // Date(2016,1,1)
@@ -865,7 +865,7 @@ utilsDate.copy(date); // Date(2016,1,1)
 
 *použití* :
 ~~~javascript
-import { utilsDate } from 'dh-utils-common';
+import { utilsDate } from '@dh-utils/common';
 
 utilsDate.equal(new Date(2015,5,5),new Date(2015,5,6)); // false
 ~~~
@@ -878,7 +878,7 @@ utilsDate.equal(new Date(2015,5,5),new Date(2015,5,6)); // false
 
 *použití* :
 ~~~javascript
-import { utilsDate } from 'dh-utils-common';
+import { utilsDate } from '@dh-utils/common';
 
 utilsDate.is(new Date(2015,5,5)); // true
 utilsDate.is(0); // false
@@ -895,7 +895,7 @@ utilsDate.is(0); // false
 
 *použití* :
 ~~~javascript
-import { utilsFunction } from 'dh-utils-common';
+import { utilsFunction } from '@dh-utils/common';
 
 utilsFunction.NAME // function
 ~~~
@@ -909,7 +909,7 @@ utilsFunction.NAME // function
 
 *použití* :
 ~~~javascript
-import { utilsFunction } from 'dh-utils-common';
+import { utilsFunction } from '@dh-utils/common';
 
 utilsFunction.compare(()=>"a",()=>"b"); // -1
 ~~~
@@ -922,7 +922,7 @@ utilsFunction.compare(()=>"a",()=>"b"); // -1
 
 *použití* :
 ~~~javascript
-import { utilsFunction } from 'dh-utils-common';
+import { utilsFunction } from '@dh-utils/common';
 
 const func = function(a){return a};
 utilsFunction.copy(func); // function(a){return a};
@@ -937,7 +937,7 @@ utilsFunction.copy(func); // function(a){return a};
 
 *použití* :
 ~~~javascript
-import { utilsFunction } from 'dh-utils-common';
+import { utilsFunction } from '@dh-utils/common';
 
 const func1 = function(){return "func1"};
 const func2 = function(){return "func2"};
@@ -953,7 +953,7 @@ utilsFunction.equal(func1,func2); // false
 
 *použití* :
 ~~~javascript
-import { utilsFunction } from 'dh-utils-common';
+import { utilsFunction } from '@dh-utils/common';
 
 utilsFunction.is(function(){return "func"}); // true
 utilsFunction.is(0); // false
@@ -970,7 +970,7 @@ utilsFunction.is(0); // false
 
 *použití* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common';
+import { utilsNull } from '@dh-utils/common';
 
 utilsNull.NAME // null
 ~~~
@@ -984,7 +984,7 @@ utilsNull.NAME // null
 
 *použití* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common';
+import { utilsNull } from '@dh-utils/common';
 
 utilsNull.compare(null,null); // 0
 ~~~
@@ -997,7 +997,7 @@ utilsNull.compare(null,null); // 0
 
 *použití* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common';
+import { utilsNull } from '@dh-utils/common';
 
 utilsNull.copy(null); // null
 ~~~
@@ -1011,7 +1011,7 @@ utilsNull.copy(null); // null
 
 *použití* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common';
+import { utilsNull } from '@dh-utils/common';
 
 utilsNull.equal(null,null); // true
 ~~~
@@ -1024,7 +1024,7 @@ utilsNull.equal(null,null); // true
 
 *použití* :
 ~~~javascript
-import { utilsNull } from 'dh-utils-common';
+import { utilsNull } from '@dh-utils/common';
 
 utilsNull.is(null); // true
 utilsNull.is(0); // false
@@ -1041,7 +1041,7 @@ utilsNull.is(0); // false
 
 *použití* :
 ~~~javascript
-import { utilsNumber } from 'dh-utils-common';
+import { utilsNumber } from '@dh-utils/common';
 
 utilsNumber.NAME // number
 ~~~
@@ -1055,7 +1055,7 @@ utilsNumber.NAME // number
 
 *použití* :
 ~~~javascript
-import { utilsNumber } from 'dh-utils-common';
+import { utilsNumber } from '@dh-utils/common';
 
 utilsNumber.compare(10,15); // -1
 ~~~
@@ -1068,7 +1068,7 @@ utilsNumber.compare(10,15); // -1
 
 *použití* :
 ~~~javascript
-import { utilsNumber } from 'dh-utils-common';
+import { utilsNumber } from '@dh-utils/common';
 
 utilsNumber.copy(10); // 10
 ~~~
@@ -1082,7 +1082,7 @@ utilsNumber.copy(10); // 10
 
 *použití* :
 ~~~javascript
-import { utilsNumber } from 'dh-utils-common';
+import { utilsNumber } from '@dh-utils/common';
 
 utilsNumber.equal(10,10); // true
 utilsNumber.equal(5,10); // false
@@ -1096,7 +1096,7 @@ utilsNumber.equal(5,10); // false
 
 *použití* :
 ~~~javascript
-import { utilsNumber } from 'dh-utils-common';
+import { utilsNumber } from '@dh-utils/common';
 
 utilsNumber.is(10); // true
 utilsNumber.is("10"); // false
@@ -1113,7 +1113,7 @@ utilsNumber.is("10"); // false
 
 *použití* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common';
+import { utilsObject } from '@dh-utils/common';
 
 utilsObject.NAME // object
 ~~~
@@ -1127,7 +1127,7 @@ utilsObject.NAME // object
 
 *použití* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common';
+import { utilsObject } from '@dh-utils/common';
 
 utilsObject.compare({name: "John", age: 42},{name: "John", age: 42}); // 0
 utilsObject.compare({nameX: "John", age: 42},{name: "John", age: 42}); // 1
@@ -1142,7 +1142,7 @@ utilsObject.compare({name: "JohnX", age: 42},{name: "John", age: 42}); // 1
 
 *použití* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common';
+import { utilsObject } from '@dh-utils/common';
 
 utilsObject.copy({name: "John", age: 42}); // {name: "John", age: 42}
 ~~~
@@ -1156,7 +1156,7 @@ utilsObject.copy({name: "John", age: 42}); // {name: "John", age: 42}
 
 *použití* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common';
+import { utilsObject } from '@dh-utils/common';
 
 utilsObject.equal({name: "John", age: 42}, {name: "John", age: 42}); // true
 utilsObject.equal({name: "John", age: 42}, {name: "John", age: 43}); // false
@@ -1170,7 +1170,7 @@ utilsObject.equal({name: "John", age: 42}, {name: "John", age: 43}); // false
 
 *použití* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common';
+import { utilsObject } from '@dh-utils/common';
 
 utilsObject.is({}); // true
 utilsObject.is(0); // false
@@ -1184,7 +1184,7 @@ utilsObject.is(0); // false
 
 *usage* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common';
+import { utilsObject } from '@dh-utils/common';
 
 utilsObject.isEmpty({}); // true
 utilsObject.isEmpty({a: "x"}}); // false
@@ -1198,7 +1198,7 @@ utilsObject.isEmpty({a: "x"}}); // false
 
 *usage* :
 ~~~javascript
-import { utilsObject } from 'dh-utils-common';
+import { utilsObject } from '@dh-utils/common';
 
 utilsObject.isNotEmpty({}); // false
 utilsObject.isNotEmpty({a: 0}}); // true
@@ -1215,7 +1215,7 @@ utilsObject.isNotEmpty({a: 0}}); // true
 
 *použití* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common';
+import { utilsRegExp } from '@dh-utils/common';
 
 utilsRegExp.NAME // regExp
 ~~~
@@ -1229,7 +1229,7 @@ utilsRegExp.NAME // regExp
 
 *použití* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common';
+import { utilsRegExp } from '@dh-utils/common';
 
 utilsRegExp.compare(/ab+c/,/ab+c/); // 0
 utilsRegExp.compare(/ac+c/,/ab+c/); // -1
@@ -1243,7 +1243,7 @@ utilsRegExp.compare(/ac+c/,/ab+c/); // -1
 
 *použití* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common';
+import { utilsRegExp } from '@dh-utils/common';
 
 utilsRegExp.copy(/ab+c/); // /ab+c/
 ~~~
@@ -1257,7 +1257,7 @@ utilsRegExp.copy(/ab+c/); // /ab+c/
 
 *použití* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common';
+import { utilsRegExp } from '@dh-utils/common';
 
 utilsRegExp.equal(/ab+c/,/ab+c/); // true
 utilsRegExp.equal(/ac+c/,/ab+c/); // false
@@ -1271,7 +1271,7 @@ utilsRegExp.equal(/ac+c/,/ab+c/); // false
 
 *použití* :
 ~~~javascript
-import { utilsRegExp } from 'dh-utils-common';
+import { utilsRegExp } from '@dh-utils/common';
 
 utilsRegExp.is(/ab+c/); // true
 utilsRegExp.is(0); // false
@@ -1288,7 +1288,7 @@ utilsRegExp.is(0); // false
 
 *použití* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.NAME // string
 ~~~
@@ -1302,7 +1302,7 @@ utilsString.NAME // string
 
 *použití* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.compare("ABC","ZXY"); // -1
 ~~~
@@ -1315,7 +1315,7 @@ utilsString.compare("ABC","ZXY"); // -1
 
 *použití* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.copy("abc"); // abc
 ~~~
@@ -1329,7 +1329,7 @@ utilsString.copy("abc"); // abc
 
 *použití* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.equal("ABC","ZXY"); // false
 ~~~
@@ -1342,7 +1342,7 @@ utilsString.equal("ABC","ZXY"); // false
 
 *použití* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.is("abc"); // true
 utilsString.is(0); // false
@@ -1356,7 +1356,7 @@ utilsString.is(0); // false
 
 *usage* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.isEmpty("abc"); // false
 utilsString.isEmpty(""); // true
@@ -1370,7 +1370,7 @@ utilsString.isEmpty(""); // true
 
 *usage* :
 ~~~javascript
-import { utilsString } from 'dh-utils-common';
+import { utilsString } from '@dh-utils/common';
 
 utilsString.isNotEmpty("abc"); // false
 utilsString.isNotEmpty(""); // true
@@ -1387,7 +1387,7 @@ utilsString.isNotEmpty(""); // true
 
 *použití* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common';
+import { utilsSymbol } from '@dh-utils/common';
 
 utilsSymbol.NAME // symbol
 ~~~
@@ -1401,7 +1401,7 @@ utilsSymbol.NAME // symbol
 
 *použití* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common';
+import { utilsSymbol } from '@dh-utils/common';
 
 // TODO
 ~~~
@@ -1414,7 +1414,7 @@ import { utilsSymbol } from 'dh-utils-common';
 
 *použití* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common';
+import { utilsSymbol } from '@dh-utils/common';
 
 // TODO
 ~~~
@@ -1428,7 +1428,7 @@ import { utilsSymbol } from 'dh-utils-common';
 
 *použití* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common';
+import { utilsSymbol } from '@dh-utils/common';
 
 // TODO
 ~~~
@@ -1441,7 +1441,7 @@ import { utilsSymbol } from 'dh-utils-common';
 
 *použití* :
 ~~~javascript
-import { utilsSymbol } from 'dh-utils-common';
+import { utilsSymbol } from '@dh-utils/common';
 
 // TODO
 ~~~
@@ -1457,7 +1457,7 @@ import { utilsSymbol } from 'dh-utils-common';
 
 *použití* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common';
+import { utilsUndefined } from '@dh-utils/common';
 
 utilsUndefined.NAME // undefined
 ~~~
@@ -1471,7 +1471,7 @@ utilsUndefined.NAME // undefined
 
 *použití* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common';
+import { utilsUndefined } from '@dh-utils/common';
 
 utilsUndefined.compare(undefined,undefined); // 0
 ~~~
@@ -1484,7 +1484,7 @@ utilsUndefined.compare(undefined,undefined); // 0
 
 *použití* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common';
+import { utilsUndefined } from '@dh-utils/common';
 
 utilsUndefined.copy(undefined); // undefined
 ~~~
@@ -1498,7 +1498,7 @@ utilsUndefined.copy(undefined); // undefined
 
 *použití* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common';
+import { utilsUndefined } from '@dh-utils/common';
 
 utilsUndefined.equal(undefined,undefined); // true
 ~~~
@@ -1511,7 +1511,7 @@ utilsUndefined.equal(undefined,undefined); // true
 
 *použití* :
 ~~~javascript
-import { utilsUndefined } from 'dh-utils-common';
+import { utilsUndefined } from '@dh-utils/common';
 
 utilsUndefined.is(undefined); // true
 utilsUndefined.is(0); // false
