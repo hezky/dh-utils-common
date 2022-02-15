@@ -1,0 +1,10 @@
+sonar.dynamicAnalysis=reuseReports
+sonar.javascript.jstest.reportsPath=reports
+sonar.javascript.lcov.reportPath=reports/coverage.lcov
+sonar.language=js
+sonar.projectKey=hezky_dh-utils-common
+sonar.projectName=projectName
+sonar.projectVersion=1.0
+sonar.profile=node
+sonar.sources=src
+sonar.tests=test

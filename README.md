@@ -1,6 +1,6 @@
 # @dh-utils/common
 
-[Readme in Czech (Readme v Češtině)](https://github.com/hezky/@dh-utils/common/blob/master/doc/README-czech.md)
+[Readme in Czech (Readme v Češtině)](https://github.com/hezky/@dh-utils/common/blob/master/readme/README-czech.md)
 
 The library contains basic functions over various primitive values, data types and data structures.
 
