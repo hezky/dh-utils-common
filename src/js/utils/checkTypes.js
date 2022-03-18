@@ -1,9 +1,8 @@
-import { is } from "boolean";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
-const checkTypes = (...args) => {
+const checkTypes = (args, fceIs) => {
   args.forEach((item) => {
-    if (!is(item)) throw new TypeError(TYPE_ERROR_MESSAGE);
+    if (!fceIs(item)) throw new TypeError(TYPE_ERROR_MESSAGE);
   });
   return true;
 };

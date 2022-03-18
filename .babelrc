@@ -1,4 +1,24 @@
 {
   "extends": "./node_modules/@dh-dependency/base/config/.babelrc",
-  "plugins": [["module-resolver", { "root": ["./src/js"] }]]
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src/js"],
+        "alias": {
+          "array": "./src/js/types/array",
+          "boolean": "./src/js/types/boolean",
+          "date": "./src/js/types/date",
+          "function": "./src/js/types/function",
+          "null": "./src/js/types/null",
+          "number": "./src/js/types/number",
+          "object": "./src/js/types/object",
+          "regExp": "./src/js/types/regExp",
+          "string": "./src/js/types/string",
+          "symbol": "./src/js/types/symbol",
+          "undefined": "./src/js/types/undefined"
+        }
+      }
+    ]
+  ]
 }
