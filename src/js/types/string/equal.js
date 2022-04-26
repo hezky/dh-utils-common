@@ -1,3 +1,3 @@
-const equal = (bigA, bigB) => bigA === bigB;
+const equal = (strA, strB) => strA.toString() === strB.toString();
 
 export default equal;
