@@ -1,3 +1,3 @@
-const isNotEmpty = (date) => false;
+const isNotEmpty = (date) => true;
 
 export default isNotEmpty;

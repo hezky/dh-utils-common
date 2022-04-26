@@ -1,5 +1,3 @@
-import { compare as compareString } from "string";
-
-const compare = (symA, symB) => compareString(symA.toString(), symB.toString());
+const compare = (symA, symB) => (symA === symB ? 0 : -1);
 
 export default compare;

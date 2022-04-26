@@ -1,5 +1,2 @@
-import { equal as equalString } from "string";
-
-const equal = (symA, symB) => equalString(symA.toString(), symB.toString());
-
+const equal = (symA, symB) => symA === symB;
 export default equal;

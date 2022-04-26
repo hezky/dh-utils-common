@@ -1,11 +1,6 @@
 import { is } from "regExp";
-import { TYPE_ERROR_MESSAGE } from "common/constants";
+import uCheckTypes from "utils/checkTypes";
 
-const checkTypes = (...args) => {
-  args.forEach((item) => {
-    if (!is(item)) throw new TypeError(TYPE_ERROR_MESSAGE);
-  });
-  return true;
-};
+const checkTypes = (...args) => uCheckTypes(args, is);
 
 export default checkTypes;

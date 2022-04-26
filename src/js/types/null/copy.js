@@ -1,3 +1,3 @@
-const copy = (nul) => undefined;
+const copy = (nul) => null;
 
 export default copy;
