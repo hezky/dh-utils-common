@@ -1,4 +1,5 @@
 export * as utilsArray from "array";
+export * as utilsBigInt from "bigInt";
 export * as utilsBoolean from "boolean";
 export * from "common";
 export * as utilsCommon from "common";

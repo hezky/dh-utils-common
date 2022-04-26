@@ -6,6 +6,7 @@ export { default as determineName } from "./determineName";
 export { default as equal } from "./equal";
 export { default as equalReferences } from "./equalReferences";
 export { default as isArray } from "./isArray";
+export { default as isBigInt } from "./isBigInt";
 export { default as isBoolean } from "./isBoolean";
 export { default as isDate } from "./isDate";
 export { default as isDefined } from "./isDefined";

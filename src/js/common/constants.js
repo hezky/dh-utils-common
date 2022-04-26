@@ -1,4 +1,5 @@
 import * as utilsArray from "array";
+import * as utilsBigInt from "bigInt";
 import * as utilsBoolean from "boolean";
 import * as utilsDate from "date";
 import * as utilsFunction from "function";
@@ -14,6 +15,7 @@ const TYPE_ERROR_MESSAGE = "Unknown type";
 
 const UTILS_LIST = [
   utilsArray,
+  utilsBigInt,
   utilsBoolean,
   utilsDate,
   utilsFunction,

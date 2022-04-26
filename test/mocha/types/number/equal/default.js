@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { utilsNumber } from "";
 
-describe("string : method equal", () => {
+describe("number : method equal", () => {
   it("equal : true", () => {
     assert.isTrue(utilsNumber.equal(2, 2), "equal(2,2) === true");
   });
