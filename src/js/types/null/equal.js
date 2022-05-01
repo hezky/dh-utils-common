@@ -1,3 +1,3 @@
-const equal = (nulA, nulB) => true;
+const equal = () => true;
 
 export default equal;

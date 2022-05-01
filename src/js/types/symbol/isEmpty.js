@@ -1,3 +1,3 @@
-const isEmpty = (sym) => false;
+const isEmpty = () => false;
 
 export default isEmpty;

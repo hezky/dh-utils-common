@@ -1,3 +1,3 @@
-const compare = (nulA, nulB) => 0;
+const compare = () => 0;
 
 export default compare;

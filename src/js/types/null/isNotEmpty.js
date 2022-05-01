@@ -1,3 +1,3 @@
-const isNotEmpty = (nul) => false;
+const isNotEmpty = () => false;
 
 export default isNotEmpty;

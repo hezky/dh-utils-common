@@ -1,3 +1,3 @@
-const isEmpty = (regExp) => false;
+const isEmpty = () => false;
 
 export default isEmpty;

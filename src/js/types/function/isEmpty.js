@@ -1,3 +1,3 @@
-const isEmpty = (fun) => false;
+const isEmpty = () => false;
 
 export default isEmpty;

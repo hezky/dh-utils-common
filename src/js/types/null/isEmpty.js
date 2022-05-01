@@ -1,3 +1,3 @@
-const isEmpty = (nul) => true;
+const isEmpty = () => true;
 
 export default isEmpty;

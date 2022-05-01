@@ -1,3 +1,3 @@
-const isNumeric = (str) => /^[0-9]+$/.test(str);
+const isNumeric = (str) => /^\d+$/.test(str);
 
 export default isNumeric;

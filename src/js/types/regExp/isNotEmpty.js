@@ -1,3 +1,3 @@
-const isNotEmpty = (regExp) => true;
+const isNotEmpty = () => true;
 
 export default isNotEmpty;

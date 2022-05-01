@@ -1,3 +1,3 @@
-const equal = (undA, undB) => true;
+const equal = () => true;
 
 export default equal;
