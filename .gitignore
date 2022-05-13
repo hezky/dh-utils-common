@@ -1,5 +1,6 @@
 dist/
 lib/
 node_modules/
+.npmrc
 npm-debug.log
 sonar-project.properties
