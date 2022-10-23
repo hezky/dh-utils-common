@@ -63,14 +63,20 @@ describe("common : method notEqual", () => {
   });
 
   it("notEqual check function : false", () => {
-    const a = function () {};
+    const a = function () {
+      return true;
+    };
     const b = a;
     assert.isFalse(notEqual(a, b), "equa check function: reference");
   });
 
   it("notEqual check function : true", () => {
-    const a = function () {};
-    const b = function () {};
+    const a = function () {
+      return true;
+    };
+    const b = function () {
+      return true;
+    };
     assert.isTrue(
       notEqual(a, b),
       "notEqual check function: different function"

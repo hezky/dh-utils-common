@@ -51,14 +51,20 @@ describe("common : method equal", () => {
   });
 
   it("equal check function : true", () => {
-    const a = function () {};
+    const a = function () {
+      return true;
+    };
     const b = a;
     assert.isTrue(equal(a, b), "equa check function: reference");
   });
 
   it("equal check function : false", () => {
-    const a = function () {};
-    const b = function () {};
+    const a = function () {
+      return true;
+    };
+    const b = function () {
+      return true;
+    };
     assert.isFalse(equal(a, b), "equal check function: different function");
   });
 
