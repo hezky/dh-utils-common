@@ -80,14 +80,20 @@ describe("common : method compare", () => {
   });
 
   it("compare check function : 0 (reference)", () => {
-    const a = function (isTrue) {};
+    const a = function () {
+      return true;
+    };
     const b = a;
     assert.equal(compare(a, b), 0, "compare(fce, fce) === 0 (reference)");
   });
 
   it("compare check function : 0 (different function)", () => {
-    const a = function a() {};
-    const b = function a() {};
+    const a = function a() {
+      return true;
+    };
+    const b = function a() {
+      return true;
+    };
     assert.equal(compare(a, b), 0, "compare(fce, fce) === 0");
   });
 
