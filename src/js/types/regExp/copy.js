@@ -1,8 +1,7 @@
-const copy = (reg) => {
-  const reFlags = /\w*$/;
-  const result = new reg.constructor(reg.source, reFlags.exec(reg));
-  result.lastIndex = reg.lastIndex;
-  return result;
+const copy = (reg, flag = "") => {
+  const pattern = reg.source;
+  const flags = [...new Set(reg.flags + flag)].join("");
+  return new RegExp(pattern, flags);
 };
 
 export default copy;
