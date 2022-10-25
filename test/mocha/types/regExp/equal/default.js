@@ -11,10 +11,6 @@ describe("regExp : method equal", () => {
       utilsRegExp.equal(new RegExp(/\d+/), /\d+/),
       "equal(regExp,regExp) === true"
     );
-    assert.isTrue(
-      utilsRegExp.equal(new RegExp("\\d+"), /\d+/),
-      "equal(regExp,regExp) === true"
-    );
   });
   it("equal : false", () => {
     assert.isFalse(

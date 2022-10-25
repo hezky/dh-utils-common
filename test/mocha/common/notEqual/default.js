@@ -139,10 +139,6 @@ describe("common : method notEqual", () => {
       notEqual(new RegExp(/\d+/), /\d+/),
       "notEqual(regExp,regExp) === true"
     );
-    assert.isFalse(
-      notEqual(new RegExp("\\d+"), /\d+/),
-      "notEqual(regExp,regExp) === true"
-    );
   });
 
   it("notEqual check regExp: true", () => {

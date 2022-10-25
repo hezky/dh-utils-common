@@ -120,11 +120,8 @@ describe("common : method equal", () => {
 
   it("equal check regExp: true", () => {
     assert.isTrue(equal(/\d+/, /\d+/), "equal(regExp,regExp) === true");
-    const regExpA = new RegExp(/\d+/);
-    assert.isTrue(equal(regExpA, /\d+/), "equal(regExp,regExp) === true");
-    const regExpB = new RegExp("\\d+");
     assert.isTrue(
-      equal(regExpB, /\d+/),
+      equal(new RegExp(/\d+/), /\d+/),
       "equal(regExp,regExp) === true"
     );
   });
