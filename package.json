@@ -27,6 +27,6 @@
     "type": "git",
     "url": "https://github.com/hezky/dh-utils-common"
   },
-  "version": "0.4.8",
+  "version": "0.4.9",
   "dependencies": {}
 }
