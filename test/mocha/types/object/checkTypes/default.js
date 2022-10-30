@@ -3,7 +3,7 @@ import { utilsObject } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("boolean : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const obj1 = {};
     const obj2 = {};
     const obj3 = {};
@@ -12,7 +12,7 @@ describe("boolean : method checkTypes", () => {
       "checkTypes({},{},{}) === true"
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const obj1 = {};
     const obj2 = {};
     const obj3 = 2;

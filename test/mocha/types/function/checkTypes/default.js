@@ -3,7 +3,7 @@ import { utilsFunction } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("function : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const function1 = function () {
       return true;
     };
@@ -18,7 +18,7 @@ describe("function : method checkTypes", () => {
       "checkTypes(function, function, function) === true"
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const function1 = function () {
       return true;
     };

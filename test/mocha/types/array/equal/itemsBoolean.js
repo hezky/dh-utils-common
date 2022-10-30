@@ -2,7 +2,7 @@ import { assert } from "chai";
 import { utilsArray } from "";
 
 describe("array : method equal (items boolean)", () => {
-  it("result ... true", () => {
+  it("equal ... true", () => {
     const a1 = [true, false];
     const a2 = [true, false];
     assert.isTrue(
@@ -11,7 +11,7 @@ describe("array : method equal (items boolean)", () => {
     );
   });
 
-  it("result ... false", () => {
+  it("equal ... false", () => {
     const a1 = [true, false];
     const a2 = [true, true];
     assert.isFalse(

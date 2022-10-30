@@ -3,7 +3,7 @@ import { utilsNull } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("null : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const null1 = null;
     const null2 = null;
     const null3 = null;
@@ -12,7 +12,7 @@ describe("null : method checkTypes", () => {
       'checkTypes("A","B","C") === true'
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const null1 = null;
     const null2 = null;
     const null3 = 2;

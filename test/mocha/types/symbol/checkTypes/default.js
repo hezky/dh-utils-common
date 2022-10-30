@@ -3,7 +3,7 @@ import { utilsSymbol } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("symbol : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const sym1 = Symbol("A");
     const sym2 = Symbol("B");
     const sym3 = Symbol("C");
@@ -12,7 +12,7 @@ describe("symbol : method checkTypes", () => {
       "checkTypes(symbol,symbol,symbol) === true"
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const sym1 = Symbol("A");
     const sym2 = Symbol("B");
     const sym3 = 2;

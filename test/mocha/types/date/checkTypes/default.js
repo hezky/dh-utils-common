@@ -3,7 +3,7 @@ import { utilsDate } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("date : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const date1 = new Date("1996-12-17T03:24:00");
     const date2 = new Date("1997-12-17T03:24:00");
     const date3 = new Date("1998-12-17T03:24:00");
@@ -12,7 +12,7 @@ describe("date : method checkTypes", () => {
       "checkTypes(date, date, date) === true"
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const date1 = "1996-12-17T03:24:00";
     const date2 = "1997-12-17T03:24:00";
     const date3 = 2;

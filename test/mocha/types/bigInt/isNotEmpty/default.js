@@ -1,12 +1,12 @@
 import { assert } from "chai";
 import { utilsBigInt } from "";
 
-describe("number : method isEmpty", () => {
-  it("result ... true", () => {
+describe("number : method isNotEmpty", () => {
+  it("isNotEmpty ... true", () => {
     assert.isTrue(utilsBigInt.isNotEmpty(2n));
     assert.isTrue(utilsBigInt.isNotEmpty(-2n));
   });
-  it("result ... false", () => {
+  it("isNotEmpty ... false", () => {
     assert.isFalse(utilsBigInt.isNotEmpty(0));
   });
 });

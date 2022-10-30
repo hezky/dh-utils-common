@@ -2,10 +2,10 @@ import { assert } from "chai";
 import { utilsArray } from "";
 
 describe("array : method isNotEmpty", () => {
-  it("result ... true", () => {
+  it("isNotEmpty ... true", () => {
     assert.isFalse(utilsArray.isNotEmpty([]));
   });
-  it("result ... false", () => {
+  it("isNotEmpty ... false", () => {
     assert.isTrue(utilsArray.isNotEmpty([1, 2, 3]));
   });
 });

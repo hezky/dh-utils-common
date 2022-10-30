@@ -4,7 +4,7 @@ import { TYPE_ERROR_MESSAGE } from "common/constants";
 import checkTypes from "utils/checkTypes";
 
 describe("utils : checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const str1 = "A";
     const str2 = "B";
     const str3 = "C";
@@ -13,7 +13,7 @@ describe("utils : checkTypes", () => {
       'checkTypes("A","B","C", fceIs) === true'
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const str1 = "A";
     const str2 = "B";
     const str3 = 2;

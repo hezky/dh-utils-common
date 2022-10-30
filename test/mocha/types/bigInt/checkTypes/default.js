@@ -3,7 +3,7 @@ import { utilsBigInt } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("bigInt : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const num1 = 1n;
     const num2 = 2n;
     const num3 = 3n;
@@ -12,7 +12,7 @@ describe("bigInt : method checkTypes", () => {
       "checkTypes(1, 2, 3) === true"
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const num1 = 1n;
     const num2 = 2n;
     const num3 = {};

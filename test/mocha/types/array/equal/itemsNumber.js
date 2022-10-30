@@ -2,7 +2,7 @@ import { assert } from "chai";
 import { utilsArray } from "";
 
 describe("array : method equal (items number)", () => {
-  it("result ... true", () => {
+  it("equal ... true", () => {
     const a1 = [1, 2, 3, 4];
     const a2 = [1, 2, 3, 4];
     assert.isTrue(
@@ -10,7 +10,7 @@ describe("array : method equal (items number)", () => {
       "equal([1,2,3,4],[1,2,3,4]) === true"
     );
   });
-  it("result ... false", () => {
+  it("equal ... false", () => {
     const a1 = [1, 2, 3, 4];
     const a2 = [1, 2, 2, 4];
     assert.isFalse(
@@ -18,7 +18,7 @@ describe("array : method equal (items number)", () => {
       "equal([1,2,3,4],[1,2,2,4]) === false"
     );
   });
-  it("result ... false", () => {
+  it("equal ... false", () => {
     const a1 = [1, 2, 3, 4];
     const a2 = [1, 2, 3, 4, 5];
     assert.isFalse(
@@ -26,7 +26,7 @@ describe("array : method equal (items number)", () => {
       "does not equal array with numbers"
     );
   });
-  it("result ... false", () => {
+  it("equal ... false", () => {
     const a1 = [1, 2, 3, 4];
     const a2 = [4, 1, 2, 3];
     assert.isFalse(

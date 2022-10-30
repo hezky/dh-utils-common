@@ -3,7 +3,7 @@ import { utilsNumber } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("number : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const num1 = 1;
     const num2 = 2;
     const num3 = 3;
@@ -12,7 +12,7 @@ describe("number : method checkTypes", () => {
       "checkTypes(1, 2, 3) === true"
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const num1 = 1;
     const num2 = 2;
     const num3 = {};

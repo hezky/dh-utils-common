@@ -3,7 +3,7 @@ import { utilsRegExp } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("regExp : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const regExp1 = /\w+/;
     const regExp2 = new RegExp(/ab+c/, "i");
     assert.isTrue(
@@ -11,7 +11,7 @@ describe("regExp : method checkTypes", () => {
       'checkTypes("A","B","C") === true'
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const regExp1 = /\w+/;
     const regExp2 = 2;
     assert.throws(

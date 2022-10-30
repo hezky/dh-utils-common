@@ -3,7 +3,7 @@ import { utilsString } from "";
 import { TYPE_ERROR_MESSAGE } from "common/constants";
 
 describe("string : method checkTypes", () => {
-  it("result ... true", () => {
+  it("checkTypes ... true", () => {
     const str1 = "A";
     const str2 = "B";
     const str3 = "C";
@@ -12,7 +12,7 @@ describe("string : method checkTypes", () => {
       'checkTypes("A","B","C") === true'
     );
   });
-  it("result ... throw error", () => {
+  it("checkTypes ... throw error", () => {
     const str1 = "A";
     const str2 = "B";
     const str3 = 2;

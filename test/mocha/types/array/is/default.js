@@ -2,12 +2,12 @@ import { assert } from "chai";
 import { utilsArray } from "";
 
 describe("array : method is", () => {
-  it("result ... true", () => {
+  it("is ... true", () => {
     assert.isTrue(utilsArray.is([]), "is([]) === true");
     assert.isTrue(utilsArray.is([1, 2, 3]), "is([1,2,3]) === true");
     assert.isTrue(utilsArray.is(new Array()), "is(new Array()) === true");
   });
-  it("result ... false", () => {
+  it("is ... false", () => {
     assert.isFalse(utilsArray.is(true), "is(true) === false");
     assert.isFalse(utilsArray.is(false), "is(false) === false");
     assert.isFalse(

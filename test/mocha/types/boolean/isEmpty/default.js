@@ -2,10 +2,10 @@ import { assert } from "chai";
 import { utilsBoolean } from "";
 
 describe("boolean : method isEmpty", () => {
-  it("result ... true", () => {
+  it("isEmpty ... true", () => {
     assert.isTrue(utilsBoolean.isEmpty(false));
   });
-  it("result ... false", () => {
+  it("isEmpty ... false", () => {
     assert.isFalse(utilsBoolean.isEmpty(true));
   });
 });
