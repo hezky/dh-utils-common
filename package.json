@@ -5,9 +5,9 @@
   },
   "description": "common utils",
   "devDependencies": {
-    "@dh-dependency/base": "^0.1.9",
-    "@dh-scripts/run": "^0.8.14",
-    "babel-plugin-module-resolver": "^4.1.0"
+    "@dh-dependency/base": "^0.1.10",
+    "@dh-scripts/run": "^0.8.15",
+    "babel-plugin-module-resolver": "^5.0.0"
   },
   "files": [
     "lib"
